@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Start page example
+{% endblock %}
+
+{% block proposition_header %}
+  <!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block header_class %}
+  <!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="https://www.gov.uk">Home</a></li>
+      <li><a href="#">Business and self-employed</a></li>
+      <li><a href="#">Licences and licence applications</a></li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <p>Apply for a Temporary Event Notice (TEN) if you want to carry out a ‘licensable activity’ on unlicensed premises in England or Wales.</p>
+
+      <p>Licensable activity includes:</p>
+
+      <ul class="list list-bullet">
+        <li>selling alcohol</li>
+        <li>serving alcohol to members of a private club</li>
+        <li>providing entertainment, such as music, dancing or indoor sporting events</li>
+        <li>serving hot food or drink between 11pm and 5am</li>
+      </uL>
+
+      <p>You will also need a TEN if a particular licensable activity is not included in the terms of your existing licence, for example holding a wedding reception at a community centre.</p>
+
+      <p>Applying takes around 5 minutes and costs £21.</p>
+
+      <p>
+        <a class="button button-start" href="task-list" role="button">Start now</a>
+      </p>
+
+      <h2 class="heading-medium">Before you start</h2>
+
+      <p>You can also <a href="#">register by post.</a></p>
+
+      <p>The online service is also available in <a href="#">Welsh (Cymraeg).</a></p>
+
+    </div>
+    <div class="column-third">
+
+      <aside class="govuk-related-items" role="complementary">
+        <h2 class="heading-medium" id="subsection-title">Elsewhere on GOV.UK</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="font-xsmall">
+            <li><a href="#">Apply to hold a street party</a></li>
+            <li><a href="#">Contact the police</a></li>
+            <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in licences and licence applications</span></a></li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}
