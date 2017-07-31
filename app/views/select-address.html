@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Select your address
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#back">Back</a>
+      <form class="form" action="">
+        <fieldset id="mock-address-lookup">
+          <div class="form-group">
+            <legend><h1 class="heading-large">Select your address</h1></legend>
+          </div>
+          <div class="address-lookup-step1">
+            <div class="form-group">
+              <label class="form-label form-label-bold" for="applicant-postcode">Postcode</label>
+              <input class="form-control" id="applicant-postcode" type="text" name="applicant-postcode">
+            </div>
+            <div class="form-group">
+              <button class="js-launch-lookup button">Find address</button>
+            </div>
+          </div>
+          <div class="address-lookup-step2">
+            <div class="form-group">
+              <div class="form-group">
+                <label class="form-label form-label-bold" for="applicant-postcode">Postcode</label>
+                <span class="postcode"></span> <a href="#change-postcode" class="change-postcode">Change</a>
+              </div>
+              <label class="form-label form-label-bold" for="select-box">Select an address</label>
+              <select class="form-control" id="select-box" name="select-box">
+                <option>Address 1</option>
+                <option>Address 2</option>
+                <option>Address 3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input class="button" type="submit" value="Continue">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

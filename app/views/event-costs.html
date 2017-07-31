@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Event costs
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="#">Back</a>
+
+      <!-- Logic: nb: needs currency input pattern (design TBD) -->
+      <form class="form" action="" method="post">
+
+        <div class="form-group">
+          <fieldset>
+
+             <legend>
+               <h1 class="heading-large">
+                 Will you be selling tickets for the event?
+               </h1>
+             </legend>
+
+             <div class="multiple-choice">
+               <input id="event-selling-tickets-no" type="radio" name="event-selling-tickets" value="no">
+               <label for="event-selling-tickets-no">No, the event is free</label>
+             </div>
+
+             <div class="multiple-choice" data-target="event-selling-tickets">
+               <input id="event-selling-tickets-yes" type="radio" name="event-selling-tickets" value="yes">
+               <label for="event-selling-tickets-yes">Yes, selling tickets</label>
+             </div>
+             <div class="panel panel-border-narrow js-hidden" id="event-selling-tickets">
+               <label class="form-label form-label-bold" for="tickets-cost">Approximate cost for tickets</label>
+               <!-- TODO: Use currency input insted -->
+               <input class="form-control" name="tickets-cost" type="text" id="tickets-cost">
+             </div>
+
+           </fieldset>
+         </div>
+         <div class="form-group">
+           <input class="button" type="submit" value="Continue">
+         </div>
+       </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

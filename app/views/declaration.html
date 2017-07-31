@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Declaration
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="#">Back</a>
+
+      <h1 class="heading-large">
+        Declaration
+      </h1>
+
+      <p>By continuing you confirm that:</p>
+      <ul class="list list-bullet">
+        <li>the information you’ve given is correct</li>
+        <li>you agree to the <a href="#">terms and conditions</a></li>
+        <li>you are giving notice under section 100 of the Licensing Act 2003 of your proposal to carry out a temporary activity at the premises described.</li>
+      </ul>
+
+      <form class="form" action="">
+
+        <div class="form-group">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+              You could be prosecuted if you deliberately give untrue or misleading information.
+            </strong>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="multiple-choice">
+            <input id="declaration-agreement" name="declaration-agreement" type="checkbox" value="agree">
+            <label for="declaration-agreement">I agree</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue to payment">
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
