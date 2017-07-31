@@ -16,4 +16,16 @@ $(document).ready(function () {
   // to toggle hidden content
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
+
+  // Deselect main checkboxes when none ticked
+  // Deselect none when main checkboxes ticked
+  var $selectButtons = $('.js-select-choice')
+  var $deSelectButtons = $('.js-deselect-choice')
+
+  $selectButtons.on('click', function () {
+    $deSelectButtons.attr('checked', false)
+  })
+  $deSelectButtons.on('click', function () {
+    $selectButtons.attr('checked', false)
+  })
 })

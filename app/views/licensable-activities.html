@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/url/of/previous/page">Back</a>
+
+      <!-- To do: Logic: if ‘none of the above’, route to exit page. Else continue -->
+
+      <form>
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <!-- To do: address h1 margin when inside legend -->
+              <h1 class="heading-large">Are you doing any of the following?</h1>
+              <span class="body-text">Select all that apply:</span>
+            </legend>
+            <br>
+            <div class="multiple-choice">
+              <input class="js-select-choice" id="licensable-activities-1" name="licensable-activities" type="checkbox" value="activities-selling-alcohol">
+              <label for="licensable-activities-1">Selling alcohol</label>
+            </div>
+            <div class="multiple-choice">
+              <input class="js-select-choice" id="licensable-activities-2" name="licensable-activities" type="checkbox" value="activities-selling-private">
+              <label for="licensable-activities-2">Serving alcohol to members of a private club</label>
+            </div>
+            <div class="multiple-choice">
+              <input class="js-select-choice" id="licensable-activities-3" name="licensable-activities" type="checkbox" value="activities-entertainment">
+              <label for="licensable-activities-4">Providing entertainment, such as music, dancing or indoor sporting events</label>
+            </div>
+            <div class="multiple-choice">
+              <input class="js-select-choice" id="licensable-activities-5" name="licensable-activities" type="checkbox" value="activities-food-drink">
+              <label for="licensable-activities-5">Serving hot food or drink between 11pm and 5am</label>
+            </div>
+            <p class="form-block">or</p>
+            <!-- To do: Deselect other checkboxes when this is selected -->
+            <div class="multiple-choice">
+              <input class="js-deselect-choice" id="licensable-activities-6" name="licensable-activities" type="checkbox" value="activities-none" >
+              <label for="licensable-activities-6">None of the above</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
