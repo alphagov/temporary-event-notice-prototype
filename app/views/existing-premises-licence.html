@@ -9,56 +9,46 @@
 <main id="content" role="main">
   <div class="grid-row">
     <div class="column-two-thirds">
+      <a class="link-back" href="#back">Back</a>
 
-      <!-- To do: Logic: If yes and yes, send to no-licence needed -->
+      <form class="form" action="no-licence-needed">
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h1 class="heading-large">
+                Do you have an existing premises licence?
+              </h1>
+            </legend>
 
-      <a class="link-back" href="/url/of/previous/page">Back</a>
+            <div class="multiple-choice">
+              <input id="existing-licence-no" type="radio" name="existing-licencies" value="no">
+              <label for="existing-licence-no">No</label>
+            </div>
 
-      <form>
-  <div class="form-group">
-    <fieldset>
-      <!-- To do: address h1 margin when inside legend -->
-      <legend>
-        <h1 class="heading-large">
-          Do you have an existing premises licence?
-        </h1>
-      </legend>
-
-      <div class="multiple-choice">
-        <input id="existing-licence-no" type="radio" name="existing-licencies" value="no">
-        <label for="existing-licence-no">No</label>
-      </div>
-
-      <div class="multiple-choice" data-target="existing-licencies-cover-event">
-        <input id="existing-licence-yes" type="radio" name="existing-licencies" value="yes">
-        <label for="existing-licence-yes">Yes</label>
-      </div>
-      <div class="panel panel-border-narrow js-hidden" id="existing-licencies-cover-event">
-        <legend>
-          <h2 class="heading-medium">
-            Does your existing licence cover the event?
-          </h2>
-        </legend>
-        <div class="multiple-choice">
-          <input id="licence-cover-yes" type="radio" name="licence-cover" value="yes">
-          <label for="licence-cover-yes">Yes, my licence covers the event</label>
+            <div class="multiple-choice" data-target="existing-licencies-cover-event">
+              <input id="existing-licence-yes" type="radio" name="existing-licencies" value="yes">
+              <label for="existing-licence-yes">Yes</label>
+            </div>
+            <div class="panel panel-border-narrow js-hidden" id="existing-licencies-cover-event">
+              <label class="form-label form-label-bold">Does your existing licence cover the event?</label>
+              <div class="multiple-choice">
+                <input id="licence-cover-yes" type="radio" name="licence-cover" value="yes">
+                <label for="licence-cover-yes">Yes, my licence covers the event</label>
+              </div>
+              <div class="multiple-choice">
+                <input id="licence-cover-no" type="radio" name="licence-cover" value="no">
+                <label for="licence-cover-no">No, my licence does not cover the event</label>
+              </div>
+            </div>
+          </fieldset>
         </div>
-        <div class="multiple-choice">
-          <input id="licence-cover-no" type="radio" name="licence-cover" value="no">
-          <label for="licence-cover-no">No, my licence does not cover the event</label>
+        <div class="form-group">
+            <!-- To do: Logic: If yes and yes, send to no-licence needed -->
+            <div class="form-group">
+              <input class="button" type="submit" value="Continue">
+            </div>
         </div>
-      </div>
-    </fieldset>
-  </div>
-  <div class="form-group">
-      <!-- To do: Logic: If yes and yes, send to no-licence needed -->
-      <a class="button" href="no-licence-needed">Continue</a>
-  </div>
-</form>
-
-
-
-
+      </form>
     </div>
   </div>
 </main>

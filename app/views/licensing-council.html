@@ -9,12 +9,11 @@
 <main id="content" role="main">
   <div class="grid-row">
     <div class="column-two-thirds">
-      <a class="link-back" href="/url/of/previous/page">Back</a>
-      <form>
+      <a class="link-back" href="#back">Back</a>
+      <form class="form" action="no-licence-needed">
         <div class="form-group">
           <fieldset>
             <legend>
-              <!-- To do: address h1 margin when inside legend -->
               <h1 class="heading-large">Select your licensing council</h1>
             </legend>
             <label class="form-label" for="licensing-council">Search by postcode or council - for example, SW1A 2AA or Westminster</label>
@@ -22,7 +21,8 @@
           </fieldset>
         </div>
         <div class="form-group">
-          <a class="button" href="no-licence-needed">Continue</a>
+          <!-- To do: Logic: if ‘none of the above’, route to exit page. Else continue -->
+          <input class="button" type="submit" value="Continue">
         </div>
       </form>
     </div>
