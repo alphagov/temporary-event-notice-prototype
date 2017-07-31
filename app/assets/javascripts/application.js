@@ -28,4 +28,27 @@ $(document).ready(function () {
   $deSelectButtons.on('click', function () {
     $selectButtons.attr('checked', false)
   })
+
+  // Go to the previous page
+  $('.link-back').on('click', function () {
+    window.history.back()
+  })
+
+  // Mock address lookup
+  if ($('#mock-address-lookup').length) {
+    $('.address-lookup-step2').hide()
+    $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
+      e.preventDefault()
+      $('.address-lookup-step1').hide()
+      $('.address-lookup-step2').show()
+      // Copy the postcode and place it into a span on the second step
+      var postcode = $('.address-lookup-step1 input').val()
+      $('.address-lookup-step2 .postcode').html(postcode)
+    })
+    $('.change-postcode').on('click', function (e) {
+      e.preventDefault()
+      $('.address-lookup-step2').hide()
+      $('.address-lookup-step1').show()
+    })
+  }
 })
