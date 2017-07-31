@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Application complete
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="#">Back</a>
+
+      <h1 class="heading-large">
+        You’ve submitted your temporary event notice
+      </h1>
+
+      <div class="govuk-box-highlight">
+        <p class="font-large">Your reference number is <strong class="bold">FTY-845</strong></p>
+      </div>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>{{council_name}}[Council name] will contact you within 3 working days to confirm your temporary event notice or ask additional questions.</p>
+      <p>The council can’t refuse a notice unless the police or Environmental Health object to it. They must do this within 3 working days of receiving it. They can only object if they think your event could:</p>
+      <ul class="list list-bullet">
+        <li>lead to crime and disorder</li>
+        <li>cause a public nuisance</li>
+        <li>be a threat to public safety</li>
+        <li>put children at risk of harm</li>
+      </ul>
+      <p>If there’s an objection, your council’s licensing committee will hold a meeting (called a ‘hearing’) no later than 24 hours before the event (unless all parties agree that a hearing isn’t needed).</p>
+
+      <h2 class="heading-medium">Appeals</h2>
+      <p>If you disagree with the licensing committee’s decision, you can appeal to your local magistrates’ court. You must do this within 21 days, and at least 5 working days before the date of your event.</p>
+
+      <h2 class="heading-medium">Displaying your notice</h2>
+      <p>You must keep your TEN in a safe place where the event is held.</p>
+      <p>You must also display a copy of the notice where it can be easily seen.</p>
+
+      <a href="/" class="button">Return to GOV.UK</a>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
