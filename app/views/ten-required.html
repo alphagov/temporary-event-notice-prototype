@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Temporary event notice required
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/url/of/previous/page">Back</a>
+
+      <h1 class="heading-large">
+        You need a temporary event notice
+      </h1>
+
+      <!-- Logic: links to task-list page -->
+
+      <p>You’re holding an event which requires a temporary event notice (TEN). TENs cost £21 and take 10 days to be processed.</p>
+
+      <p>
+        <a class="button" href="task-list" role="button">Start application</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
