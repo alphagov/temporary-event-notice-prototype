@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% set serviceName = 'GOV.UK Pay' %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/url/of/previous/page">Back</a>
+
+      <form action="application-complete" method="post" class="form">
+
+        <h1 class="heading-large">
+          Confirm your payment
+        </h1>
+
+        <table class="check-your-answers">
+          <tbody>
+            <tr>
+              <td>Card number:</td>
+              <td>************4242</td>
+            </tr>
+            <tr>
+              <td>Expiration date:</td>
+              <td>{{data['exp-month']}}/{{data['exp-year']}}</td>
+            </tr>
+            <tr>
+              <td>Name on card:</td>
+              <td>{{data['card-name']}}</td>
+            </tr>
+            <tr>
+              <td>Billing address:</td>
+              <td>
+                {{data['address']}} {{data['city']}} {{data['postcode']}}
+              </td>
+            </tr>
+            <tr>
+              <td>Email address:</td>
+              <td>{{data['email']}}</td>
+            </tr>
+            <tr>
+              <td>Payment description:</td>
+              <td>Payment to {council} for Temporary Event Notice</td>
+            </tr>
+            <tr>
+              <td>Amount to pay:</td>
+              <td>£21</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="form-group">
+          <br>    <input type="submit" class="button" value="Confirm and pay">
+        </div>
+        <p>
+          <a href="check-your-answers">Cancel payment</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
