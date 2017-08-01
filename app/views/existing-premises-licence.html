@@ -11,7 +11,7 @@
     <div class="column-two-thirds">
       <a class="link-back" href="#back">Back</a>
 
-      <form class="form" action="no-licence-needed">
+      <form class="form" action="ten-required">
         <div class="form-group">
           <fieldset>
             <legend>
@@ -21,29 +21,28 @@
             </legend>
 
             <div class="multiple-choice">
-              <input id="existing-licence-no" type="radio" name="existing-licencies" value="no">
+              <input id="existing-licence-no" type="radio" name="existingLicence" value="no">
               <label for="existing-licence-no">No</label>
             </div>
 
-            <div class="multiple-choice" data-target="existing-licencies-cover-event">
-              <input id="existing-licence-yes" type="radio" name="existing-licencies" value="yes">
+            <div class="multiple-choice" data-target="existing-licence-cover-event">
+              <input id="existing-licence-yes" type="radio" name="existingLicence" value="yes">
               <label for="existing-licence-yes">Yes</label>
             </div>
-            <div class="panel panel-border-narrow js-hidden" id="existing-licencies-cover-event">
+            <div class="panel panel-border-narrow js-hidden" id="existing-licence-cover-event">
               <label class="form-label form-label-bold">Does your existing licence cover the event?</label>
               <div class="multiple-choice">
-                <input id="licence-cover-yes" type="radio" name="licence-cover" value="yes">
+                <input id="licence-cover-yes" type="radio" name="licenceCover" value="yes">
                 <label for="licence-cover-yes">Yes, my licence covers the event</label>
               </div>
               <div class="multiple-choice">
-                <input id="licence-cover-no" type="radio" name="licence-cover" value="no">
+                <input id="licence-cover-no" type="radio" name="licenceCover" value="no">
                 <label for="licence-cover-no">No, my licence does not cover the event</label>
               </div>
             </div>
           </fieldset>
         </div>
         <div class="form-group">
-            <!-- To do: Logic: If yes and yes, send to no-licence needed -->
             <div class="form-group">
               <input class="button" type="submit" value="Continue">
             </div>
