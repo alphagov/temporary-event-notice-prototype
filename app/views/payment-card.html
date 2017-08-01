@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% set serviceName = 'GOV.UK Pay' %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/url/of/previous/page">Back</a>
+
+      <form class="form" action="/payment-review" method="post">
+
+        <h1 class="heading-xlarge">
+          Enter card details
+        </h1>
+
+        <div class="form-group">
+          <label class="form-label-bold" for="payment-description">Card number</label>
+          <input class="form-control form-control-3-4" id="card" name="card" type="text">
+        </div>
+        <div class="card-images">
+          <img class="accepted-image" src="/public/images/accepted-cards-x2.png">
+          <p class="form-hint">Accepted credit and debit card types</p>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+            <div class="form-date">
+              <legend class="form-label-bold expiry-label">Expiry date <span class="form-hint">For example, 07/17</span>
+              </legend>
+
+              <div class="form-group form-group-month">
+                <label for="exp-month">Month</label>
+                <input class="form-control" id="exp-month" name="exp-month" type="number" pattern="[0-9]*" min="1" max="12">
+              </div>
+              <div class="form-group form-group-month">
+                <label for="exp-year">Year</label>
+                <input class="form-control" id="exp-year" name="exp-year" type="number" pattern="[0-9]*" min="17" max="25">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label-bold" for="card-name">Name on card</label>
+          <input class="form-control form-control-3-4" id="card-name" name="card-name" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label-bold" for="security-code">Card security code
+            <span class="form-hint">The last 3 digits on the back of the card</span></label>
+            <input class="form-control form-control-1-8" id="security-code" name="security-code" type="text">
+          </div>
+
+          <h2 class="heading-medium">
+            Billing address
+            <p class="form-hint">This is the address associated with the card
+            </h2>
+            <div class="form-group">
+              <label class="form-label" for="country">Country</label>
+              <select class="form-control" id="country">
+                <option>United Kindom</option>
+                <option>Country 1</option>
+                <option>Country 2</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label-bold" for="address">Building number or name, and street</label>
+              <input class="form-control form-control-3-4" id="address" name="address" type="text">
+              <p></p>
+              <input class="form-control form-control-3-4" id="address" name="address" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label-bold" for="city">Town or city</label>
+              <input class="form-control form-control-1-2" id="city" name="city" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label-bold" for="city">Postcode</label>
+              <input class="form-control form-control-1-4" id="postcode" name="postcode" type="text">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label-bold" for="email">Email
+                <span class="form-hint">We'll send your payment confirmation here</span>
+              </label>
+              <input class="form-control form-control-1-2" id="email" name="email" type="text">
+            </div>
+
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Continue">
+            </div>
+
+            <p>
+              <a href="#">Cancel payment</a>
+            </p>
+
+          </div>
+          <div class="column-one-third">
+            <div class="payment-summary">
+              <h2 class="heading-medium">Payment summary</h2>
+              <p>{{data['email']}} Temporary Event Notice</p>
+              <p>Applicant name: {{data['name']}}</p>
+              <h3 class="heading-small">Total amount:</h3>
+              <p>£21.00</p>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+    {% endblock %}
