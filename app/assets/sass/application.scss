@@ -35,7 +35,6 @@ legend{
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 // Card payment page //
-
 .accepted-image {
   position: relative;
   max-width: 340px;
@@ -53,4 +52,54 @@ legend{
 
 .payment-summary h2 {
   margin-top: 5px;
+}
+
+// Character count //
+textarea{
+  overflow: auto;
+}
+.js-character-counter{
+  width: 100%;
+  border-width: 2px;
+  position: relative;
+  background: transparent;
+  z-index: 2;
+  margin: 0; //implicit margin creates problems on safari
+}
+.js-count-message{
+  text-align: right;
+  margin-top: 0;
+  padding: 6px 0 0;
+  font-weight: normal;
+  width: 100%;
+}
+.error-message-hidden{
+  visibility: hidden;
+}
+// Character count highlight //
+.form-control-wrapper{
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.backdrop-highlights-input,.backdrop-highlights{
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  white-space: pre-wrap;
+	word-wrap: break-word;
+	color: transparent;
+  overflow: auto;
+  display: block;
+  vertical-align: middle;
+  border-color: transparent;
+  mark {
+    color: transparent;
+    background-color: $error-colour;
+    opacity: .2;
+  }
+}
+.backdrop-highlights-input{
+  white-space: nowrap;
 }

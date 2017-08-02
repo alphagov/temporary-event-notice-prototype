@@ -51,4 +51,11 @@ $(document).ready(function () {
       $('.address-lookup-step1').show()
     })
   }
+
+  // Character Count
+  var characterCount = new GOVUK.CharCount()
+  characterCount.init({
+    selector: 'js-character-counter',
+    highlight: true
+  })
 })
