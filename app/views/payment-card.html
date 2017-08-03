@@ -6,6 +6,10 @@ Question page
 
 {% set serviceName = 'GOV.UK Pay' %}
 
+{% block after_header %}
+  {% include "includes/timeout_modal.html" %}
+{% endblock %}
+
 {% block content %}
 
 <main id="content" role="main">

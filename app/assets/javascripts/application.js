@@ -58,4 +58,8 @@ $(document).ready(function () {
     selector: 'js-character-counter',
     highlight: true
   })
+
+  // Add timeout modal
+  // Set options in views/includes/timeout_modal.html
+  GOVUK.modalDialog.init()
 })
