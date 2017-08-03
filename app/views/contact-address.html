@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Contact address
+{% endblock %}
+
+{% block after_header %}
+  {% include "includes/timeout_modal.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#back">Back</a>
+
+      <h1 class="heading-large">
+         Correspondence address
+      </h1>
+
+      <form class="form" action="task-list">
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h2 class="heading-medium">
+                Should we use [premises address] for correspondence?
+              </h2>
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="premises-address-for-correspondance-yes" type="radio" name="premisesAddressForCorrespondance" value="yes">
+              <label for="premises-address-for-correspondance-yes">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="premises-address-for-correspondance-no" type="radio" name="premisesAddressForCorrespondance" value="no">
+              <label for="premises-address-for-correspondance-no">No</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+              <input class="button" type="submit" value="Continue">
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

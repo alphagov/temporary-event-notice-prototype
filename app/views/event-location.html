@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Event location
+{% endblock %}
+
+{% block after_header %}
+  {% include "includes/timeout_modal.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="#back">Back</a>
+
+      <form class="form" action="event-description">
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h1 class="heading-large">Where is the event being held?</h1>
+              <span class="body-text">Select all that apply:</span>
+            </legend>
+            <br>
+            <div class="multiple-choice" data-target="">
+              <input id="event-location-1" name="eventLocation" type="checkbox" value="private-building">
+              <label for="event-location-1">A private building</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="event-location-2" name="eventLocation" type="checkbox" value="private-open-space">
+              <label for="event-location-2">A private open space</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="event-location-3" name="eventLocation" type="checkbox" value="public-building">
+              <label for="event-location-3">A public building</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="event-location-4" name="eventLocation" type="checkbox" value="public-open-space">
+              <label for="event-location-4">A public open space</label>
+            </div>
+            <div class="multiple-choice" data-target="event-location-other-description">
+              <input id="event-location-5" name="eventLocation" type="checkbox" value="other">
+              <label for="event-location-5">Other</label>
+            </div>
+            <div class="panel panel-border-narrow js-hidden" id="event-location-other-description">
+              <label class="form-label" for="other-location-description">Description</label>
+              <input class="form-control" id="other-location-description" type="text" name="other-location-description">
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
