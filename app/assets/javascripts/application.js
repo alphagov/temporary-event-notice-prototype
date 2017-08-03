@@ -62,4 +62,129 @@ $(document).ready(function () {
   // Add timeout modal
   // Set options in views/includes/timeout_modal.html
   GOVUK.modalDialog.init()
+
+  function suggest (query, syncResults) {
+    // List of local authorities from https://local-authority-eng.register.gov.uk/records
+    // Also available for Scotland https://local-authority-sct.register.gov.uk/
+    // and Wales https://principal-local-authority.register.gov.uk/
+    var results = [
+      'Birmingham City Council',
+      'Borough Council of King\'s Lynn and West Norfolk',
+      'Greater London Authority',
+      'City of London Corporation',
+      'Worthing Borough Council',
+      'Mid Sussex District Council',
+      'Horsham District Council',
+      'Crawley Borough Council',
+      'Chichester District Council',
+      'Arun District Council',
+      'Adur District Council',
+      'West Sussex County Council',
+      'Wyre Forest District Council',
+      'Wychavon District Council',
+      'Worcester City Council',
+      'Redditch Borough Council',
+      'Malvern Hills District Council',
+      'Bromsgrove District Council',
+      'Worcestershire County Council',
+      'Warwick District Council',
+      'Stratford-on-Avon District Council',
+      'Rugby Borough Council',
+      'Nuneaton and Bedworth Borough Council',
+      'North Warwickshire Borough Council',
+      'Warwickshire County Council',
+      'Tamworth Borough Council',
+      'Staffordshire Moorlands District Council',
+      'Stafford Borough Council',
+      'South Staffordshire Council',
+      'Newcastle-under-Lyme Borough Council',
+      'Lichfield District Council',
+      'East Staffordshire Borough Council',
+      'Cannock Chase District Council',
+      'Staffordshire County Council',
+      'Woking Borough Council',
+      'Waverley Borough Council',
+      'Tandridge District Council',
+      'Surrey Heath Borough Council',
+      'Spelthorne Borough Council',
+      'Runnymede Borough Council',
+      'Reigate and Banstead Borough Council',
+      'Mole Valley District Council',
+      'Guildford Borough Council',
+      'Epsom and Ewell Borough Council',
+      'Elmbridge Borough Council',
+      'Surrey County Council',
+      'West Somerset District Council',
+      'Taunton Deane Borough Council',
+      'South Somerset District Council',
+      'Sedgemoor District Council',
+      'Mendip District Council',
+      'Somerset County Council',
+      'Waveney District Council',
+      'Suffolk Coastal District Council',
+      'St Edmundsbury Borough Council',
+      'Mid Suffolk District Council',
+      'Ipswich Borough Council',
+      'Forest Heath District Council',
+      'Babergh District Council',
+      'Suffolk County Council',
+      'West Oxfordshire District Council',
+      'Vale of White Horse District Council',
+      'South Oxfordshire District Council',
+      'Oxford City Council',
+      'Cherwell District Council',
+      'Oxfordshire County Council',
+      'Selby District Council',
+      'Scarborough Borough Council',
+      'Ryedale District Council',
+      'Richmondshire District Council',
+      'Harrogate Borough Council',
+      'Hambleton District Council',
+      'Craven District Council',
+      'North Yorkshire County Council',
+      'Rushcliffe Borough Council',
+      'Newark and Sherwood District Council',
+      'Mansfield District Council',
+      'Gedling Borough Council',
+      'Broxtowe Borough Council',
+      'Bassetlaw District Council',
+      'Ashfield District Council',
+      'Nottinghamshire County Council',
+      'Wellingborough Borough Council',
+      'South Northamptonshire Council',
+      'Northampton Borough Council',
+      'Kettering Borough Council',
+      'East Northamptonshire Council',
+      'Daventry District Council',
+      'Corby Borough Council',
+      'Northamptonshire County Council',
+      'South Norfolk District Council',
+      'Norwich City Council',
+      'North Norfolk District Council',
+      'Great Yarmouth Borough Council',
+      'Broadland District Council',
+      'Breckland District Council',
+      'Norfolk County Council',
+      'West Lindsey District Council',
+      'South Kesteven District Council',
+      'South Holland District Council'
+      ]
+    syncResults(query
+      ? results.filter(function (result) {
+          return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        })
+      : []
+    )
+  }
+
+  var element = document.querySelector('#licensing-council-autocomplete')
+  var id = 'licensing-council'
+  preact.render(
+    preact.createElement(Autocomplete.default, {
+      id: id,
+      source: suggest
+    }),
+    element
+  )
+
 })
