@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-full column-minimum">
+
+      <h1 class="heading-large">
+         Check your answers before sending your application
+      </h1>
+
+      <table>
+        <caption class="heading-medium">Basic eligibility</caption>
+        <tbody>
+          <tr>
+            <td>Licensable activities</td>
+            <td>Selling alcohol; Providing entertainment, such as music, dancing or indoor sporting events; Serving hot food or drink between 11pm and 5am</td>
+            <td><a href="licensable-activities">Change</a></td>
+          </tr>
+          <tr>
+            <td>Existing premises licence?</td>
+            <td>Yes. Licence does not cover the event</td>
+            <td><a href="existing-premises-licence">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption class="heading-medium">Licensing council</caption>
+        <tbody>
+          <tr>
+            <td>Council</td>
+            <td>Southwark</td>
+            <td><a href="licensable-activities">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <caption class="heading-medium">Event details</caption>
+
+        <tbody>
+          <tr>
+            <td>Event start date</td>
+            <td>1 10 2017</td>
+            <td><a href="licensable-activities">Change</a></td>
+          </tr>
+          <tr>
+            <td>Event duration</td>
+            <td>Two to seven days</td>
+          </tr>
+          <tr>
+            <td>Event location</td>
+            <td>A private building, a private open space</td>
+          </tr>
+          <tr>
+            <td>Type of event</td>
+            <td>This is free text. Lorem ipsum dolor sit amet, consectetur adipisicing.Tempora quae fugit voluptate.</td>
+          </tr>
+          <tr>
+            <td>Event costs</td>
+            <td>£12</td>
+          </tr>
+          <tr>
+            <td>Premises</td>
+            <td>The White Chapel Building, 10 Whitechapel High St, London E1 8QS</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <caption class="heading-medium">Applicant details</caption>
+        <tbody>
+          <tr>
+            <td>Full name</td>
+            <td>Jane Smith</td>
+          </tr>
+          <tr>
+            <td>Date of birth</td>
+            <td>31 3 1980</td>
+          </tr>
+          <tr>
+            <td>Contact method</td>
+            <td>Phone</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>The White Chapel Building, 10 Whitechapel High St, London E1 8QS</td>
+          </tr>
+          <tr>
+            <td>Should we use premises address for correspondance?</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
