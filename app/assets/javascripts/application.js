@@ -34,13 +34,36 @@ $(document).ready(function () {
     window.history.back()
   })
 
+  // Character Count component
+  if ($('.js-character-counter').length) {
+    var characterCount = new GOVUK.CharCount()
+    characterCount.init({
+      selector: 'js-character-counter',
+      highlight: true
+    })
+  }
+
+  // Add timeout modal
+  // Set options in views/includes/timeout_modal.html
+  GOVUK.modalDialog.init()
+
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
       $('.address-lookup-step1').hide()
-      $('.address-lookup-step2').show()
+
+      // Initialise loader
+      var loader = new GOVUK.Loader()
+      loader.init({
+        container: 'address-lookup-loader',
+        label: true,
+        labelText: 'Finding address...'
+      })
+      $('#loader').focus()
+      setTimeout(function () { loadContent(loader) }, 10000)
+
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
       $('.address-lookup-step2 .postcode').html(postcode)
@@ -52,17 +75,16 @@ $(document).ready(function () {
     })
   }
 
-  // Character Count
-  var characterCount = new GOVUK.CharCount()
-  characterCount.init({
-    selector: 'js-character-counter',
-    highlight: true
-  })
+  // Loader component
 
-  // Add timeout modal
-  // Set options in views/includes/timeout_modal.html
-  GOVUK.modalDialog.init()
+  function loadContent (loader) {
+    loader.stop()
+    $('.address-lookup-step2').show()
+    $('#select-box').focus()
+    // loader.updateContainer('Done.')
+  }
 
+  // Autocomplete component
   function suggest (query, syncResults) {
     // List of local authorities from https://local-authority-eng.register.gov.uk/records
     // Also available for Scotland https://local-authority-sct.register.gov.uk/
@@ -187,6 +209,7 @@ $(document).ready(function () {
   //   element
   // )
 
+  // Location picker component
   if ($('#licensing-council-autocomplete').length) {
     openregisterLocationPicker({
       defaultValue: '',
@@ -194,8 +217,4 @@ $(document).ready(function () {
       url: '/public/javascripts/location-picker-graph.json'
     })
   }
-  // openregisterLocationPicker({
-  //   selectElement: document.getElementById('licensing-council-autocomplete'),
-  //   url: '/public/javascripts/location-picker-graph.json'
-  // })
 })
