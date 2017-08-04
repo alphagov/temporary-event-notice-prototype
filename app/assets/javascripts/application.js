@@ -177,14 +177,25 @@ $(document).ready(function () {
     )
   }
 
-  var element = document.querySelector('#licensing-council-autocomplete')
-  var id = 'licensing-council'
-  preact.render(
-    preact.createElement(Autocomplete.default, {
-      id: id,
-      source: suggest
-    }),
-    element
-  )
+  // var element = document.querySelector('#licensing-council-autocomplete')
+  // var id = 'licensing-council'
+  // preact.render(
+  //   preact.createElement(Autocomplete.default, {
+  //     id: id,
+  //     source: suggest
+  //   }),
+  //   element
+  // )
 
+  if ($('#licensing-council-autocomplete').length) {
+    openregisterLocationPicker({
+      defaultValue: '',
+      selectElement: document.getElementById('licensing-council-autocomplete'),
+      url: '/public/javascripts/location-picker-graph.json'
+    })
+  }
+  // openregisterLocationPicker({
+  //   selectElement: document.getElementById('licensing-council-autocomplete'),
+  //   url: '/public/javascripts/location-picker-graph.json'
+  // })
 })
