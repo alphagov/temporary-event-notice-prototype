@@ -20,8 +20,8 @@
          Event start date
       </h1>
 
-      <form class="form" action="event-duration">
-        <fieldset class="form-group">
+      <form class="form" action="event-duration" method="POST">
+        <fieldset class="form-group" data-required="Please provide event start date">
           <legend>
             <span class="form-label-bold">When does your event start?</span>
             <span class="form-hint">For example, 31 8 2017</span>
@@ -46,7 +46,7 @@
           </div>
         </fieldset>
 
-        <fieldset class="form-group">
+        <fieldset class="form-group" data-required="Please provide start time">
           <legend>
             <span class="form-label-bold">Event start time</span>
             <span class="form-hint">For example, 14 30</span>

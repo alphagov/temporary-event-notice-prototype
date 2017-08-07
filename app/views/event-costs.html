@@ -17,9 +17,9 @@
       <a class="link-back" href="#">Back</a>
 
       <!-- Logic: nb: needs currency input pattern (design TBD) -->
-      <form class="form" action="event-postcode" method="post">
+      <form class="form" action="event-postcode" method="POST">
 
-        <div class="form-group">
+        <div class="form-group" data-required="Please answer this question">
           <fieldset>
 
              <legend>
@@ -37,7 +37,7 @@
                <input id="event-selling-tickets-yes" type="radio" name="event-selling-tickets" value="yes">
                <label for="event-selling-tickets-yes">Yes, selling tickets</label>
              </div>
-             <div class="panel panel-border-narrow js-hidden" id="event-selling-tickets">
+             <div class="panel panel-border-narrow js-hidden" id="event-selling-tickets" data-required="Please answer this question">
                <div class="currency-input">
                  <label class="form-label form-label-bold" for="tickets-cost">
                    Approximate cost for tickets
