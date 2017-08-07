@@ -29,24 +29,27 @@
 
       <form class="form" action="payment-card" method="POST">
 
-        <div class="form-group">
-          <div class="notice">
-            <i class="icon icon-important">
-              <span class="visually-hidden">Warning</span>
-            </i>
-            <strong class="bold-small">
-              You could be prosecuted if you deliberately give untrue or misleading information.
-            </strong>
+        <div class="form-group" data-required="You must agree to the declaration to continue">
+          <div class="form-group" >
+            <div class="notice">
+              <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+              </i>
+              <strong class="bold-small">
+                You could be prosecuted if you deliberately give untrue or misleading information.
+              </strong>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <div class="multiple-choice">
-            <input id="declaration-agreement" name="declaration-agreement" type="checkbox" value="agree">
-            <label for="declaration-agreement">I agree</label>
+          <div class="form-group">
+            <div class="multiple-choice">
+              <input id="declaration-agreement" name="declaration-agreement" type="checkbox" value="agree">
+              <label for="declaration-agreement">I agree</label>
+            </div>
           </div>
-        </div>
 
+          
+        </div>
         <div class="form-group">
           <input class="button" type="submit" value="Continue to payment">
         </div>
