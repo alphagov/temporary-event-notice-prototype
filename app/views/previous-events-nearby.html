@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Number of previous events held nearby
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#back">Back</a>
+
+      <form class="form" action="associates-previous-events">
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h1 class="heading-large">
+                Have you held any temporary event licences near the same location in the past calendar year?
+              </h1>
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="previous-licences-nearby-no" type="radio" name="previousLicenceNearby" value="no">
+              <label for="previous-licences-nearby-no">No</label>
+            </div>
+
+            <div class="multiple-choice" data-target="previous-licences-nearby-how-many">
+              <input id="previous-licences-nearby-yes" type="radio" name="previousLicenceNearby" value="yes">
+              <label for="previous-licences-nearby-yes">Yes</label>
+            </div>
+            <div class="panel panel-border-narrow js-hidden" id="previous-licences-nearby-how-many">
+              <label class="form-label form-label-bold" for="how-many-previous-licences-nearby">How many temporary event licences have you held near the same location in the past year?</label>
+              <input class="form-control" name="how-many-previous-licences-nearby" type="text" id="how-many-previous-licences-nearby">
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+              <input class="button" type="submit" value="Continue">
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

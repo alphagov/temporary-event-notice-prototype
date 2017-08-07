@@ -38,11 +38,17 @@
                <label for="event-selling-tickets-yes">Yes, selling tickets</label>
              </div>
              <div class="panel panel-border-narrow js-hidden" id="event-selling-tickets">
-               <label class="form-label form-label-bold" for="tickets-cost">Approximate cost for tickets</label>
-               <!-- TODO: Use currency input insted -->
-               <input class="form-control" name="tickets-cost" type="text" id="tickets-cost">
+               <div class="currency-input">
+                 <label class="form-label form-label-bold" for="tickets-cost">
+                   Approximate cost for tickets
+                   <span class="visually-hidden">in £</span>
+                 </label>
+                 <div class="currency-input__inner">
+                   <span class="currency-input__inner__unit">£</span>
+                   <input class="form-control" name="tickets-cost" type="text" id="tickets-cost">
+                 </div>
+               </div>
              </div>
-
            </fieldset>
          </div>
          <div class="form-group">

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Number of previous events held by associates nearby
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#back">Back</a>
+
+      <form class="form" action="task-list">
+        <div class="form-group">
+          <fieldset>
+            <legend>
+              <h1 class="heading-large">
+                Have any of your business associates held a temporary event licence near the same location in the past calendar year?
+              </h1>
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="associates-previous-licences-nearby-no" type="radio" name="associatesPreviousLicenceNearby" value="no">
+              <label for="associates-previous-licences-nearby-no">No</label>
+            </div>
+
+            <div class="multiple-choice" data-target="associates-previous-licences-how-many-nearby">
+              <input id="associates-previous-licences-nearby-yes" type="radio" name="associatesPreviousLicenceNearbyYes" value="yes">
+              <label for="associates-previous-licences-nearby-yes">Yes</label>
+            </div>
+            <div class="panel panel-border-narrow js-hidden" id="associates-previous-licences-how-many-nearby">
+              <label class="form-label form-label-bold" for="associates-how-many-previous-licences-nearby">How many temporary event licences have they held in the past year near the same location?</label>
+              <input class="form-control" name="associates-how-many-previous-licences-nearby" type="text" id="associates-how-many-previous-licences-nearby">
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+              <input class="button" type="submit" value="Continue">
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
