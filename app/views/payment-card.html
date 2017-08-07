@@ -60,40 +60,64 @@ Question page
             <span class="form-hint">The last 3 digits on the back of the card</span></label>
             <input class="form-control form-control-1-8" id="security-code" name="security-code" type="text">
           </div>
+        </div>
+        <div class="form-group">
+          <h2 class="heading-medium">Billing address
+            <span class="form-hint">This is the address associated with the card</span>
+          </h2>
 
-          <h2 class="heading-medium">
-            Billing address
-            <p class="form-hint">This is the address associated with the card
-            </h2>
-            <div class="form-group">
-              <label class="form-label" for="country">Country</label>
-              <select class="form-control" id="country">
-                <option>United Kindom</option>
-                <option>Country 1</option>
-                <option>Country 2</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label-bold" for="address">Building number or name, and street</label>
-              <input class="form-control form-control-3-4" id="address" name="address" type="text">
-              <p></p>
-              <input class="form-control form-control-3-4" id="address" name="address" type="text">
-            </div>
-            <div class="form-group">
-              <label class="form-label-bold" for="city">Town or city</label>
-              <input class="form-control form-control-1-2" id="city" name="city" type="text">
-            </div>
-            <div class="form-group">
-              <label class="form-label-bold" for="city">Postcode</label>
-              <input class="form-control form-control-1-4" id="postcode" name="postcode" type="text">
+          <fieldset>
+            <legend>
+              <span class="form-label-bold">
+                Is this your billing address: {{data['applicant-address']}}?
+              </span>
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="billing-address-same-yes" type="radio" name="billingAddressSame" value="yes">
+              <label for="billing-address-same-yes">Yes</label>
             </div>
 
+            <div class="multiple-choice" data-target="billing-address-new-address">
+              <input id="billing-address-same-no" type="radio" name="billingAddressSame" value="no">
+              <label for="billing-address-same-no">No, my billing address is different</label>
+            </div>
+            <div class="panel panel-border-narrow js-hidden" id="billing-address-new-address">
+              <div class="form-group">
+                <label class="form-label-bold" for="address">Building number or name, and street</label>
+                <input class="form-control form-control-3-4" id="address" name="address" type="text">
+                <p></p>
+                <input class="form-control form-control-3-4" id="address" name="address" type="text">
+              </div>
+              <div class="form-group">
+                <label class="form-label-bold" for="city">Town or city</label>
+                <input class="form-control form-control-1-2" id="city" name="city" type="text">
+              </div>
+              <div class="form-group">
+                <label class="form-label-bold" for="city">Postcode</label>
+                <input class="form-control form-control-1-4" id="postcode" name="postcode" type="text">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="country">Country</label>
+                <select class="form-control" id="country">
+                  <option>United Kindom</option>
+                  <option>Country 1</option>
+                  <option>Country 2</option>
+                </select>
+              </div>
+
+            </div>
             <div class="form-group">
               <label class="form-label-bold" for="email">Email
                 <span class="form-hint">We'll send your payment confirmation here</span>
               </label>
               <input class="form-control form-control-1-2" id="email" name="email" type="text">
             </div>
+          </fieldset>
+        </div>
+
+
+
 
 
             <div class="form-group">
@@ -109,7 +133,7 @@ Question page
             <div class="payment-summary">
               <h2 class="heading-medium">Payment summary</h2>
               <p>{{data['email']}} Temporary Event Notice</p>
-              <p>Applicant name: {{data['name']}}</p>
+              <p>Applicant name: {{data['applicant-name']}}</p>
               <h3 class="heading-small">Total amount:</h3>
               <p>£21.00</p>
             </div>
