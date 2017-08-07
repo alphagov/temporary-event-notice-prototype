@@ -1,0 +1,17 @@
+.currency-input {
+
+  &__inner {
+    position: relative;
+
+    &__unit {
+      position: absolute;
+      bottom: 6px;
+      left: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .form-control {
+    padding-left: 25px;
+  }
+}
