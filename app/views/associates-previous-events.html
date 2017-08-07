@@ -21,17 +21,17 @@
             </legend>
 
             <div class="multiple-choice">
-              <input id="associates-previous-licences-no" type="radio" name="associatesPreviousLicence" value="no">
+              <input id="associates-previous-licences-no" type="radio" name="associatesPreviousLicence" value="no" {{ checked('associatesPreviousLicence','no') }}>
               <label for="associates-previous-licences-no">No</label>
             </div>
 
             <div class="multiple-choice" data-target="associates-previous-licences-how-many">
-              <input id="associates-previous-licences-yes" type="radio" name="associatesPreviousLicence" value="yes">
+              <input id="associates-previous-licences-yes" type="radio" name="associatesPreviousLicence" value="yes" {{ checked('associatesPreviousLicence','yes') }}>
               <label for="associates-previous-licences-yes">Yes</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="associates-previous-licences-how-many">
               <label class="form-label form-label-bold" for="associates-how-many-previous-licences">How many temporary event licences have they held in the past year in the same location?</label>
-              <input class="form-control" name="associates-how-many-previous-licences" type="text" id="associates-how-many-previous-licences">
+              <input class="form-control" name="associates-how-many-previous-licences" type="text" id="associates-how-many-previous-licences" value="{{ data['associates-how-many-previous-licences'] }}">
             </div>
           </fieldset>
         </div>

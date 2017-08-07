@@ -21,22 +21,22 @@
             </legend>
 
             <div class="multiple-choice">
-              <input id="existing-licence-no" type="radio" name="existingLicence" value="no">
+              <input id="existing-licence-no" type="radio" name="existingLicence" value="no" {{ checked('existingLicence','no') }}>
               <label for="existing-licence-no">No</label>
             </div>
 
             <div class="multiple-choice" data-target="existing-licence-cover-event">
-              <input id="existing-licence-yes" type="radio" name="existingLicence" value="yes">
+              <input id="existing-licence-yes" type="radio" name="existingLicence" value="yes" {{ checked('existingLicence','yes') }}>
               <label for="existing-licence-yes">Yes</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="existing-licence-cover-event">
               <label class="form-label form-label-bold">Does your existing licence cover the event?</label>
               <div class="multiple-choice">
-                <input id="licence-cover-yes" type="radio" name="licenceCover" value="yes">
+                <input id="licence-cover-yes" type="radio" name="licenceCover" value="yes" {{ checked('licenceCover','yes') }}>
                 <label for="licence-cover-yes">Yes, my licence covers the event</label>
               </div>
               <div class="multiple-choice">
-                <input id="licence-cover-no" type="radio" name="licenceCover" value="no">
+                <input id="licence-cover-no" type="radio" name="licenceCover" value="no" {{ checked('licenceCover','no') }}>
                 <label for="licence-cover-no">No, my licence does not cover the event</label>
               </div>
             </div>

@@ -29,11 +29,11 @@
             </legend>
 
             <div class="multiple-choice">
-              <input id="premises-address-for-correspondance-yes" type="radio" name="premisesAddressForCorrespondance" value="yes">
+              <input id="premises-address-for-correspondance-yes" type="radio" name="premisesAddressForCorrespondance" value="yes" {{ checked('premisesAddressForCorrespondance','yes') }}>
               <label for="premises-address-for-correspondance-yes">Yes</label>
             </div>
             <div class="multiple-choice">
-              <input id="premises-address-for-correspondance-no" type="radio" name="premisesAddressForCorrespondance" value="no">
+              <input id="premises-address-for-correspondance-no" type="radio" name="premisesAddressForCorrespondance" value="no" {{ checked('premisesAddressForCorrespondance','no') }}>
               <label for="premises-address-for-correspondance-no">No</label>
             </div>
           </fieldset>
