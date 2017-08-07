@@ -16,8 +16,8 @@
 
       <a class="link-back" href="#back">Back</a>
 
-      <form class="form" action="select-address">
-        <div class="form-group">
+      <form class="form" action="select-address" method="POST">
+        <div class="form-group" data-required="Please answer this question">
           <fieldset>
 
             <legend>
@@ -30,7 +30,7 @@
               <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
               <label for="example-contact-by-email">Email</label>
             </div>
-            <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-email" >
               <label class="form-label" for="contact-email">Email address</label>
               <input class="form-control" name="contact-email" type="text" id="contact-email">
             </div>
@@ -39,7 +39,7 @@
               <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
               <label for="example-contact-by-phone">Phone</label>
             </div>
-            <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-phone" >
               <label class="form-label" for="contact-phone">Phone number</label>
               <input class="form-control" name="contact-phone" type="text" id="contact-phone">
             </div>
@@ -48,7 +48,7 @@
               <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
               <label for="example-contact-by-text">Text message</label>
             </div>
-            <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-text" >
               <label class="form-label" for="contact-text-message">Mobile phone number</label>
               <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
             </div>

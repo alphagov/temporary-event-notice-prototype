@@ -20,13 +20,13 @@
         Applicant details
       </h1>
 
-      <form class="form" action="contact-details">
-        <div class="form-group">
+      <form class="form" action="contact-details" method="POST">
+        <div class="form-group" data-required="Please provide your name">
           <label class="form-label form-label-bold" for="applicant-name">Full name</label>
           <input class="form-control" id="applicant-name" type="text" name="applicant-name">
         </div>
 
-        <fieldset class="form-group">
+        <fieldset class="form-group" data-required="Please provide your date of birth">
           <legend>
             <span class="form-label-bold">Date of birth</span>
             <span class="form-hint">For example, 31 3 1980</span>
