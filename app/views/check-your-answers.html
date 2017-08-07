@@ -19,12 +19,24 @@
         <tbody>
           <tr>
             <td class="bold-small">Licensable activities</td>
-            <td>Selling alcohol; Providing entertainment, such as music, dancing or indoor sporting events; Serving hot food or drink between 11pm and 5am</td>
+            <td>
+              <p>Activities:</p>
+              <ul class='list-bullet'>
+                 {% for activity in data['licensableActivities'] %}
+                    <li>{{ activity }}</li>
+                 {% endfor %}
+              </ul>
+
+
+            </td>
             <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
           </tr>
           <tr>
-            <td class="bold-small">Existing premises licence?</td>
-            <td>Yes. Licence does not cover the event</td>
+            <td class="bold-small">Existing premises licence</td>
+            <td>
+              {% if data['existingLicence'] == 'no' %}You do not have an existing premises licence.{% endif %}
+              {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
+            </td>
             <td class="ten-table__change"><a href="existing-premises-licence">Change</a></td>
           </tr>
         </tbody>
@@ -35,7 +47,7 @@
         <tbody>
           <tr>
             <td class="bold-small">Council</td>
-            <td>Southwark</td>
+            <td>{{data['licensing-council']}}</td>
             <td class="ten-table__change"><a href="licensing-council">Change</a></td>
           </tr>
         </tbody>
