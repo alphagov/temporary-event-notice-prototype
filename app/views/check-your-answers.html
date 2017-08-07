@@ -19,13 +19,49 @@
         <tbody>
           <tr>
             <td class="bold-small">Licensable activities</td>
-            <td>Selling alcohol; Providing entertainment, such as music, dancing or indoor sporting events; Serving hot food or drink between 11pm and 5am</td>
+            <td>
+              <ul class="list list-bullet">
+                  {% for item in data['licensableActivities'] %}
+                  <li>
+                    {{ item }}
+                  </li>
+                  {% endfor %}
+              </ul>
+
+            </td>
+            <!-- <td>{{data['licensableActivities']}}Selling alcohol; Providing entertainment, such as music, dancing or indoor sporting events; Serving hot food or drink between 11pm and 5am</td> -->
             <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
           </tr>
           <tr>
             <td class="bold-small">Existing premises licence?</td>
             <td>Yes. Licence does not cover the event</td>
             <td class="ten-table__change"><a href="existing-premises-licence">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="ten-table">
+        <caption class="heading-medium">Previous events</caption>
+        <tbody>
+          <tr>
+            <td class="bold-small">Number of previous events</td>
+            <td></td>
+            <td class="ten-table__change"><a href="previous-events">Change</a></td>
+          </tr>
+          <tr>
+            <td class="bold-small">Number of previous events nearby</td>
+            <td></td>
+            <td class="ten-table__change"><a href="previous-events-nearby">Change</a></td>
+          </tr>
+          <tr>
+            <td class="bold-small">Number of previous events by associates</td>
+            <td></td>
+            <td class="ten-table__change"><a href="previous-events-nearby">Change</a></td>
+          </tr>
+          <tr>
+            <td class="bold-small">Number of previous events by associates nearby</td>
+            <td></td>
+            <td class="ten-table__change"><a href="associates-previous-events-nearby">Change</a></td>
           </tr>
         </tbody>
       </table>
