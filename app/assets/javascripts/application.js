@@ -49,6 +49,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
+    var loaderTimeSeconds = loaderTime || 5
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
@@ -62,7 +63,7 @@ $(document).ready(function () {
         labelText: 'Finding address...'
       })
       $('#loader').focus()
-      setTimeout(function () { loadContent(loader) }, 10000)
+      setTimeout(function () { loadContent(loader) }, loaderTimeSeconds * 1000)
 
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
@@ -76,7 +77,6 @@ $(document).ready(function () {
   }
 
   // Loader component
-
   function loadContent (loader) {
     loader.stop()
     $('.address-lookup-step2').show()
@@ -199,22 +199,23 @@ $(document).ready(function () {
     )
   }
 
-  // var element = document.querySelector('#licensing-council-autocomplete')
-  // var id = 'licensing-council'
-  // preact.render(
-  //   preact.createElement(Autocomplete.default, {
-  //     id: id,
-  //     source: suggest
-  //   }),
-  //   element
-  // )
+  var element = document.querySelector('#licensing-council-autocomplete')
+  var id = 'licensing-council'
+  preact.render(
+    preact.createElement(Autocomplete.default, {
+      id: id,
+      source: suggest,
+      name: 'licensing-council'
+    }),
+    element
+  )
 
   // Location picker component
-  if ($('#licensing-council-autocomplete').length) {
-    openregisterLocationPicker({
-      defaultValue: '',
-      selectElement: document.getElementById('licensing-council-autocomplete'),
-      url: '/public/javascripts/location-picker-graph.json'
-    })
-  }
+  // if ($('#licensing-council-autocomplete').length) {
+  //   openregisterLocationPicker({
+  //     defaultValue: '',
+  //     selectElement: document.getElementById('licensing-council-autocomplete'),
+  //     url: '/public/javascripts/location-picker-graph.json'
+  //   })
+  // }
 })
