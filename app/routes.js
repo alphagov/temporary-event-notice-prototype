@@ -37,4 +37,17 @@ router.get('/ten-required', function (req, res) {
   }
 })
 
+router.get('/previous-event-description', function (req, res) {
+  // get the answer from the query string
+  // var licensableActivities = req.query.licensableActivities
+  var previousLicence = req.session.data['previousLicence']
+  if (previousLicence == 'no') { // use == for checkboxes
+    // redirect to the relevant page
+    res.redirect('task-list')
+  } else {
+    // render the page requested
+    res.render('previous-event-description')
+  }
+})
+
 module.exports = router
