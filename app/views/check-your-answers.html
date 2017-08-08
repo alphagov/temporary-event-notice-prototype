@@ -86,7 +86,13 @@
               Event start date
             </td>
             <td>
-              {{ data['event-start-day'] }}/{{ data['event-start-month'] }}/{{ data['event-start-year'] }}
+              {% if data['event-start-day'] %}
+                {{ data['event-start-day'] }}/
+              {% endif %}
+              {% if data['event-start-month'] %}
+                {{ data['event-start-month'] }}/
+              {% endif %}
+              {{ data['event-start-year'] }}
             </td>
             <td class="change-answer">
               <a href="event-start-date">Change<span class="visually-hidden"> event start date</span></a>
@@ -171,7 +177,13 @@
               Date of birth
             </td>
             <td>
-              {{ data['applicant-dob-day'] }}/{{ data['applicant-dob-month'] }}/{{ data['applicant-dob-year'] }}
+              {% if data['applicant-dob-day'] %}
+                {{ data['applicant-dob-day'] }}/
+              {% endif %}
+              {% if data['applicant-dob-month'] %}
+                {{ data['applicant-dob-month'] }}/
+              {% endif %}
+              {{ data['applicant-dob-year'] }}
             </td>
             <td class="change-answer">
               <a href="applicant-details">Change<span class="visually-hidden"> date of birth</span></a>
