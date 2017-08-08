@@ -34,6 +34,21 @@ $(document).ready(function () {
     window.history.back()
   })
 
+  // Task list
+  // Check for completed tasks and allow access only to the next one
+  var $previousTask
+  $('.task-list-item').each(function () {
+    var previousCompleted = false
+    if ($previousTask) {
+      previousCompleted = $previousTask.find('.task-completed').length
+      var thisCompleted = $(this).find('.task-completed').length
+      if (!thisCompleted && !previousCompleted) {
+        $(this).html($(this).find('.task-name').html())
+      }
+    }
+    $previousTask = $(this)
+  })
+
   // Character Count component
   if ($('.js-character-counter').length) {
     var characterCount = new GOVUK.CharCount()

@@ -24,6 +24,9 @@
               <a class="task-name" href="licensable-activities" aria-describedby="licensable-activities">
                 Check if you need a temporary event notice (optional)
               </a>
+              {% if data['licensableActivities'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -37,6 +40,9 @@
               <a class="task-name" href="previous-events" aria-describedby="previous-events">
                 Details of previous events
               </a>
+              {% if data['previousLicence'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -50,6 +56,9 @@
               <a class="task-name" href="licensing-council" aria-describedby="licensing-council">
                 Licensing council
               </a>
+              {% if data['licensing-council'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -63,31 +72,49 @@
               <a class="task-name" href="event-start-date">
                 Event start date
               </a>
+              {% if data['event-start-day'] and data['event-start-month'] and data['event-start-year'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="event-duration">
                 Event duration
               </a>
+              {% if data['eventDuration'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="event-description">
                 Type of event
               </a>
+              {% if data['event-description'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="event-costs">
                 Event costs
               </a>
+              {% if data['event-selling-tickets'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="event-postcode">
                 Event address
               </a>
+              {% if data['event-postcode'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="event-location">
                 Type of location
               </a>
+              {% if data['eventLocation'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -101,11 +128,17 @@
               <a class="task-name" href="applicant-details">
                 Applicant details
               </a>
+              {% if data['applicant-name'] and data['applicant-dob-day'] and data['applicant-dob-month'] and data['applicant-dob-year'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="task-list-item">
               <a class="task-name" href="contact-details">
                 Contact details
               </a>
+              {% if data['contact-method'] %}
+              <strong class="task-completed">Completed</strong>
+              {% endif %}
             </li>
             <!--li class="task-list-item">
               <a class="task-name" href="select-address">
