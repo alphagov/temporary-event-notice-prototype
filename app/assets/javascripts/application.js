@@ -49,7 +49,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
-    var loaderTimeSeconds = loaderTime || 5
+    var loaderTime = loaderTime || 5
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
@@ -63,7 +63,7 @@ $(document).ready(function () {
         labelText: 'Finding address...'
       })
       $('#loader').focus()
-      setTimeout(function () { loadContent(loader) }, loaderTimeSeconds * 1000)
+      setTimeout(function () { loadContent(loader) }, loaderTime * 1000)
 
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
@@ -93,7 +93,6 @@ $(document).ready(function () {
       'Birmingham City Council',
       'Borough Council of King\'s Lynn and West Norfolk',
       'Greater London Authority',
-      'City of London Corporation',
       'Worthing Borough Council',
       'Mid Sussex District Council',
       'Horsham District Council',
@@ -189,8 +188,41 @@ $(document).ready(function () {
       'Norfolk County Council',
       'West Lindsey District Council',
       'South Kesteven District Council',
-      'South Holland District Council'
-      ]
+      'South Holland District Council',
+      // London Borough Councils
+      'Barnet Council',
+      'Bexley Council',
+      'Brent Council',
+      'Bromley Council',
+      'Camden Council',
+      'City of London Council',
+      'City of Westminster Council',
+      'Croydon Council',
+      'Ealing Council',
+      'Enfield Council',
+      'Greenwich Council',
+      'Hackney Council',
+      'Hammersmith and Fulham Council',
+      'Haringey Council',
+      'Harrow Council',
+      'Havering Council',
+      'Hillingdon Council',
+      'Hounslow Council',
+      'Islington Council',
+      'Kensington and Chelsea Council',
+      'Kingston Council',
+      'Lambeth Council',
+      'Lewisham Council',
+      'Merton Council',
+      'Newham Council',
+      'Redbridge Council',
+      'Richmond Council',
+      'Southwark Council',
+      'Sutton Council',
+      'Tower Hamlets Council',
+      'Waltham Forest Council',
+      'Wandsworth Council'
+    ]
     syncResults(query
       ? results.filter(function (result) {
           return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
