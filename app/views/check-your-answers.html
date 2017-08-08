@@ -8,213 +8,205 @@
 
 <main id="content" role="main">
   <div class="grid-row">
-    <div class="column-two-thirds column-minimum">
+    <div class="column-two-thirds">
 
       <h1 class="heading-large">
          Check your answers before sending your application
       </h1>
 
-      <table class="check-your-answers">
-        <tbody>
-          <tr>
-            <th colspan="3">
-              <h2 class="heading-medium">
-                Basic eligibility
-              </h2>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              Licencesable activities
-            </td>
-            <td>
-              <ul class='list-bullet'>
-                 {% for activity in data['licensableActivities'] %}
-                    <li>{{ activity }}</li>
-                 {% endfor %}
-              </ul>
-            </td>
-            <td class="change-answer">
-              <a href="licensable-activities">Change<span class="visually-hidden"> licencesable activities</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Existing premises licence
-            </td>
-            <td>
-              {% if data['existingLicence'] == 'no' %}You do not have an existing premises licence.{% endif %}
-              {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
-            </td>
-            <td class="change-answer">
-              <a href="#">
-                Change<span class="visuallyhidden"> existing premises licence</span>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <th colspan="3">
-              <h2 class="heading-medium">
-                Licensing council
-              </h2>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              Council
-            </td>
-            <td>
-              {{data['licensing-council']}}
-            </td>
-            <td class="change-answer">
-              <a href="licensing-council">Change<span class="visually-hidden"> licensing council</span></a>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <th colspan="3">
-              <h2 class="heading-medium">
-                Event details
-              </h2>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              Event start date
-            </td>
-            <td>
-              {% if data['event-start-day'] %}
-                {{ data['event-start-day'] }}/
-              {% endif %}
-              {% if data['event-start-month'] %}
-                {{ data['event-start-month'] }}/
-              {% endif %}
-              {{ data['event-start-year'] }}
-            </td>
-            <td class="change-answer">
-              <a href="event-start-date">Change<span class="visually-hidden"> event start date</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
+      <h2 class="heading-medium">
+        Basic eligibility
+      </h2>
+
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Licencesable activities
+          </dt>
+          <dd class="cya-answer">
+            <ul class='list-bullet'>
+               {% for activity in data['licensableActivities'] %}
+                  <li>{{ activity }}</li>
+               {% endfor %}
+            </ul>
+          </dd>
+          <dd class="cya-change">
+            <a href="licensable-activities">
+              Change<span class="visually-hidden"> licencesable activities</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
+            Existing premises licence
+          </dt>
+          <dd class="cya-answer">
+            {% if data['existingLicence'] == 'no' %}You do not have an existing premises licence.{% endif %}
+            {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
+          </dd>
+          <dd class="cya-change">
+            <a href="licensable-activities">
+              Change<span class="visually-hidden"> existing premises licence</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="heading-medium">
+        Licensing council
+      </h2>
+
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Council
+          </dt>
+          <dd class="cya-answer">
+            {{data['licensing-council']}}
+          </dd>
+          <dd class="cya-change">
+            <a href="licensing-council">
+              Change<span class="visually-hidden"> licensing council</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="heading-medium">
+        Event details
+      </h2>
+
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Event start date
+          </dt>
+          <dd class="cya-answer">
+            {% if data['event-start-day'] %}
+              {{ data['event-start-day'] }}/
+            {% endif %}
+            {% if data['event-start-month'] %}
+              {{ data['event-start-month'] }}/
+            {% endif %}
+            {{ data['event-start-year'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-start-date">
+              Change<span class="visually-hidden"> event start date</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
               Event duration
-            </td>
-            <td>
-              {% if data['eventDuration'] == 'one' %}One day{% endif %}
-              {% if data['eventDuration'] == 'two-to-seven' %}Two to seven days{% endif %}
-            </td>
-            <td class="change-answer">
-              <a href="event-duration">Change<span class="visually-hidden"> event duration</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
+          </dt>
+          <dd class="cya-answer">
+            {% if data['eventDuration'] == 'one' %}One day{% endif %}
+            {% if data['eventDuration'] == 'two-to-seven' %}Two to seven days{% endif %}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-duration">
+              Change<span class="visually-hidden"> event duration</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
               Type of event
-            </td>
-            <td>
-              {{ data['event-description'] }}
-            </td>
-            <td class="change-answer">
-              <a href="event-description">Change<span class="visually-hidden"> type of event</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
+          </dt>
+          <dd class="cya-answer">
+            {{ data['event-description'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-description">
+              Change<span class="visually-hidden"> type of event</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
               Event costs
-            </td>
-            <td>
-              {% if data['event-selling-tickets'] == 'no' %}None{% endif %}
-              {% if data['event-selling-tickets'] == 'yes' %}
-                £{{ data['tickets-cost'] }}
-              {% endif %}
-            </td>
-            <td class="change-answer">
-              <a href="event-costs">Change<span class="visually-hidden"> event costs</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
+          </dt>
+          <dd class="cya-answer">
+            {% if data['event-selling-tickets'] == 'no' %}None{% endif %}
+            {% if data['event-selling-tickets'] == 'yes' %}
+              £{{ data['tickets-cost'] }}
+            {% endif %}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-description">
+              Change<span class="visually-hidden"> type of event</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
               Premises
-            </td>
-            <td>
-              {{ data['event-address'] }}
-              {{ data['event-postcode'] }}
-            </td>
-            <td class="change-answer">
-              <a href="event-postcode">Change<span class="visually-hidden"> premises</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Type of location
-            </td>
-            <td>
-              {% for location in data['eventLocation'] %}
-                 <li>{{ location }}
-                   {% if location == 'Other' %}: {{ data['other-location-description']}}
-                   {% endif %}
-                </li>
-              {% endfor %}
-            </td>
-            <td class="change-answer">
-              <a href="event-location">Change<span class="visually-hidden"> event location</span></a>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <th colspan="3">
-              <h2 class="heading-medium">
-                Applicant details
-              </h2>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              Full name
-            </td>
-            <td>
-              {{ data['applicant-name'] }}
-            </td>
-            <td class="change-answer">
-              <a href="applicant-details">Change<span class="visually-hidden"> full name</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Date of birth
-            </td>
-            <td>
-              {% if data['applicant-dob-day'] %}
-                {{ data['applicant-dob-day'] }}/
-              {% endif %}
-              {% if data['applicant-dob-month'] %}
-                {{ data['applicant-dob-month'] }}/
-              {% endif %}
-              {{ data['applicant-dob-year'] }}
-            </td>
-            <td class="change-answer">
-              <a href="applicant-details">Change<span class="visually-hidden"> date of birth</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Contact method
-            </td>
-            <td>
-              {% if data['contact-method'] == 'email' %}{{ data['contact-email'] }}{% endif %}
-              {% if data['contact-method'] == 'phone' %}{{ data['contact-phone'] }}{% endif %}
-              {% if data['contact-method'] == 'text-message' %}{{ data['contact-text-message'] }}{% endif %}
-            </td>
-            <td class="change-answer">
-              <a href="contact-details">Change<span class="visually-hidden"> contact method</span></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          </dt>
+          <dd class="cya-answer">
+            {{ data['event-address'] }}
+            {{ data['event-postcode'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-postcode">
+              Change<span class="visually-hidden"> premises</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="heading-medium">
+        Applicant details
+      </h2>
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Full name
+          </dt>
+          <dd class="cya-answer">
+            {{ data['applicant-name'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="applicant-details">
+              Change<span class="visually-hidden"> full name</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
+            Date of birth
+          </dt>
+          <dd class="cya-answer">
+            {% if data['applicant-dob-day'] %}
+              {{ data['applicant-dob-day'] }}/
+            {% endif %}
+            {% if data['applicant-dob-month'] %}
+              {{ data['applicant-dob-month'] }}/
+            {% endif %}
+            {{ data['applicant-dob-year'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="applicant-details">
+              Change<span class="visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
+            Contact method
+          </dt>
+          <dd class="cya-answer">
+            {% if data['contact-method'] == 'email' %}{{ data['contact-email'] }}{% endif %}
+            {% if data['contact-method'] == 'phone' %}{{ data['contact-phone'] }}{% endif %}
+            {% if data['contact-method'] == 'text-message' %}{{ data['contact-text-message'] }}{% endif %}
+          </dd>
+          <dd class="cya-change">
+            <a href="contact-details">
+              Change<span class="visually-hidden"> contact method</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
       <br>
       <div class="form-group">
         <a href="declaration" class="button">Continue</a>
