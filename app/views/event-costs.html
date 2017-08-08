@@ -24,7 +24,7 @@
 
              <legend>
                <h1 class="heading-large">
-                 Will you be selling tickets for the event?
+                 Will you sell tickets for the event?
                </h1>
              </legend>
 
@@ -35,13 +35,14 @@
 
              <div class="multiple-choice" data-target="event-selling-tickets">
                <input id="event-selling-tickets-yes" type="radio" name="event-selling-tickets" value="yes" {{ checked('event-selling-tickets','yes') }}>
-               <label for="event-selling-tickets-yes">Yes, selling tickets</label>
+               <label for="event-selling-tickets-yes">Yes, I will sell tickets</label>
              </div>
              <div class="panel panel-border-narrow js-hidden" id="event-selling-tickets">
                <div class="currency-input">
                  <label class="form-label form-label-bold" for="tickets-cost">
                    Approximate cost for tickets
                    <span class="visually-hidden">in £</span>
+                   <span class="form-hint">For example, £15.50</span>
                  </label>
                  <div class="currency-input__inner">
                    <span class="currency-input__inner__unit">£</span>
