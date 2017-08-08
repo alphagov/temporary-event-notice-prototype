@@ -21,17 +21,17 @@
             </legend>
 
             <div class="multiple-choice">
-              <input id="associates-previous-licences-nearby-no" type="radio" name="associatesPreviousLicenceNearby" value="no">
+              <input id="associates-previous-licences-nearby-no" type="radio" name="associatesPreviousLicenceNearby" value="no" {{ checked('associatesPreviousLicenceNearby','no') }}>
               <label for="associates-previous-licences-nearby-no">No</label>
             </div>
 
             <div class="multiple-choice" data-target="associates-previous-licences-how-many-nearby">
-              <input id="associates-previous-licences-nearby-yes" type="radio" name="associatesPreviousLicenceNearby" value="yes">
+              <input id="associates-previous-licences-nearby-yes" type="radio" name="associatesPreviousLicenceNearby" value="yes" {{ checked('associatesPreviousLicenceNearby','yes') }}>
               <label for="associates-previous-licences-nearby-yes">Yes</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="associates-previous-licences-how-many-nearby">
               <label class="form-label form-label-bold" for="associates-how-many-previous-licences-nearby">How many temporary event licences have they held in the past year near the same location?</label>
-              <input class="form-control" name="associates-how-many-previous-licences-nearby" type="text" id="associates-how-many-previous-licences-nearby">
+              <input class="form-control" name="associates-how-many-previous-licences-nearby" type="text" id="associates-how-many-previous-licences-nearby" value="{{ data['associates-how-many-previous-licences-nearby'] }}">
             </div>
           </fieldset>
         </div>

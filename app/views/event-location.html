@@ -25,28 +25,28 @@
             </legend>
             <br>
             <div class="multiple-choice" data-target="">
-              <input id="event-location-1" name="eventLocation" type="checkbox" value="private-building">
+              <input id="event-location-1" name="eventLocation" type="checkbox" value="private-building" {{ checked('eventLocation','private-building') }}>
               <label for="event-location-1">A private building</label>
             </div>
             <div class="multiple-choice">
-              <input id="event-location-2" name="eventLocation" type="checkbox" value="private-open-space">
+              <input id="event-location-2" name="eventLocation" type="checkbox" value="private-open-space" {{ checked('eventLocation','private-open-space') }}>
               <label for="event-location-2">A private open space</label>
             </div>
             <div class="multiple-choice">
-              <input id="event-location-3" name="eventLocation" type="checkbox" value="public-building">
+              <input id="event-location-3" name="eventLocation" type="checkbox" value="public-building" {{ checked('eventLocation','public-building') }}>
               <label for="event-location-3">A public building</label>
             </div>
             <div class="multiple-choice">
-              <input id="event-location-4" name="eventLocation" type="checkbox" value="public-open-space">
+              <input id="event-location-4" name="eventLocation" type="checkbox" value="public-open-space" {{ checked('eventLocation','public-open-space') }}>
               <label for="event-location-4">A public open space</label>
             </div>
             <div class="multiple-choice" data-target="event-location-other-description">
-              <input id="event-location-5" name="eventLocation" type="checkbox" value="other">
+              <input id="event-location-5" name="eventLocation" type="checkbox" value="other" {{ checked('eventLocation','other') }}>
               <label for="event-location-5">Other</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="event-location-other-description">
               <label class="form-label" for="other-location-description">Description</label>
-              <input class="form-control" id="other-location-description" type="text" name="other-location-description">
+              <input class="form-control" id="other-location-description" type="text" name="other-location-description" value="{{ data['other-location-description'] }}">
             </div>
 
           </fieldset>

@@ -30,17 +30,17 @@
           <div class="form-date">
             <div class="form-group form-group-day">
               <label for="event-start-day">Day</label>
-              <input class="form-control" id="event-start-day" name="event-start-day" type="number" pattern="[0-9]*" min="0" max="31">
+              <input class="form-control" id="event-start-day" name="event-start-day" type="number" pattern="[0-9]*" min="0" max="31" value="{{ data['event-start-day'] }}">
             </div>
 
             <div class="form-group form-group-month">
               <label for="event-start-month">Month</label>
-              <input class="form-control" id="event-start-day" name="event-start-day" type="number" pattern="[0-9]*" min="0" max="12">
+              <input class="form-control" id="event-start-day" name="event-start-month" type="number" pattern="[0-9]*" min="0" max="12" value="{{ data['event-start-month'] }}">
             </div>
 
             <div class="form-group form-group-year">
               <label for="event-start-year">Year</label>
-              <input class="form-control" id="event-start-year" name="event-start-year" type="number" pattern="[0-9]*" min="0">
+              <input class="form-control" id="event-start-year" name="event-start-year" type="number" pattern="[0-9]*" min="0" value="{{ data['event-start-year'] }}">
             </div>
 
           </div>
@@ -55,12 +55,12 @@
           <div class="form-date">
             <div class="form-group form-group-hour">
               <label for="event-start-hour">Hour</label>
-              <input class="form-control" id="event-start-hour" name="event-start-hour" type="number" pattern="[0-9]*" min="0" max="24">
+              <input class="form-control" id="event-start-hour" name="event-start-hour" type="number" pattern="[0-9]*" min="0" max="24" value="{{ data['event-start-hour'] }}">
             </div>
 
             <div class="form-group form-group-minute">
-              <label for="event-start-hour">Minute</label>
-              <input class="form-control" id="event-start-hour" name="event-start-hour" type="number" pattern="[0-9]*" min="0" max="59">
+              <label for="event-start-minute">Minute</label>
+              <input class="form-control" id="event-start-minute" name="event-start-minute" type="number" pattern="[0-9]*" min="0" max="59" value="{{ data['event-start-minute'] }}">
             </div>
 
           </div>
