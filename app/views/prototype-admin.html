@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/docs/tutorials-and-examples">Back</a>
+
+      <h1 class="heading-large">
+        Prototype admin
+      </h1>
+
+      <form class="form" action="" method="post">
+
+        <div class="form-group">
+          <legend>
+            <label class="form-label-bold" for="modalIdleTime">Modal dialog idle time (minutes)</label>
+            <span class="form-hint">How many minutes until we display the modal</span>
+          </legend>
+          <input class="form-control form-control-1-8" id="modalIdleTime" name="modalIdleTime" type="text" value="{{ data['modalIdleTime'] or '2' }}">
+        </div>
+
+        <div class="form-group">
+          <legend>
+            <label class="form-label-bold" for="modalVisibleTime">Modal dialog visible time (minutes)</label>
+            <span class="form-hint">How many minutes we keep the modal displayed</span>
+          </legend>
+          <input class="form-control form-control-1-8" id="modalVisibleTime" name="modalVisibleTime" type="text" value="{{ data['modalVisibleTime'] or '2' }}">
+        </div>
+
+        <div class="form-group">
+          <legend>
+            <label class="form-label-bold" for="loaderTime">Loader time (seconds)</label>
+            <span class="form-hint">How many seconds will be the loader component displayed</span>
+          </legend>
+          <input class="form-control form-control-1-8" id="loaderTime" name="loaderTime" type="text" value="{{ data['loaderTime'] or '5' }}">
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Save">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

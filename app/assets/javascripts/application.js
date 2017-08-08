@@ -64,7 +64,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
-    var loaderTime = loaderTime || 5
+    window.loaderTime = loaderTime || 5
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
