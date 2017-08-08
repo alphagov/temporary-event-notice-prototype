@@ -6,6 +6,11 @@ router.get('/', function (req, res) {
   res.render('index')
 })
 
+router.get('/start-page', function (req, res) {
+  req.session.destroy()
+  res.render('start-page')
+})
+
 // Router to settings page
 router.get('/prototype-settings', function (req, res) {
   // Display all variables
