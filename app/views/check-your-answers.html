@@ -112,19 +112,13 @@
           </tr>
           <tr>
             <td>
-              Event location
+              Type of event
             </td>
             <td>
-              {% for location in data['eventLocation'] %}
-                 <li>{{ location }}
-                   {% if location == 'Other' %}: {{ data['other-location-description']}}
-                   {% endif %}
-                </li>
-              {% endfor %}
-
+              {{ data['event-description'] }}
             </td>
             <td class="change-answer">
-              <a href="event-location">Change<span class="visually-hidden"> event location</span></a>
+              <a href="event-description">Change<span class="visually-hidden"> type of event</span></a>
             </td>
           </tr>
           <tr>
@@ -146,10 +140,27 @@
               Premises
             </td>
             <td>
+              {{ data['event-address'] }}
               {{ data['event-postcode'] }}
             </td>
             <td class="change-answer">
               <a href="event-postcode">Change<span class="visually-hidden"> premises</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Type of location
+            </td>
+            <td>
+              {% for location in data['eventLocation'] %}
+                 <li>{{ location }}
+                   {% if location == 'Other' %}: {{ data['other-location-description']}}
+                   {% endif %}
+                </li>
+              {% endfor %}
+            </td>
+            <td class="change-answer">
+              <a href="event-location">Change<span class="visually-hidden"> event location</span></a>
             </td>
           </tr>
         </tbody>
@@ -202,8 +213,6 @@
               <a href="contact-details">Change<span class="visually-hidden"> contact method</span></a>
             </td>
           </tr>
-
-
         </tbody>
       </table>
       <br>
