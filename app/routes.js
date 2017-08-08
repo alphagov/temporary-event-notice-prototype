@@ -13,9 +13,8 @@ router.get('/prototype-settings', function (req, res) {
 
 router.get('/existing-premises-licence', function (req, res) {
   // get the answer from the query string
-  // var licensableActivities = req.query.licensableActivities
   var licensableActivities = req.session.data['licensableActivities']
-  if (licensableActivities == 'no') { // use == for checkboxes
+  if (licensableActivities == 'None') { // use == for checkboxes
     // redirect to the relevant page
     res.redirect('no-licence-needed')
   } else {
@@ -39,7 +38,6 @@ router.get('/ten-required', function (req, res) {
 
 router.get('/previous-event-description', function (req, res) {
   // get the answer from the query string
-  // var licensableActivities = req.query.licensableActivities
   var previousLicence = req.session.data['previousLicence']
   if (previousLicence == 'no') { // use == for checkboxes
     // redirect to the relevant page
@@ -48,6 +46,11 @@ router.get('/previous-event-description', function (req, res) {
     // render the page requested
     res.render('previous-event-description')
   }
+})
+
+router.get('/timeout', function (req, res) {
+  req.session.destroy()
+  res.render('timeout')
 })
 
 module.exports = router
