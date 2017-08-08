@@ -245,23 +245,23 @@ $(document).ready(function () {
     )
   }
 
-  var element = document.querySelector('#licensing-council-autocomplete')
-  var id = 'licensing-council'
+  var element = document.querySelector('#local-council-autocomplete')
+  var id = 'local-council'
   preact.render(
     preact.createElement(Autocomplete.default, {
       id: id,
       source: suggest,
-      name: 'licensing-council',
+      name: 'local-council',
       defaultValue: $(element).attr('data-default-value')
     }),
     element
   )
 
   // Location picker component
-  // if ($('#licensing-council-autocomplete').length) {
+  // if ($('#local-council-autocomplete').length) {
   //   openregisterLocationPicker({
   //     defaultValue: '',
-  //     selectElement: document.getElementById('licensing-council-autocomplete'),
+  //     selectElement: document.getElementById('local-council-autocomplete'),
   //     url: '/public/javascripts/location-picker-graph.json'
   //   })
   // }
