@@ -14,11 +14,19 @@
          Check your answers before sending your application
       </h1>
 
-      <table class="ten-table">
-        <caption class="heading-medium">Basic eligibility</caption>
+      <table class="check-your-answers">
         <tbody>
           <tr>
-            <td class="bold-small">Licensable activities</td>
+            <th colspan="3">
+              <h2 class="heading-medium">
+                Basic eligibility
+              </h2>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Licencesable activities
+            </td>
             <td>
               <p>Activities:</p>
               <ul class='list-bullet'>
@@ -26,19 +34,176 @@
                     <li>{{ activity }}</li>
                  {% endfor %}
               </ul>
-
-
             </td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
+            <td class="change-answer">
+              <a href="licensable-activities">Change<span class="visually-hidden"> licencesable activities</span></a>
+            </td>
           </tr>
           <tr>
-            <td class="bold-small">Existing premises licence</td>
+            <td>
+              Existing premises licence
+            </td>
             <td>
               {% if data['existingLicence'] == 'no' %}You do not have an existing premises licence.{% endif %}
               {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
             </td>
-            <td class="ten-table__change"><a href="existing-premises-licence">Change</a></td>
+            <td class="change-answer">
+              <a href="#">
+                Change<span class="visuallyhidden"> existing premises licence</span>
+              </a>
+            </td>
           </tr>
+        </tbody>
+        <!-- NEW -->
+        <tbody>
+          <tr>
+            <th colspan="3">
+              <h2 class="heading-medium">
+                Licensing council
+              </h2>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Council
+            </td>
+            <td>
+              {{data['licensing-council']}}
+            </td>
+            <td class="change-answer">
+              <a href="licensing-council">Change<span class="visually-hidden"> licensing council</span></a>
+            </td>
+          </tr>
+        </tbody>
+        <!-- end NEW -->
+        <tbody>
+          <tr>
+            <th colspan="3">
+              <h2 class="heading-medium">
+                Event details
+              </h2>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Event start date
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="event-start-date">Change<span class="visually-hidden"> event start date</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Event duration
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="event-duration">Change<span class="visually-hidden"> event duration</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Event location
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="event-location">Change<span class="visually-hidden"> event location</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Event costs
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="event-costs">Change<span class="visually-hidden"> event costs</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Premises
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="event-postcode">Change<span class="visually-hidden"> premises</span></a>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th colspan="3">
+              <h2 class="heading-medium">
+                Applicant details
+              </h2>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Full name
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="applicant-details">Change<span class="visually-hidden"> full name</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Date of birth
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="applicant-details">Change<span class="visually-hidden"> date of birth</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Contact method
+            </td>
+            <td>
+              TO DO : also no/email address here
+            </td>
+            <td class="change-answer">
+              <a href="contact-details">Change<span class="visually-hidden"> contact method</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Address
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="select-address">Change<span class="visually-hidden"> address</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Should we use premises address for correspondance?
+            </td>
+            <td>
+              TO DO
+            </td>
+            <td class="change-answer">
+              <a href="contact-address">Change<span class="visually-hidden"> correspondance address</span></a>
+            </td>
+          </tr>
+
         </tbody>
       </table>
 
@@ -68,82 +233,6 @@
         </tbody>
       </table>
 
-      <table class="ten-table">
-        <caption class="heading-medium">Licensing council</caption>
-        <tbody>
-          <tr>
-            <td class="bold-small">Council</td>
-            <td>{{data['licensing-council']}}</td>
-            <td class="ten-table__change"><a href="licensing-council">Change</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="ten-table">
-        <caption class="heading-medium">Event details</caption>
-
-        <tbody>
-          <tr>
-            <td class="bold-small">Event start date</td>
-            <td>1 10 2017</td>
-            <td class="ten-table__change"><a href="event-start-date">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Event duration</td>
-            <td>Two to seven days</td>
-            <td class="ten-table__change"><a href="event-duration">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Event location</td>
-            <td>A private building, a private open space</td>
-            <td class="ten-table__change"><a href="event-location">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Type of event</td>
-            <td>This is free text. Lorem ipsum dolor sit amet, consectetur adipisicing.Tempora quae fugit voluptate.</td>
-            <td class="ten-table__change"><a href="event-description">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Event costs</td>
-            <td>£12</td>
-            <td class="ten-table__change"><a href="event-costs">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Premises</td>
-            <td>The White Chapel Building, 10 Whitechapel High St, London E1 8QS</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-        </tbody>
-      </table class="ten-table">
-      <table class="ten-table">
-        <caption class="heading-medium">Applicant details</caption>
-        <tbody>
-          <tr>
-            <td class="bold-small">Full name</td>
-            <td>Jane Smith</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Date of birth</td>
-            <td>31 3 1980</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Contact method</td>
-            <td>Phone</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Address</td>
-            <td>The White Chapel Building, 10 Whitechapel High St, London E1 8QS</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Should we use premises address for correspondance?</td>
-            <td>Yes</td>
-            <td class="ten-table__change"><a href="licensable-activities">Change</a></td>
-          </tr>
-        </tbody>
-      </table>
       <div class="form-group">
         <a href="declaration" class="button">Continue</a>
       </div>
