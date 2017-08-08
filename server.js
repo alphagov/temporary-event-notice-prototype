@@ -168,6 +168,7 @@ if (useAutoStoreData === 'true') {
   app.use(utils.autoStoreData)
   addCheckedFunction(app, nunjucksAppEnv)
   addCheckedFunction(documentationApp, nunjucksDocumentationEnv)
+  app.use(utils.queryCommands)
 }
 
 // Disallow search index idexing
