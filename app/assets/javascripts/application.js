@@ -95,8 +95,7 @@ $(document).ready(function () {
   function loadContent (loader) {
     loader.stop()
     $('.address-lookup-step2').show()
-    $('#select-box').focus()
-    // loader.updateContainer('Done.')
+    // $('#select-box').focus()
   }
 
   // Autocomplete component
