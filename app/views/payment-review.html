@@ -38,7 +38,7 @@ Question page
               <td>Name on card:</td>
               <td>{{data['card-name']}}</td>
             </tr>
-            <tr>
+            <!--tr>
               <td>Billing address:</td>
               <td>
                 {{data['address']}} {{data['city']}} {{data['postcode']}}
@@ -48,9 +48,9 @@ Question page
               <td>Email address:</td>
               <td>{{data['email']}}</td>
             </tr>
-            <tr>
+            <tr-->
               <td>Payment description:</td>
-              <td>Payment to {council} for Temporary Event Notice</td>
+              <td>Payment to {{ data['licensing-council'] }} for Temporary Event Notice</td>
             </tr>
             <tr>
               <td>Amount to pay:</td>
