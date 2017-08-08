@@ -64,7 +64,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
-    var loaderTime = loaderTime || 5
+    window.loaderTime = loaderTime || 5
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
@@ -251,7 +251,8 @@ $(document).ready(function () {
     preact.createElement(Autocomplete.default, {
       id: id,
       source: suggest,
-      name: 'licensing-council'
+      name: 'licensing-council',
+      defaultValue: $(element).attr('data-default-value')
     }),
     element
   )
