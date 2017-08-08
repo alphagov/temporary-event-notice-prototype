@@ -118,11 +118,10 @@
             $accessibleTimer.text('You are about to be redirected')
             setTimeout(GOVUK.modalDialog.redirect, 4000)
           } else {
-            $timer.text(text)
-
             seconds--
 
-            if (minutesLeft < 1) {
+            if (minutesLeft < 1 && secondsLeft <= 60) {
+              $timer.text(text)
                // If less than 20 seconds left, make aria-live assertive and update content every 5 secs
               if (secondsLeft < 20) {
                 $accessibleTimer.attr('aria-live', 'assertive')
@@ -134,7 +133,11 @@
                 // If less than 1 minute left, update screen reader friendly content every 20 secs
                 $accessibleTimer.text(text)
               }
-            } else if (secondsLeft % 30 === 0) {
+            } else if (secondsLeft % 60 === 0) {
+              $timer.text(text)
+            }
+
+            if (secondsLeft % 30 === 0) {
               // Update screen reader friendly content every 30 secs
               $accessibleTimer.text(text)
             }

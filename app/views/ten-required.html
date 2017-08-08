@@ -4,6 +4,10 @@
   Temporary event notice required
 {% endblock %}
 
+{% block after_header %}
+  {% include "includes/timeout_modal.html" %}
+{% endblock %}
+
 {% block content %}
 
 <main id="content" role="main">
