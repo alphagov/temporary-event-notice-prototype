@@ -28,7 +28,6 @@
               Licencesable activities
             </td>
             <td>
-              <p>Activities:</p>
               <ul class='list-bullet'>
                  {% for activity in data['licensableActivities'] %}
                     <li>{{ activity }}</li>
@@ -54,7 +53,6 @@
             </td>
           </tr>
         </tbody>
-        <!-- NEW -->
         <tbody>
           <tr>
             <th colspan="3">
@@ -75,7 +73,6 @@
             </td>
           </tr>
         </tbody>
-        <!-- end NEW -->
         <tbody>
           <tr>
             <th colspan="3">
@@ -89,7 +86,7 @@
               Event start date
             </td>
             <td>
-              TO DO
+              {{ data['event-start-day'] }}/{{ data['event-start-month'] }}/{{ data['event-start-year'] }}
             </td>
             <td class="change-answer">
               <a href="event-start-date">Change<span class="visually-hidden"> event start date</span></a>
@@ -100,7 +97,8 @@
               Event duration
             </td>
             <td>
-              TO DO
+              {% if data['eventDuration'] == 'one' %}One day{% endif %}
+              {% if data['eventDuration'] == 'two-to-seven' %}Two to seven days{% endif %}
             </td>
             <td class="change-answer">
               <a href="event-duration">Change<span class="visually-hidden"> event duration</span></a>
@@ -111,7 +109,13 @@
               Event location
             </td>
             <td>
-              TO DO
+              {% for location in data['eventLocation'] %}
+                 <li>{{ location }}
+                   {% if location == 'Other' %}: {{ data['other-location-description']}}
+                   {% endif %}
+                </li>
+              {% endfor %}
+
             </td>
             <td class="change-answer">
               <a href="event-location">Change<span class="visually-hidden"> event location</span></a>
@@ -122,7 +126,10 @@
               Event costs
             </td>
             <td>
-              TO DO
+              {% if data['event-selling-tickets'] == 'no' %}None{% endif %}
+              {% if data['event-selling-tickets'] == 'yes' %}
+                £{{ data['tickets-cost'] }}
+              {% endif %}
             </td>
             <td class="change-answer">
               <a href="event-costs">Change<span class="visually-hidden"> event costs</span></a>
@@ -133,7 +140,7 @@
               Premises
             </td>
             <td>
-              TO DO
+              {{ data['event-postcode'] }}
             </td>
             <td class="change-answer">
               <a href="event-postcode">Change<span class="visually-hidden"> premises</span></a>
@@ -153,7 +160,7 @@
               Full name
             </td>
             <td>
-              TO DO
+              {{ data['applicant-name'] }}
             </td>
             <td class="change-answer">
               <a href="applicant-details">Change<span class="visually-hidden"> full name</span></a>
@@ -164,7 +171,7 @@
               Date of birth
             </td>
             <td>
-              TO DO
+              {{ data['applicant-dob-day'] }}/{{ data['applicant-dob-month'] }}/{{ data['applicant-dob-year'] }}
             </td>
             <td class="change-answer">
               <a href="applicant-details">Change<span class="visually-hidden"> date of birth</span></a>
@@ -175,64 +182,19 @@
               Contact method
             </td>
             <td>
-              TO DO : also no/email address here
+              {% if data['contact-method'] == 'email' %}{{ data['contact-email'] }}{% endif %}
+              {% if data['contact-method'] == 'phone' %}{{ data['contact-phone'] }}{% endif %}
+              {% if data['contact-method'] == 'text-message' %}{{ data['contact-text-message'] }}{% endif %}
             </td>
             <td class="change-answer">
               <a href="contact-details">Change<span class="visually-hidden"> contact method</span></a>
             </td>
           </tr>
-          <tr>
-            <td>
-              Address
-            </td>
-            <td>
-              TO DO
-            </td>
-            <td class="change-answer">
-              <a href="select-address">Change<span class="visually-hidden"> address</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Should we use premises address for correspondance?
-            </td>
-            <td>
-              TO DO
-            </td>
-            <td class="change-answer">
-              <a href="contact-address">Change<span class="visually-hidden"> correspondance address</span></a>
-            </td>
-          </tr>
+
 
         </tbody>
       </table>
-
-      <table class="ten-table">
-        <caption class="heading-medium">Previous events</caption>
-        <tbody>
-          <tr>
-            <td class="bold-small">Number of previous events</td>
-            <td></td>
-            <td class="ten-table__change"><a href="previous-events">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Number of previous events nearby</td>
-            <td></td>
-            <td class="ten-table__change"><a href="previous-events-nearby">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Number of previous events by associates</td>
-            <td></td>
-            <td class="ten-table__change"><a href="previous-events-nearby">Change</a></td>
-          </tr>
-          <tr>
-            <td class="bold-small">Number of previous events by associates nearby</td>
-            <td></td>
-            <td class="ten-table__change"><a href="associates-previous-events-nearby">Change</a></td>
-          </tr>
-        </tbody>
-      </table>
-
+      <br>
       <div class="form-group">
         <a href="declaration" class="button">Continue</a>
       </div>
