@@ -251,7 +251,8 @@ $(document).ready(function () {
     preact.createElement(Autocomplete.default, {
       id: id,
       source: suggest,
-      name: 'licensing-council'
+      name: 'licensing-council',
+      defaultValue: $(element).attr('data-default-value')
     }),
     element
   )
