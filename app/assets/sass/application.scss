@@ -83,7 +83,7 @@ textarea{
   margin: 0; //implicit margin creates problems on safari
 }
 .js-count-message{
-  text-align: right;
+  font-family: $toolkit-font-stack-tabular;
   margin-top: 0;
   padding: 6px 0 0;
   font-weight: normal;
