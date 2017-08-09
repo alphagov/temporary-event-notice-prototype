@@ -86,16 +86,59 @@ Check your answers
             Event start date
           </dt>
           <dd class="cya-answer">
-            {% if data['event-start-day'] %}
-            {{ data['event-start-day'] }}/
-            {% endif %}
-            {% if data['event-start-month'] %}
-            {{ data['event-start-month'] }}/
-            {% endif %}
-            {{ data['event-start-year'] }}
+              {{ data['event-start-day'] }}
+              {{ getMonthWord(data['event-start-month']) }}
+              {{ data['event-start-year'] }}
           </dd>
           <dd class="cya-change">
             <a href="event-start-date?next=check-your-answers">
+              Change<span class="visually-hidden"> event start date</span>
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="cya-question">
+            Event start time
+          </dt>
+          <dd class="cya-answer">
+              {{ data['event-start-hour'] }}:{{ data['event-start-minute'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-start-date?next=check-your-answers">
+              Change<span class="visually-hidden"> event start date</span>
+            </a>
+          </dd>
+        </div>
+        {% if data['eventDuration'] == 'two-to-seven' %}
+          <div>
+            <dt class="cya-question">
+              Event end date
+            </dt>
+            <dd class="cya-answer">
+                {{ data['event-duration-two-days-end-day'] }}
+                {{ getMonthWord(data['event-duration-two-days-end-month']) }}
+                {{ data['event-duration-two-days-end-year'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="event-duration?next=check-your-answers">
+                Change<span class="visually-hidden"> event start date</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        <div>
+          <dt class="cya-question">
+            Event end time
+          </dt>
+          <dd class="cya-answer">
+            {% if data['eventDuration'] == 'one' %}
+              {{ data['event-duration-one-day-end-hour'] }}:{{ data['event-duration-one-day-end-minute'] }}
+            {% elseif data['eventDuration'] == 'two-to-seven' %}
+              {{ data['event-duration-two-days-end-hour'] }}:{{ data['event-duration-two-days-end-minute'] }}
+            {% endif %}
+          </dd>
+          <dd class="cya-change">
+            <a href="event-duration?next=check-your-answers">
               Change<span class="visually-hidden"> event start date</span>
             </a>
           </dd>
@@ -180,12 +223,8 @@ Check your answers
             Date of birth
           </dt>
           <dd class="cya-answer">
-            {% if data['applicant-dob-day'] %}
-            {{ data['applicant-dob-day'] }}/
-            {% endif %}
-            {% if data['applicant-dob-month'] %}
-            {{ data['applicant-dob-month'] }}/
-            {% endif %}
+            {{ data['applicant-dob-day'] }}
+            {{ getMonthWord(data['applicant-dob-month']) }}
             {{ data['applicant-dob-year'] }}
           </dd>
           <dd class="cya-change">
@@ -239,3 +278,37 @@ Check your answers
 </main>
 
 {% endblock %}
+
+{% macro getMonthWord(number) %}
+
+  {% set month = '' %}
+
+  {% if number == 1 %}
+    {% set month = 'January' %}
+  {% elseif number == 2 %}
+    {% set month = 'February' %}
+  {% elseif number == 3 %}
+    {% set month = 'March' %}
+  {% elseif number == 4 %}
+    {% set month = 'April' %}
+  {% elseif number == 5 %}
+    {% set month = 'May' %}
+  {% elseif number == 6 %}
+    {% set month = 'June' %}
+  {% elseif number == 7 %}
+    {% set month = 'July' %}
+  {% elseif number == 8 %}
+    {% set month = 'August' %}
+  {% elseif number == 9 %}
+    {% set month = 'September' %}
+  {% elseif number == 10 %}
+    {% set month = 'October' %}
+  {% elseif number == 11 %}
+    {% set month = 'November' %}
+  {% elseif number == 12 %}
+    {% set month = 'December' %}
+  {% endif %}
+
+  {{ month }}
+
+{% endmacro %}
