@@ -14,177 +14,105 @@
         {% if serviceName %} {{ serviceName }} {% endif %}
       </h1>
 
+      <div class="before-you-start">
+        <h2 class="heading-medium">
+          Before you start
+        </h2>
+        <p>If you’ve not submitted a temporary event notice before you may want to read <a href="#">guidance about holding an event</a>.</p>
+      </div>
+
+      {% macro taskListSection(index, title, description, url, values, lastCompleted) %}
+      {% set completed = false %}
+      {% set partlyCompleted = false %}
+      {% for value in values %}
+        {% if data[value] %}
+          {% set partlyCompleted = true %}
+          {% set completed = true %}
+        {% else %}
+          {% set completed = false %}
+        {% endif %}
+      {% endfor %}
+      {% if completed %}
+        {% set lastCompleted = index %}
+      {% endif %}
+      <li>
+        <div class="grid-row">
+          <div class="column-two-thirds">
+            <h2 class="task-list-section">
+              <span class="task-list-section-number">{{ index }}. </span> {{ title }}
+            </h2>
+            <div class="task-list-section-details">
+              <p>{{ description }}</p>
+            </div>
+          </div>
+          <div class="column-one-third">
+            {% if completed %}
+            <a class="change-answer" href="{{ url }}" >Change answers</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="column-full">
+            <div class="task-list-section-actions">
+              {% if completed %}
+              <strong class="task-completed">Completed</strong>
+              {% elif partlyCompleted %}
+              <a class="button" href="{{ url }}" >Continue task</a>
+              {% elif index == 1 %}
+              <a class="button start-section" href="{{ url }}" >Start section</a>
+              {% else %}
+              <a class="button start-section" href="{{ url }}" >Start section</a>
+              <strong class="task-unavailable">Can't start yet</strong>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endmacro %}
+
+      <h2 class="heading-medium">Your application</h2>
       <ol class="task-list">
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">1. </span> Check before you start
-          </h2>
-          <ul class="task-list-items">
-            <li class="task-list-item">
-              <a class="task-name" href="licensable-activities" aria-describedby="licensable-activities">
-                Check if you need a temporary event notice (optional)
-              </a>
-              {% if data['licensableActivities'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-          </ul>
-        </li>
+{% for item in items %}
+  taskListSection(item)
+{% endfor %}
+        {{ taskListSection(
+          '1',
+          'Local council',
+          'Find the council you need to apply to',
+          'licensing-council',
+          ['licensing-council']
+        ) }}
 
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">2. </span> Licensing council
-          </h2>
-          <ul class="task-list-items">
-            <li class="task-list-item">
-              <a class="task-name" href="licensing-council" aria-describedby="licensing-council">
-                Licensing council
-              </a>
-              {% if data['licensing-council'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-          </ul>
-        </li>
+        {{ taskListSection(
+          '2',
+          'Previous event details',
+          'Provide details of any events you’ve held in the last year.',
+          'previous-events',
+          ['previousLicence']
+        ) }}
 
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">3. </span>Previous events
-          </h2>
-          <ul class="task-list-items">
-            <li class="task-list-item">
-              <a class="task-name" href="previous-events" aria-describedby="previous-events">
-                Details of previous events
-              </a>
-              {% if data['previousLicence'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-          </ul>
-        </li>
+        {{ taskListSection(
+          '3',
+          'Event details',
+          'Confirm activites, dates and location for this application.',
+          'event-start-date',
+          ['event-start-day']
+        ) }}
 
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">4. </span> Event details
-          </h2>
-          <ul class="task-list-items">
-            <li class="task-list-item">
-              <a class="task-name" href="event-start-date">
-                Event start date
-              </a>
-              {% if data['event-start-day'] and data['event-start-month'] and data['event-start-year'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="event-duration">
-                Event duration
-              </a>
-              {% if data['eventDuration'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="event-description">
-                Type of event
-              </a>
-              {% if data['event-description'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="event-costs">
-                Event costs
-              </a>
-              {% if data['event-selling-tickets'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="event-postcode">
-                Event address
-              </a>
-              {% if data['event-postcode'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="event-location">
-                Type of location
-              </a>
-              {% if data['eventLocation'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-          </ul>
-        </li>
+        {{ taskListSection(
+          '4',
+          'Applicant details',
+          'Supply contact information.',
+          'applicant-details',
+          ['applicant-name']
+        ) }}
 
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">5. </span> Applicant details
-          </h2>
-          <ul class="task-list-items">
-            <li class="task-list-item">
-              <a class="task-name" href="applicant-details">
-                Applicant details
-              </a>
-              {% if data['applicant-name'] and data['applicant-dob-day'] and data['applicant-dob-month'] and data['applicant-dob-year'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="contact-details">
-                Contact details
-              </a>
-              {% if data['contact-method'] %}
-              <strong class="task-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <!--li class="task-list-item">
-              <a class="task-name" href="select-address">
-                Address
-              </a>
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="contact-address">
-                Contact address
-              </a>
-            </li-->
-          </ul>
-        </li>
-
-        <li>
-          <h2 class="task-list-section">
-            <span class="task-list-section-number">6. </span> Complete application
-          </h2>
-          <ul class="task-list-items">
-            <!--li class="task-list-item">
-              <a class="task-name" href="#">
-                Display notice
-              </a>
-            </li-->
-            <li class="task-list-item">
-              <a class="task-name" href="check-your-answers">
-                Check your answers
-              </a>
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="declaration">
-                Declaration
-              </a>
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="payment-card">
-                Payment
-              </a>
-            </li>
-            <li class="task-list-item">
-              <a class="task-name" href="application-complete">
-                Application complete
-              </a>
-            </li>
-          </ul>
-        </li>
+        {{ taskListSection(
+          '5',
+          'Complete application',
+          'Check your application, agree to the terms and conditions, and pay the £21 fee.',
+          'check-your-answers'
+        ) }}
       </ol>
 
     </div>

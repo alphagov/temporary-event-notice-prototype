@@ -36,14 +36,29 @@ $(document).ready(function () {
 
   // Task list
   // Check for completed tasks and allow access only to the next one
+  // var $previousTask
+  // $('.task-list-item').each(function () {
+  //   var previousCompleted = false
+  //   if ($previousTask) {
+  //     previousCompleted = $previousTask.find('.task-completed').length
+  //     var thisCompleted = $(this).find('.task-completed').length
+  //     if (!thisCompleted && !previousCompleted) {
+  //       $(this).html($(this).find('.task-name').html())
+  //     }
+  //   }
+  //   $previousTask = $(this)
+  // })
+
   var $previousTask
-  $('.task-list-item').each(function () {
+  $('.task-list li').each(function () {
     var previousCompleted = false
     if ($previousTask) {
       previousCompleted = $previousTask.find('.task-completed').length
       var thisCompleted = $(this).find('.task-completed').length
       if (!thisCompleted && !previousCompleted) {
-        $(this).html($(this).find('.task-name').html())
+        $(this).find('.start-section').hide()
+        $(this).find('.task-unavailable').show()
+      } else {
       }
     }
     $previousTask = $(this)
