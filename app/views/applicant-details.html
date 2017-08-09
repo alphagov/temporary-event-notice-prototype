@@ -20,7 +20,7 @@
         Applicant details
       </h1>
 
-      <form class="form" action="contact-details" method="POST">
+      <form class="form" action="contact-details" method="POST" novalidate>
         <div class="form-group" data-required="Please provide your name">
           <label class="form-label form-label-bold" for="applicant-name">Full name</label>
           <input class="form-control" id="applicant-name" type="text" name="applicant-name" value="{{ data['applicant-name'] }}">

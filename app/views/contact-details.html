@@ -16,7 +16,7 @@
 
       <a class="link-back" href="#back">Back</a>
 
-      <form class="form" action="task-list" method="POST">
+      <form class="form" action="task-list" method="POST" novalidate>
         <div class="form-group" data-required="Please answer this question">
           <fieldset>
 
@@ -32,7 +32,7 @@
             </div>
             <div class="panel panel-border-narrow js-hidden" id="contact-by-email" >
               <label class="form-label" for="contact-email">Email address</label>
-              <input class="form-control" name="contact-email" type="text" id="contact-email" value="{{ data['contact-email'] }}">
+              <input class="form-control" name="contact-email" type="email" id="contact-email" value="{{ data['contact-email'] }}">
             </div>
 
             <div class="multiple-choice" data-target="contact-by-phone">

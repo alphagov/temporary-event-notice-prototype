@@ -70,6 +70,16 @@ a.button-start {
   margin-top: 5px;
 }
 
+// Postcode
+
+#event-postcode, .postcode {
+  text-transform: uppercase;
+}
+
+.change-postcode {
+  margin-left: 5px;
+}
+
 // Character count //
 textarea{
   overflow: auto;
