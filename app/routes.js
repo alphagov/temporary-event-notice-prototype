@@ -45,11 +45,6 @@ router.get('/start-page', function (req, res) {
   res.render('start-page')
 })
 
-// Router to settings page
-router.get('/prototype-settings', function (req, res) {
-  // Display all variables
-})
-
 router.get('/existing-premises-licence', function (req, res) {
   // get the answer from the query string
   var licensableActivities = req.session.data['licensableActivities']
