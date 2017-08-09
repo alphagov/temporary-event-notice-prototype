@@ -74,7 +74,6 @@ textarea{
   position: relative;
   background: transparent;
   z-index: 2;
-  overflow-x: hidden;
   margin: 0; //implicit margin creates problems on safari
 }
 .js-count-message{

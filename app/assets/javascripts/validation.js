@@ -37,7 +37,11 @@ function validateAll (reqFields) {
 function validateSingleField ($formGroup) {
   var type = findInputType($formGroup)
   if ((type === 'text' || type === 'textarea' || type === 'date') && $formGroup.find('input, textarea').val().length > 0) {
-    return false
+    if ((type === 'textarea' && $formGroup.find('.js-character-counter') && $formGroup.find('.js-character-counter').val().length > 200)) {
+      return true
+    } else {
+      return false
+    }
   }
   if ((type === 'radio' || type === 'checkbox') && $formGroup.find(':checked').length > 0) {
     return false
