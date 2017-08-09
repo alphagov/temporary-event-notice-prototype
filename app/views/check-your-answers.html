@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Check your answers
+Check your answers
 {% endblock %}
 
 {% block content %}
@@ -11,10 +11,10 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-large">
-         Check your answers before sending your application
-      </h1>
+       Check your answers before sending your application
+     </h1>
 
-      <h2 class="heading-medium">
+      {# <h2 class="heading-medium">
         Basic eligibility
       </h2>
 
@@ -50,7 +50,7 @@
             </a>
           </dd>
         </div>
-      </dl>
+      </dl> #}
 
       <h2 class="heading-medium">
         Licensing council
@@ -83,10 +83,10 @@
           </dt>
           <dd class="cya-answer">
             {% if data['event-start-day'] %}
-              {{ data['event-start-day'] }}/
+            {{ data['event-start-day'] }}/
             {% endif %}
             {% if data['event-start-month'] %}
-              {{ data['event-start-month'] }}/
+            {{ data['event-start-month'] }}/
             {% endif %}
             {{ data['event-start-year'] }}
           </dd>
@@ -98,7 +98,7 @@
         </div>
         <div>
           <dt class="cya-question">
-              Event duration
+            Event duration
           </dt>
           <dd class="cya-answer">
             {% if data['eventDuration'] == 'one' %}One day{% endif %}
@@ -112,7 +112,7 @@
         </div>
         <div>
           <dt class="cya-question">
-              Type of event
+            Type of event
           </dt>
           <dd class="cya-answer">
             {{ data['event-description'] }}
@@ -125,12 +125,12 @@
         </div>
         <div>
           <dt class="cya-question">
-              Event costs
+            Event costs
           </dt>
           <dd class="cya-answer">
             {% if data['event-selling-tickets'] == 'no' %}None{% endif %}
             {% if data['event-selling-tickets'] == 'yes' %}
-              £{{ data['tickets-cost'] }}
+            £{{ data['tickets-cost'] }}
             {% endif %}
           </dd>
           <dd class="cya-change">
@@ -141,7 +141,7 @@
         </div>
         <div>
           <dt class="cya-question">
-              Premises
+            Premises
           </dt>
           <dd class="cya-answer">
             {{ data['event-address'] }}
@@ -178,10 +178,10 @@
           </dt>
           <dd class="cya-answer">
             {% if data['applicant-dob-day'] %}
-              {{ data['applicant-dob-day'] }}/
+            {{ data['applicant-dob-day'] }}/
             {% endif %}
             {% if data['applicant-dob-month'] %}
-              {{ data['applicant-dob-month'] }}/
+            {{ data['applicant-dob-month'] }}/
             {% endif %}
             {{ data['applicant-dob-year'] }}
           </dd>
@@ -207,6 +207,26 @@
           </dd>
         </div>
       </dl>
+
+      <h2 class="heading-medium">
+        Summary
+      </h2>
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Total cost
+          </dt>
+          <dd class="cya-answer">
+            £21
+          </dd>
+          <dd class="cya-change">
+
+          </dd>
+        </div>
+      </dl>
+
+
+
       <br>
       <div class="form-group">
         <a href="declaration" class="button">Continue</a>
