@@ -46,7 +46,10 @@
                  </label>
                  <div class="currency-input__inner">
                    <span class="currency-input__inner__unit">£</span>
-                   <input class="form-control" name="tickets-cost" type="number"
+                   <!-- Re: below field, if we want to allow fullstop, we have to either:
+                     1. have this field as text
+                    2. add no validate to form to stop browser validating number field  -->
+                   <input class="form-control" name="tickets-cost" type="text"
                    data-non-numeric data-max-length=10 id="tickets-cost" {{ checked('tickets-cost','yes') }}>
                  </div>
                </div>
