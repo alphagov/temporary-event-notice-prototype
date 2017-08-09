@@ -18,7 +18,7 @@
         <div class="form-group" data-required="Please answer this question">
           <label class="form-label" for="textarea">
             <h1 class="heading-large">
-              Describe the nature of your previous event
+              Describe the nature of your previous event{% if data['how-many-previous-licences'] != "1" %}s{% endif %}
             </h1>
           </label>
           <div class="form-control-3-4">
