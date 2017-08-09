@@ -248,7 +248,7 @@
     }
     charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's')
     // charVerb = (remaining < 0)?'too many':'remaining'
-    countMessage.innerHTML = remainingNumber + ' ' + charNoun + ' ' + charVerb
+    countMessage.innerHTML = 'You have ' + remainingNumber + ' ' + charNoun + ' ' + charVerb
 
     // Update Highlight
     if (countHighlight) {
