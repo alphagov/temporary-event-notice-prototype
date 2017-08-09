@@ -75,7 +75,7 @@ router.get('/previous-event-description', function (req, res) {
   var previousLicence = req.session.data['previousLicence']
   if (previousLicence == 'no') { // use == for checkboxes
     // redirect to the relevant page
-    res.redirect('task-list')
+    res.redirect('task-list#event-start-date')
   } else {
     // render the page requested
     res.render('previous-event-description')
