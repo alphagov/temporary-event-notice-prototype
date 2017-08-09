@@ -243,12 +243,16 @@
     // Update message
     var charVerb = 'remaining'
     var charNoun = 'character'
+    var displayNumber = remainingNumber
     if (options && options.wordCount) {
       charNoun = 'word'
     }
     charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's')
-    // charVerb = (remaining < 0)?'too many':'remaining'
-    countMessage.innerHTML = 'You have ' + remainingNumber + ' ' + charNoun + ' ' + charVerb
+    charVerb = (remainingNumber < 0)?'too many':'remaining'
+
+    displayNumber = Math.abs(remainingNumber) // postive count of numbers
+
+    countMessage.innerHTML = 'You have ' + displayNumber + ' ' + charNoun + ' ' + charVerb
 
     // Update Highlight
     if (countHighlight) {
