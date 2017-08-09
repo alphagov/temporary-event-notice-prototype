@@ -11,7 +11,7 @@
     <div class="column-two-thirds column-minimum">
 
       <h1 class="heading-large">
-        {% if serviceName %} {{ serviceName }} {% endif %}
+        Application overview
       </h1>
 
       <div class="before-you-start">
@@ -25,7 +25,7 @@
         <li>
           <div class="grid-row">
             <div class="column-two-thirds">
-              <h2 class="task-list-section">
+              <h2 class="task-list-section" id="{{ item.url }}">
                 <span class="task-list-section-number">{{ item.index }}. </span> {{ item.title }}
               </h2>
               <div class="task-list-section-details">
