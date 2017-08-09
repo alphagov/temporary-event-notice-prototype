@@ -1,6 +1,6 @@
 <dialog id="js-modal-dialog" data-minutes-idle-timeout="{{ data['modalIdleTime'] or '2'}}" data-minutes-modal-visible="{{ data['modalVisibleTime'] or '2'}}" data-url-redirect="/timeout" class="modal-dialog dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="at-timer dialog-help" aria-live="polite">
   <div class="modal-dialog__inner">
-	  <h1 id="dialog-title" class="heading-large"><span class="visually-hidden">Alert:</span>Your session will soon time out</h1>
+	  <h1 id="dialog-title" class="heading-large"><span class="visually-hidden">Alert:</span>Your session will time out soon</h1>
     <div class="modal-dialog__inner__text">
       <div class="timer" aria-hidden="true"></div>
       <div class="at-timer visually-hidden" role="status" aria-live="polite"></div>
@@ -11,7 +11,7 @@
     </div>
     <div class="modal-dialog__inner__block">
       <button class="button dialog-button modal-dialog__inner__button js-dialog-close js-dialog-first-tabbable">Continue application</button>
-    	<a class="modal-dialog__inner__link" href="https://www.gov.uk/">Exit application</a>
+	<a class="modal-dialog__inner__link" href="https://www.gov.uk/">Cancel application</a>
     </div>
   </div>
 </dialog>
