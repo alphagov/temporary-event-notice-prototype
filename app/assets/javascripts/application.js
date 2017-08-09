@@ -63,8 +63,14 @@ $(document).ready(function () {
   GOVUK.modalDialog.init()
 
   // Add number input polyfill
-  //For options and data attributes, see number-input.js
+  // For options and data attributes, see number-input.js
   GOVUK.numberInput.init()
+
+  // Check if query string in URL specifies the next page
+  var nextPage = getQueryStringByName('next')
+  if (nextPage && $('input[type=submit]').length > 0) {
+    $('form.form').attr('action', '/' + nextPage)
+  }
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
@@ -101,7 +107,6 @@ $(document).ready(function () {
     $('.address-lookup-step2').show()
     // $('#select-box').focus()
   }
-
   // Autocomplete component
   function suggest (query, syncResults) {
     // List of local authorities from https://local-authority-eng.register.gov.uk/records
@@ -261,6 +266,11 @@ $(document).ready(function () {
     element
   )
 
+  // If passed query string is present in URL, returns its value
+  function getQueryStringByName (name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search)
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '))
+  }
   // Location picker component
   // if ($('#local-council-autocomplete').length) {
   //   openregisterLocationPicker({

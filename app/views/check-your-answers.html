@@ -35,7 +35,7 @@ Check your answers
             </ul>
           </dd>
           <dd class="cya-change">
-            <a href="licensable-activities">
+            <a href="licensable-activities?next=check-your-answers">
               Change<span class="visually-hidden"> licencesable activities</span>
             </a>
           </dd>
@@ -49,7 +49,7 @@ Check your answers
             {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
           </dd>
           <dd class="cya-change">
-            <a href="existing-premises-licence">
+            <a href="existing-premises-licence?next=check-your-answers">
               Change<span class="visually-hidden"> existing premises licence</span>
             </a>
           </dd>
@@ -69,7 +69,7 @@ Check your answers
             {{data['local-council']}}
           </dd>
           <dd class="cya-change">
-            <a href="local-council">
+            <a href="local-council?next=check-your-answers">
               Change<span class="visually-hidden"> local council</span>
             </a>
           </dd>
@@ -95,7 +95,7 @@ Check your answers
             {{ data['event-start-year'] }}
           </dd>
           <dd class="cya-change">
-            <a href="event-start-date">
+            <a href="event-start-date?next=check-your-answers">
               Change<span class="visually-hidden"> event start date</span>
             </a>
           </dd>
@@ -109,7 +109,7 @@ Check your answers
             {% if data['eventDuration'] == 'two-to-seven' %}Two to seven days{% endif %}
           </dd>
           <dd class="cya-change">
-            <a href="event-duration">
+            <a href="event-duration?next=check-your-answers">
               Change<span class="visually-hidden"> event duration</span>
             </a>
           </dd>
@@ -122,7 +122,7 @@ Check your answers
             {{ data['event-description'] }}
           </dd>
           <dd class="cya-change">
-            <a href="event-description">
+            <a href="event-description?next=check-your-answers">
               Change<span class="visually-hidden"> type of event</span>
             </a>
           </dd>
@@ -138,7 +138,7 @@ Check your answers
             {% endif %}
           </dd>
           <dd class="cya-change">
-            <a href="event-description">
+            <a href="event-description?next=check-your-answers">
               Change<span class="visually-hidden"> type of event</span>
             </a>
           </dd>
@@ -149,10 +149,9 @@ Check your answers
           </dt>
           <dd class="cya-answer">
             {{ data['event-address'] }}
-            {{ data['event-postcode'] }}
           </dd>
           <dd class="cya-change">
-            <a href="event-postcode">
+            <a href="event-postcode?next=check-your-answers">
               Change<span class="visually-hidden"> premises</span>
             </a>
           </dd>
@@ -171,7 +170,7 @@ Check your answers
             {{ data['applicant-name'] }}
           </dd>
           <dd class="cya-change">
-            <a href="applicant-details">
+            <a href="applicant-details?next=check-your-answers">
               Change<span class="visually-hidden"> full name</span>
             </a>
           </dd>
@@ -190,7 +189,7 @@ Check your answers
             {{ data['applicant-dob-year'] }}
           </dd>
           <dd class="cya-change">
-            <a href="applicant-details">
+            <a href="applicant-details?next=check-your-answers">
               Change<span class="visually-hidden"> date of birth</span>
             </a>
           </dd>
@@ -205,7 +204,7 @@ Check your answers
             {% if data['contact-method'] == 'text-message' %}{{ data['contact-text-message'] }}{% endif %}
           </dd>
           <dd class="cya-change">
-            <a href="contact-details">
+            <a href="contact-details?next=check-your-answers">
               Change<span class="visually-hidden"> contact method</span>
             </a>
           </dd>
