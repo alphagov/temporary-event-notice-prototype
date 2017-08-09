@@ -38,11 +38,13 @@
                 <div class="form-date">
                   <div class="form-group form-group-hour">
                     <label for="event-duration-one-day-end-hour">Hour</label>
-                    <input class="form-control" id="event-duration-one-day-end-hour" name="eventDurationOneDayEndHour" type="number" pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationOneDayEndHour'] }}">
+                    <input class="form-control" id="event-duration-one-day-end-hour" name="eventDurationOneDayEndHour" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationOneDayEndHour'] }}">
                   </div>
                   <div class="form-group form-group-minute">
                     <label for="event-duration-one-day-end-minute">Minute</label>
-                    <input class="form-control" id="event-duration-one-day-end-minute" name="eventDurationOneDayEndMinute" type="number" pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationOneDayEndMinute'] }}">
+                    <input class="form-control" id="event-duration-one-day-end-minute" name="eventDurationOneDayEndMinute" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationOneDayEndMinute'] }}">
                   </div>
                 </div>
               </fieldset>
@@ -62,17 +64,20 @@
                 <div class="form-date">
                   <div class="form-group form-group-day">
                     <label for="event-duration-two-days-end-day">Day</label>
-                    <input class="form-control" id="event-duration-two-days-end-day" name="eventDurationTwoDaysEndDay" type="number" pattern="[0-9]*" min="0" max="31" value="{{ data['eventDurationTwoDaysEndDay'] }}">
+                    <input class="form-control" id="event-duration-two-days-end-day" name="eventDurationTwoDaysEndDay" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['eventDurationTwoDaysEndDay'] }}">
                   </div>
 
                   <div class="form-group form-group-month">
                     <label for="event-duration-two-days-end-month">Month</label>
-                    <input class="form-control" id="event-duration-two-days-end-month" name="eventDurationTwoDaysEndMonth" type="number" pattern="[0-9]*" min="0" max="12" value="{{ data['eventDurationTwoDaysEndMonth'] }}">
+                    <input class="form-control" id="event-duration-two-days-end-month" name="eventDurationTwoDaysEndMonth" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['eventDurationTwoDaysEndMonth'] }}">
                   </div>
 
                   <div class="form-group form-group-year">
                     <label for="event-duration-two-days-end-year">Year</label>
-                    <input class="form-control" id="event-duration-two-days-end-year" name="eventDurationTwoDaysEndYear" type="number" pattern="[0-9]*" min="0" value="{{ data['eventDurationTwoDaysEndYear'] }}">
+                    <input class="form-control" id="event-duration-two-days-end-year" name="eventDurationTwoDaysEndYear" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" value="{{ data['eventDurationTwoDaysEndYear'] }}">
                   </div>
 
                 </div>
@@ -86,12 +91,14 @@
                 <div class="form-date">
                   <div class="form-group form-group-hour">
                     <label for="event-duration-two-days-end-hour">Hour</label>
-                    <input class="form-control" id="event-duration-two-days-end-hour" name="eventDurationTwoDaysEndHour" type="number" pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationTwoDaysEndHour'] }}">
+                    <input class="form-control" id="event-duration-two-days-end-hour" name="eventDurationTwoDaysEndHour" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationTwoDaysEndHour'] }}">
                   </div>
 
                   <div class="form-group form-group-minute">
                     <label for="event-duration-two-days-end-minute">Minute</label>
-                    <input class="form-control" id="event-duration-two-days-end-minute" name="eventDurationTwoDaysEndMinute" type="number" pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationTwoDaysEndMinute'] }}">
+                    <input class="form-control" id="event-duration-two-days-end-minute" name="eventDurationTwoDaysEndMinute" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationTwoDaysEndMinute'] }}">
                   </div>
 
                 </div>

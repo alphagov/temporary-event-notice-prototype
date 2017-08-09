@@ -34,17 +34,20 @@
           <div class="form-date">
             <div class="form-group form-group-day">
               <label for="applicant-dob-day">Day</label>
-              <input class="form-control" id="applicant-dob-day" name="applicant-dob-day" type="number" pattern="[0-9]*" min="0" max="31" value="{{ data['applicant-dob-day'] }}">
+              <input class="form-control" id="applicant-dob-day" name="applicant-dob-day" type="number"
+              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['applicant-dob-day'] }}">
             </div>
 
             <div class="form-group form-group-month">
               <label for="applicant-dob-month">Month</label>
-              <input class="form-control" id="applicant-dob-month" name="applicant-dob-month" type="number" pattern="[0-9]*" min="0" max="12" value="{{ data['applicant-dob-month'] }}">
+              <input class="form-control" id="applicant-dob-month" name="applicant-dob-month" type="number"
+              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['applicant-dob-month'] }}">
             </div>
 
             <div class="form-group form-group-year">
               <label for="applicant-dob-year">Year</label>
-              <input class="form-control" id="applicant-dob-year" name="applicant-dob-year" type="number" pattern="[0-9]*" min="0" max="2014" value="{{ data['applicant-dob-year'] }}">
+              <input class="form-control" id="applicant-dob-year" name="applicant-dob-year" type="number"
+              data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" max="2014" value="{{ data['applicant-dob-year'] }}">
             </div>
 
           </div>

@@ -62,6 +62,10 @@ $(document).ready(function () {
   // Set options in views/includes/timeout_modal.html
   GOVUK.modalDialog.init()
 
+  // Add number input polyfill
+  //For options and data attributes, see number-input.js
+  GOVUK.numberInput.init()
+
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
     window.loaderTime = loaderTime || 5
