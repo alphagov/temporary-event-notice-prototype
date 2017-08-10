@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
 
 router.get('/task-list', function (req, res) {
   var taskListItems = [
-    {index: '1', title: 'Local council', url: 'licensing-council', description: 'Find the council you need to apply to', values: ['licensing-council'], status: ''},
+    {index: '1', title: 'Local council', url: 'local-council', description: 'Find the council you need to apply to', values: ['local-council'], status: ''},
     {index: '2', title: 'Previous event details', url: 'previous-events', description: 'Provide details of any events you’ve held in the last year.', values: ['previousLicence'], status: ''},
     {index: '3', title: 'Event details', url: 'event-start-date', description: 'Confirm activites, dates and location for this application.', values: ['event-start-day'], status: ''},
     {index: '4', title: 'Applicant details', url: 'applicant-details', description: 'Supply contact information.', values: ['applicant-name'], status: ''},
