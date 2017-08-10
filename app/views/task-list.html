@@ -15,7 +15,7 @@
     <div class="column-two-thirds column-minimum">
 
       <h1 class="heading-large">
-        {% if serviceName %} {{ serviceName }} {% endif %}
+        Application overview
       </h1>
 
       <div class="before-you-start">
@@ -25,100 +25,47 @@
         <p>If you’ve not submitted a temporary event notice before you may want to read <a href="#">guidance about holding an event</a>.</p>
       </div>
 
-      {% macro taskListSection(index, title, description, url, values, lastCompleted) %}
-      {% set completed = false %}
-      {% set partlyCompleted = false %}
-      {% for value in values %}
-        {% if data[value] %}
-          {% set partlyCompleted = true %}
-          {% set completed = true %}
-        {% else %}
-          {% set completed = false %}
-        {% endif %}
-      {% endfor %}
-      {% if completed %}
-        {% set lastCompleted = index %}
-      {% endif %}
-      <li>
-        <div class="grid-row">
-          <div class="column-two-thirds">
-            <h2 class="task-list-section">
-              <span class="task-list-section-number">{{ index }}. </span> {{ title }}
-            </h2>
-            <div class="task-list-section-details">
-              <p>{{ description }}</p>
+      {% macro taskListSection(item) %}
+        <li>
+          <div class="grid-row">
+            <div class="column-two-thirds">
+              <h2 class="task-list-section" id="{{ item.url }}">
+                <span class="task-list-section-number">{{ item.index }}. </span> {{ item.title }}
+              </h2>
+              <div class="task-list-section-details">
+                <p>{{ item.description }}</p>
+              </div>
             </div>
-          </div>
-          <div class="column-one-third">
-            {% if completed %}
-            <a class="change-answer" href="{{ url }}" >Change answers</a>
-            {% endif %}
-          </div>
-        </div>
-        <div class="grid-row">
-          <div class="column-full">
-            <div class="task-list-section-actions">
-              {% if completed %}
-              <strong class="task-completed">Completed</strong>
-              {% elif partlyCompleted %}
-              <a class="button" href="{{ url }}" >Continue task</a>
-              {% elif index == 1 %}
-              <a class="button start-section" href="{{ url }}" >Start section</a>
-              {% else %}
-              <a class="button start-section" href="{{ url }}" >Start section</a>
-              <strong class="task-unavailable">Can't start yet</strong>
+            <div class="column-one-third">
+              {% if item.status == 'completed' %}
+              <a class="change-answer" href="{{ item.url }}" >Change answers</a>
               {% endif %}
             </div>
           </div>
-        </div>
-      </li>
+          <div class="grid-row">
+            <div class="column-full">
+              <div class="task-list-section-actions">
+                {% if item.status == 'completed' %}
+                <strong class="task-completed">Completed</strong>
+                {% elif item.status == 'partlyCompleted' %}
+                <a class="button" href="{{ item.url }}" >Continue task</a>
+                {% elif item.index == 1 or item.status == 'actionable' %}
+                <a class="button" href="{{ item.url }}" >Start section</a>
+                {% else %}
+                <strong class="task-unavailable">Can't start yet</strong>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </li>
       {% endmacro %}
 
       <h2 class="heading-medium">Your application</h2>
       <ol class="task-list">
-{% for item in items %}
-  taskListSection(item)
-{% endfor %}
-        {{ taskListSection(
-          '1',
-          'Local council',
-          'Find the council you need to apply to',
-          'licensing-council',
-          ['licensing-council']
-        ) }}
-
-        {{ taskListSection(
-          '2',
-          'Previous event details',
-          'Provide details of any events you’ve held in the last year.',
-          'previous-events',
-          ['previousLicence']
-        ) }}
-
-        {{ taskListSection(
-          '3',
-          'Event details',
-          'Confirm activites, dates and location for this application.',
-          'event-start-date',
-          ['event-start-day']
-        ) }}
-
-        {{ taskListSection(
-          '4',
-          'Applicant details',
-          'Supply contact information.',
-          'applicant-details',
-          ['applicant-name']
-        ) }}
-
-        {{ taskListSection(
-          '5',
-          'Complete application',
-          'Check your application, agree to the terms and conditions, and pay the £21 fee.',
-          'check-your-answers'
-        ) }}
+        {% for item in items %}
+          {{ taskListSection(item) }}
+        {% endfor %}
       </ol>
-
     </div>
   </div>
 </main>
