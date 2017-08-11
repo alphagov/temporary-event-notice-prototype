@@ -1,0 +1,36 @@
+// Task list
+.task-completed{
+  float: none;
+  clear: both;
+}
+.task-unavailable{
+  margin: 0 8px 0 0;
+  padding: 2px 5px 0;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 0;
+  padding-top: 3px;
+  color: #6f777b;
+  border: 3px solid #6f777b;
+}
+.task-list-section-details{
+  padding-left: 35px;
+}
+.task-list-section-actions{
+  margin-left: 35px;
+  border-bottom: 1px solid #bfc1c3;
+  padding-bottom: 30px;
+  margin-bottom: 25px;
+}
+.change-answer{
+  float: right;
+}
+.before-you-start{
+  border-bottom: 1px solid #bfc1c3;
+}

@@ -1,0 +1,36 @@
+// Loader
+.govuk-c-loader{
+  // padding: $gutter 0;
+  text-align: center;
+  position: relative;
+  &:focus{
+    outline: 3px solid $focus-colour;
+  }
+}
+
+.govuk-c-loader__spinner{
+  z-index: 2000000000;
+}
+
+.govuk-c-loader__label{
+  display: block;
+  padding-bottom: 1em;
+  margin-top: -1em;
+}
+
+.govuk-box {
+  margin: 1em 0;
+  padding: 2em;
+  background: $grey-4;
+  position: relative;
+}
+
+.govuk-box-highlight {
+  color: $white;
+  background: $govuk-blue;
+}
+
+.govuk-box-inverted {
+  color: $white;
+  background: $black;
+}

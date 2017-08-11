@@ -9,10 +9,13 @@ $path: "/public/images/";
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
 @import 'patterns/check-your-answers';
 @import 'patterns/task-list';
+@import 'patterns/task-list-v2'; // TODO: review these lines and merge with task-list
 @import 'patterns/modal-dialog';
 @import 'patterns/accessible-autocomplete';
 @import 'patterns/location-picker';
 @import 'patterns/currency-input';
+@import 'patterns/character-count';
+@import 'patterns/loading-spinner';
 
 legend{
   overflow: hidden;
@@ -71,7 +74,6 @@ a.button-start {
 }
 
 // Postcode
-
 #event-postcode, .postcode {
   text-transform: uppercase;
 }
@@ -80,131 +82,7 @@ a.button-start {
   margin-left: 5px;
 }
 
-// Character count //
-textarea{
-  overflow: auto;
-}
-.js-character-counter{
-  width: 100%;
-  border-width: 2px;
-  position: relative;
-  background: transparent;
-  z-index: 2;
-  margin: 0; //implicit margin creates problems on safari
-}
-.js-count-message{
-  font-family: $toolkit-font-stack-tabular;
-  margin-top: 0;
-  padding: 6px 0 0;
-  font-weight: normal;
-  width: 100%;
-}
-.error-message-hidden{
-  visibility: hidden;
-}
-// Character count highlight //
-.form-control-wrapper{
-  position: relative;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.backdrop-highlights-input,.backdrop-highlights{
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  white-space: pre-wrap;
-	word-wrap: break-word;
-	color: transparent;
-  overflow: auto;
-  display: block;
-  vertical-align: middle;
-  border-color: transparent;
-  mark {
-    color: transparent;
-    background-color: $error-colour;
-    opacity: .2;
-  }
-}
-.backdrop-highlights-input{
-  white-space: nowrap;
-}
-
-// Loader
-.govuk-c-loader{
-  // padding: $gutter 0;
-  text-align: center;
-  position: relative;
-  &:focus{
-    outline: 3px solid $focus-colour;
-  }
-}
-
-.govuk-c-loader__spinner{
-  z-index: 2000000000;
-}
-
-.govuk-c-loader__label{
-  display: block;
-  padding-bottom: 1em;
-  margin-top: -1em;
-}
-
-.govuk-box {
-  margin: 1em 0;
-  padding: 2em;
-  background: $grey-4;
-  position: relative;
-}
-
-.govuk-box-highlight {
-  color: $white;
-  background: $govuk-blue;
-}
-
-.govuk-box-inverted {
-  color: $white;
-  background: $black;
-}
-
 // Autocomplete
 .autocomplete-wrapper{
     width: 50%;
-}
-
-// Task list
-.task-completed{
-  float: none;
-  clear: both;
-}
-.task-unavailable{
-  margin: 0 8px 0 0;
-  padding: 2px 5px 0;
-  font-weight: 700;
-  text-transform: none;
-  font-size: 16px;
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: #fff;
-  margin-right: 0;
-  padding-top: 3px;
-  color: #6f777b;
-  border: 3px solid #6f777b;
-}
-.task-list-section-details{
-  padding-left: 35px;
-}
-.task-list-section-actions{
-  margin-left: 35px;
-  border-bottom: 1px solid #bfc1c3;
-  padding-bottom: 30px;
-  margin-bottom: 25px;
-}
-.change-answer{
-  float: right;
-}
-.before-you-start{
-  border-bottom: 1px solid #bfc1c3;
 }
