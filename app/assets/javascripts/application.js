@@ -11,6 +11,9 @@ $(document).ready(function () {
   // with role="button" when the space key is pressed.
   GOVUK.shimLinksWithButtonRole.init()
 
+  // Prevent browsers from storing/caching input data-target
+  $('form').attr('autocomplete', 'off')
+
   // Show and hide toggled content
   // Where .multiple-choice uses the data-target attribute
   // to toggle hidden content
