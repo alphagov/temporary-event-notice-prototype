@@ -29,7 +29,7 @@ Check your answers
           </dt>
           <dd class="cya-answer">
             <ul class='list-bullet'>
-               {% for activity in data['licensableActivities'] %}
+               {% for activity in data['licensable-activities'] %}
                   <li>{{ activity }}</li>
                {% endfor %}
             </ul>
@@ -45,8 +45,8 @@ Check your answers
             Existing premises licence
           </dt>
           <dd class="cya-answer">
-            {% if data['existingLicence'] == 'no' %}You do not have an existing premises licence.{% endif %}
-            {% if data['existingLicence'] == 'yes' and data['licenceCover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
+            {% if data['existing-licence'] == 'no' %}You do not have an existing premises licence.{% endif %}
+            {% if data['existing-licence'] == 'yes' and data['licence-cover'] == 'no' %}Your existing licence does not cover the event.{% endif %}
           </dd>
           <dd class="cya-change">
             <a href="existing-premises-licence?next=check-your-answers">

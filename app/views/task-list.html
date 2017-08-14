@@ -47,7 +47,7 @@
               <div class="task-list-section-actions">
                 {% if item.status == 'completed' %}
                 <strong class="task-completed">Completed</strong>
-                {% elif item.status == 'partlyCompleted' %}
+                {% elif item.status == 'partly-completed' %}
                 <a class="button" href="{{ item.url }}" >Continue task</a>
                 {% elif item.index == 1 or item.status == 'actionable' %}
                 <a class="button" href="{{ item.url }}" >Start section</a>
