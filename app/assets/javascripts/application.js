@@ -14,6 +14,9 @@ $(document).ready(function () {
   // Prevent browsers from storing/caching input data-target
   $('form').attr('autocomplete', 'off')
 
+  // Disable autocorret, autocapitalize and spellcheck
+  $('input, textarea').attr('autocorrect', 'off').attr('autocapitalize', 'off').attr('spellcheck', 'false')
+
   // Show and hide toggled content
   // Where .multiple-choice uses the data-target attribute
   // to toggle hidden content
