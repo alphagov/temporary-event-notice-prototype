@@ -109,7 +109,7 @@ Check your answers
             </a>
           </dd>
         </div>
-        {% if data['eventDuration'] == 'two-to-seven' %}
+        {% if data['event-duration'] == 'two-to-seven' %}
           <div>
             <dt class="cya-question">
               Event end date
@@ -131,9 +131,9 @@ Check your answers
             Event end time
           </dt>
           <dd class="cya-answer">
-            {% if data['eventDuration'] == 'one' %}
+            {% if data['event-duration'] == 'one' %}
               {{ data['event-duration-one-day-end-hour'] }}:{{ data['event-duration-one-day-end-minute'] }}
-            {% elseif data['eventDuration'] == 'two-to-seven' %}
+            {% elseif data['event-duration'] == 'two-to-seven' %}
               {{ data['event-duration-two-days-end-hour'] }}:{{ data['event-duration-two-days-end-minute'] }}
             {% endif %}
           </dd>
@@ -148,8 +148,8 @@ Check your answers
             Event duration
           </dt>
           <dd class="cya-answer">
-            {% if data['eventDuration'] == 'one' %}One day{% endif %}
-            {% if data['eventDuration'] == 'two-to-seven' %}Two to seven days{% endif %}
+            {% if data['event-duration'] == 'one' %}One day{% endif %}
+            {% if data['event-duration'] == 'two-to-seven' %}Two to seven days{% endif %}
           </dd>
           <dd class="cya-change">
             <a href="event-duration?next=check-your-answers">

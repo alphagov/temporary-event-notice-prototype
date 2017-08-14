@@ -25,7 +25,7 @@
               </h1>
             </legend>
             <div class="multiple-choice" data-target="event-duration-one-day-end">
-              <input id="event-duration-one-day" type="radio" name="eventDuration" value="one" {{ checked('eventDuration','one') }}>
+              <input id="event-duration-one-day" type="radio" name="event-duration" value="one" {{ checked('event-duration','one') }}>
               <label for="event-duration-one-day">1 day only</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="event-duration-one-day-end">
@@ -39,19 +39,19 @@
                   <div class="form-group form-group-hour">
                     <label for="event-duration-one-day-end-hour">Hour</label>
                     <input class="form-control" id="event-duration-one-day-end-hour" name="event-duration-one-day-end-hour" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationOneDayEndHour'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['event-durationOneDayEndHour'] }}">
                   </div>
                   <div class="form-group form-group-minute">
                     <label for="event-duration-one-day-end-minute">Minute</label>
                     <input class="form-control" id="event-duration-one-day-end-minute" name="event-duration-one-day-end-minute" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationOneDayEndMinute'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['event-durationOneDayEndMinute'] }}">
                   </div>
                 </div>
               </fieldset>
             </div>
 
             <div class="multiple-choice" data-target="event-duration-two-to-seven-days-end">
-              <input id="event-duration-two-to-seven-days" type="radio" name="eventDuration" value="two-to-seven" {{ checked('eventDuration','two-to-seven') }}>
+              <input id="event-duration-two-to-seven-days" type="radio" name="event-duration" value="two-to-seven" {{ checked('event-duration','two-to-seven') }}>
               <label for="event-duration-two-to-seven-days">2 to 7 days</label>
             </div>
             <div class="panel panel-border-narrow js-hidden" id="event-duration-two-to-seven-days-end">
@@ -65,19 +65,19 @@
                   <div class="form-group form-group-day">
                     <label for="event-duration-two-days-end-day">Day</label>
                     <input class="form-control" id="event-duration-two-days-end-day" name="event-duration-two-days-end-day" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['eventDurationTwoDaysEndDay'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['event-durationTwoDaysEndDay'] }}">
                   </div>
 
                   <div class="form-group form-group-month">
                     <label for="event-duration-two-days-end-month">Month</label>
                     <input class="form-control" id="event-duration-two-days-end-month" name="event-duration-two-days-end-month" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['eventDurationTwoDaysEndMonth'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['event-durationTwoDaysEndMonth'] }}">
                   </div>
 
                   <div class="form-group form-group-year">
                     <label for="event-duration-two-days-end-year">Year</label>
                     <input class="form-control" id="event-duration-two-days-end-year" name="event-duration-two-days-end-year" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" value="{{ data['eventDurationTwoDaysEndYear'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" value="{{ data['event-durationTwoDaysEndYear'] }}">
                   </div>
 
                 </div>
@@ -92,13 +92,13 @@
                   <div class="form-group form-group-hour">
                     <label for="event-duration-two-days-end-hour">Hour</label>
                     <input class="form-control" id="event-duration-two-days-end-hour" name="event-duration-two-days-end-hour" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['eventDurationTwoDaysEndHour'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="24" value="{{ data['event-durationTwoDaysEndHour'] }}">
                   </div>
 
                   <div class="form-group form-group-minute">
                     <label for="event-duration-two-days-end-minute">Minute</label>
                     <input class="form-control" id="event-duration-two-days-end-minute" name="event-duration-two-days-end-minute" type="number"
-                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['eventDurationTwoDaysEndMinute'] }}">
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="59" value="{{ data['event-durationTwoDaysEndMinute'] }}">
                   </div>
 
                 </div>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="multiple-choice">
-              <input id="event-duration-two-to-seven-days" type="radio" name="eventDuration" value="over-seven-days" {{ checked('eventDuration','over-seven-days') }}>
+              <input id="event-duration-two-to-seven-days" type="radio" name="event-duration" value="over-seven-days" {{ checked('event-duration','over-seven-days') }}>
               <label for="event-duration-two-to-seven-days">8 or more days</label>
             </div>
 
