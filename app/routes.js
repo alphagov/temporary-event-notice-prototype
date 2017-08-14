@@ -7,49 +7,54 @@ router.get('/', function (req, res) {
 })
 
 router.get('/task-list', function (req, res) {
+  // Define taks-list items (service's sections) using the following structure
+  // {
+  //   index: '1',
+  //   title: 'Local council',
+  //   url: 'local-council', // url of the first page on this section
+  //   description: 'Find the council you need to apply to',
+  //   values: ['local-council'] // input names mandatory for this section
+  // }
+
   var taskListItems = [
     {
       index: '1',
       title: 'Local council',
       url: 'local-council',
       description: 'Find the council you need to apply to',
-      values: ['local-council'],
-      status: ''
+      values: ['local-council']
     },
     {
       index: '2',
       title: 'Previous event details',
       url: 'previous-events',
       description: 'Provide details of any events you’ve held in the last year.',
-      values: ['previous-licence'],
-      status: ''
+      values: ['previous-licence']
     },
     {
       index: '3',
       title: 'Event details',
       url: 'event-start-date',
       description: 'Confirm activites, dates and location for this application.',
-      values: ['event-start-day'],
-      status: ''
+      values: ['event-start-day', 'event-start-month', 'event-start-year', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
     },
     {
       index: '4',
       title: 'Applicant details',
       url: 'applicant-details',
       description: 'Supply contact information.',
-      values: ['applicant-name'],
-      status: ''
+      values: ['applicant-name', 'contact-method']
     },
     {
       index: '5',
       title: 'Complete application',
       url: 'check-your-answers',
       description: 'Check your application, agree to the terms and conditions, and pay the £21 fee.',
-      values: [],
-      status: ''
+      values: []
     }
   ]
 
+  // Determine the status for each section
   for (var i = 0; i < taskListItems.length; i++) {
     if (taskListItems[i].values) {
       var completed = false
@@ -71,6 +76,8 @@ router.get('/task-list', function (req, res) {
       }
     }
   }
+
+  // Render task-list page
   res.render('task-list', {items: taskListItems})
 })
 
