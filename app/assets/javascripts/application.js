@@ -34,21 +34,6 @@ $(document).ready(function () {
     window.history.back()
   })
 
-  // var $previousTask
-  // $('.task-list li').each(function () {
-  //   var previousCompleted = false
-  //   if ($previousTask) {
-  //     previousCompleted = $previousTask.find('.task-completed').length
-  //     var thisCompleted = $(this).find('.task-completed').length
-  //     if (!thisCompleted && !previousCompleted) {
-  //       $(this).find('.start-section').hide()
-  //       $(this).find('.task-unavailable').show()
-  //     } else {
-  //     }
-  //   }
-  //   $previousTask = $(this)
-  // })
-
   // Character Count component
   if ($('.js-character-counter').length) {
     var characterCount = new GOVUK.CharCount()
@@ -74,7 +59,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
-    window.loaderTime = loaderTime || 5
+    window.loaderTime = loaderTime || 5 // globaly defined in scripts.html
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
@@ -88,7 +73,7 @@ $(document).ready(function () {
         labelText: 'Finding address...'
       })
       $('#loader').focus()
-      setTimeout(function () { loadContent(loader) }, loaderTime * 1000)
+      setTimeout(function () { loadContent(loader) }, window.loaderTime * 1000)
 
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
@@ -105,7 +90,7 @@ $(document).ready(function () {
   function loadContent (loader) {
     loader.stop()
     $('.address-lookup-step2').show()
-    // $('#select-box').focus()
+    // $('#select-box').focus() // needed for AT
   }
   // Autocomplete component
   function suggest (query, syncResults) {
@@ -246,10 +231,35 @@ $(document).ready(function () {
       'Waltham Forest Council',
       'Wandsworth Council'
     ]
+    results.sort() // sort the councils alphabetically
+
+    var councilPostcodes = [
+      {council: 'Hammersmith and Fulham Council', postcodes: ['W6']},
+      {council: 'Rugby Borough Council', postcodes: ['CV21', 'CV22', 'CV23', 'CV225QQ']},
+      {council: 'Nuneaton and Bedworth Borough Council', postcodes: ['CV10', 'CV12']},
+      {council: 'Warwick District Council', postcodes: ['CV2']},
+      {council: 'Stratford-on-Avon District Council', postcodes: ['CV']},
+      {council: 'Warwickshire County Council', postcodes: ['CV']},
+      {council: 'North Warwickshire Borough Council', postcodes: ['SW1A2AA']},
+      {council: 'City of Westminster Council', postcodes: ['SW1A2AA']}
+    ]
+
     syncResults(query
       ? results.filter(function (result) {
-          return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
-        })
+        if (result.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+          return true
+        }
+        for (var council in councilPostcodes) {
+          if (councilPostcodes[council].council === result) {
+            var matches = councilPostcodes[council].postcodes.filter(function (postcode) {
+              // return query.toLowerCase().indexOf(postcode.toLowerCase()) !== -1
+              return postcode.toLowerCase().indexOf(query.toLowerCase().replace(' ', '')) !== -1
+            })
+            if (matches.length) return true
+          }
+        }
+        return false
+      })
       : []
     )
   }
