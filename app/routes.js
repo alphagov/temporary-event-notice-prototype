@@ -47,7 +47,7 @@ router.get('/task-list', function (req, res) {
     },
     {
       index: '5',
-      title: 'Complete application',
+      title: 'Confirm and pay',
       url: 'check-your-answers',
       description: 'Check your application, agree to the terms and conditions, and pay the £21 fee.',
       values: []

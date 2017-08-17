@@ -18,6 +18,7 @@
         Application overview
       </h1>
 
+      {# <p>A temporary event notice costs £21 and takes 10 days for your local council to process.</p> #}
       <div class="before-you-start">
         <h2 class="heading-medium">
           Before you start
@@ -48,7 +49,7 @@
                 {% if item.status == 'completed' %}
                 <strong class="task-completed">Completed</strong>
                 {% elif item.status == 'partly-completed' %}
-                <a class="button" href="{{ item.url }}" >Continue task</a>
+                <a class="button" href="{{ item.url }}" >Continue section</a>
                 {% elif item.index == 1 or item.status == 'actionable' %}
                 <a class="button" href="{{ item.url }}" >Start section</a>
                 {% else %}

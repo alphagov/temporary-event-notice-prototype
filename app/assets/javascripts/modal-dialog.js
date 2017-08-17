@@ -108,10 +108,10 @@
           var secondsLeft = parseInt(seconds % 60, 10)
           var timerExpired = minutesLeft < 1 && secondsLeft < 1
 
-          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + ' ' : ''
-          var secondsText = secondsLeft >= 1 ? secondsLeft + ' second' + (secondsLeft > 1 ? 's' : '') + ' ' : ''
+          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + '' : ''
+          var secondsText = secondsLeft >= 1 ? secondsLeft + ' second' + (secondsLeft > 1 ? 's' : '') + '' : ''
 
-          var text = 'You will be redirected in ' + minutesText + secondsText
+          var text = 'We will reset your application if you do not respond in ' + minutesText + secondsText + '. We do this to keep your information secure.'
 
           if (timerExpired) {
             $timer.text('You are about to be redirected')
