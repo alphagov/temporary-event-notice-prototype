@@ -269,6 +269,8 @@
   // Check if value changed on focus
   CharCount.prototype.handleFocus = function (event) {
     this.valueChecker = setInterval(CharCount.prototype.checkIfValueChanged, 100, this)
+    // The following line sets the height properly when the component is hidden at load time
+    this.countHighlight.style.height = this.countElement.getBoundingClientRect().height + 'px' // TODO: bind the resize handler
   }
 
   // Cancel valaue checking on blur
