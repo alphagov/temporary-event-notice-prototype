@@ -95,3 +95,8 @@ a.button-start {
   margin-left: -10px;
   margin-right: 10px;
 }
+
+// Calendar fix for font baseline issue
+.bpk-calendar-grid__week button{
+  line-height: 2.05;
+}
