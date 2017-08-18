@@ -87,3 +87,11 @@ a.button-start {
 .autocomplete-wrapper{
     width: 50%;
 }
+
+// Utility class for time (Hour:Minute) separator (e.g. 14:30)
+.form-group .form-group-separator{
+  width: auto;
+  padding-top: 35px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
