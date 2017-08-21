@@ -34,6 +34,7 @@
                   <span class="form-label-bold">End time</span>
                   <span class="form-hint">For example, 14 30</span>
                 </legend>
+                </legend>
                 <div class="form-date">
                   <div class="form-group form-group-hour">
                     <label for="event-duration-one-day-end-hour">Hour</label>
@@ -60,14 +61,33 @@
                   <span class="form-label-bold">End date</span>
                   <span class="form-hint">For example, 31 8 2017</span>
                 </legend>
-                <div class="form-control-3-4">
-                  <div id="date-picker"></div>
+                </legend>
+                <div class="form-date">
+                  <div class="form-group form-group-day">
+                    <label for="event-duration-two-days-end-day">Day</label>
+                    <input class="form-control" id="event-duration-two-days-end-day" name="event-duration-two-days-end-day" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['event-durationTwoDaysEndDay'] }}">
+                  </div>
+
+                  <div class="form-group form-group-month">
+                    <label for="event-duration-two-days-end-month">Month</label>
+                    <input class="form-control" id="event-duration-two-days-end-month" name="event-duration-two-days-end-month" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['event-durationTwoDaysEndMonth'] }}">
+                  </div>
+
+                  <div class="form-group form-group-year">
+                    <label for="event-duration-two-days-end-year">Year</label>
+                    <input class="form-control" id="event-duration-two-days-end-year" name="event-duration-two-days-end-year" type="number"
+                    data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" value="{{ data['event-durationTwoDaysEndYear'] }}">
+                  </div>
+
                 </div>
               </fieldset>
               <fieldset class="form-group">
                 <legend>
                   <span class="form-label-bold">End time</span>
                   <span class="form-hint">For example, 14:30</span>
+                </legend>
                 </legend>
                 <div class="form-date">
                   <div class="form-group form-group-hour">
