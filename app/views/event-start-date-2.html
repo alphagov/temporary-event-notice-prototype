@@ -33,7 +33,7 @@
 
         <fieldset class="form-group" data-required="Please provide start time">
           <legend>
-            <span class="form-label-bold">Event start time</span>
+            <span class="form-label-bold">What time?</span>
             <span class="form-hint">For example, 14:30</span>
           </legend>
           </legend>
@@ -42,6 +42,8 @@
               <label for="event-start-hour">Hour</label>
               <input class="form-control" id="event-start-hour" name="event-start-hour" type="number" data-non-numeric data-no-keys-nav data-max-length=2  datapattern="[0-9]*" min="0" max="24" value="{{ data['event-start-hour'] }}">
             </div>
+
+            <div class="form-group form-group-separator">:</div>
 
             <div class="form-group form-group-minute">
               <label for="event-start-minute">Minute</label>
