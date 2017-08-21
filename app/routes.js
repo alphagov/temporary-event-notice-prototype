@@ -36,7 +36,10 @@ router.get('/task-list', function (req, res) {
       title: 'Event details',
       url: 'event-start-date',
       description: 'Confirm activites, dates and location for this application.',
-      values: ['event-start-day', 'event-start-month', 'event-start-year', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
+      // old values, without date-picker
+      // values: ['event-start-day', 'event-start-month', 'event-start-year', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
+      // new values, with date-picker
+      values: ['datepicker_input', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
     },
     {
       index: '4',
