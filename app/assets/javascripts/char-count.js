@@ -124,6 +124,7 @@
           // CharCount.prototype.updateMessage.call(countElement)
           CharCount.prototype.updateCountMessage(countElementExtended)
           countElement.setAttribute('maxlength', '')
+          countElement.setAttribute('data-maxlength', maxLength)
         } else {
           if (!countMessage) window.console.warn('Make sure you set an id for each of your field(s)')
           if (!maxLength) window.console.warn('Make sure you set the ' + countAttribute + ' for each of your field(s)')

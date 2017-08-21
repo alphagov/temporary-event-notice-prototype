@@ -1,4 +1,7 @@
 // Character count //
+.backdrop-highlights.form-control-error{
+  border-width: 2px !important; // force this one as the validation overwrites it
+}
 textarea{
   overflow: auto;
 }

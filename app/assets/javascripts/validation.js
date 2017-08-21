@@ -37,7 +37,7 @@ function validateAll (reqFields) {
 function validateSingleField ($formGroup) {
   var type = findInputType($formGroup)
   if ((type === 'text' || type === 'textarea' || type === 'date') && $formGroup.find('input, textarea').val().length > 0) {
-    if ((type === 'textarea' && $formGroup.find('.js-character-counter') && $formGroup.find('.js-character-counter').val().length > 200)) {
+    if ((type === 'textarea' && $formGroup.find('.js-character-counter') && $formGroup.find('.js-character-counter').val().length > parseInt($formGroup.find('.js-character-counter').attr('data-maxlength')))) {
       return true
     } else {
       return false
