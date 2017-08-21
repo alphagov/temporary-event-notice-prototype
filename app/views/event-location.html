@@ -21,37 +21,11 @@
           <fieldset>
             <legend>
               <h1 class="heading-large">Where is the event being held?</h1>
-              <p class="body-text">Select all that apply:</p>
             </legend>
-            <!-- <br> -->
-            <div class="multiple-choice" data-target="">
-              <input id="event-location-1" name="event-location" type="checkbox" value="A private building" {{ checked('event-location','A private building') }}>
-              <label for="event-location-1">A private building</label>
-            </div>
-            <div class="multiple-choice">
-              <input id="event-location-2" name="event-location" type="checkbox" value="A private open space" {{ checked('event-location','A private open space') }}>
-              <label for="event-location-2">A private open space</label>
-            </div>
-            <div class="multiple-choice">
-              <input id="event-location-3" name="event-location" type="checkbox" value="A public building" {{ checked('event-location','A public building') }}>
-              <label for="event-location-3">A public building</label>
-            </div>
-            <div class="multiple-choice">
-              <input id="event-location-4" name="event-location" type="checkbox" value="A public open space" {{ checked('event-location','A public open space') }}>
-              <label for="event-location-4">A public open space</label>
-            </div>
-            <div class="multiple-choice" data-target="event-location-other-description">
-              <input id="event-location-5" name="event-location" type="checkbox" value="Other" {{ checked('event-location','Other') }}>
-              <label for="event-location-5">Other</label>
-            </div>
-            <div class="panel panel-border-narrow js-hidden" id="event-location-other-description">
-              <div class="form-control-3-4">
-              <label class="form-label" for="other-location-description">Describe the location</label>
+            <div class="form-control-3-4">
+              <label class="form-label form-label-bold" for="other-location-description">Describe the location</label>
               <textarea class="js-character-counter form-control" name="other-location-description" id="other-location-description" rows="2" maxlength="20">{{ data['other-location-description'] }}</textarea>
-              <!--input class="form-control" id="other-location-description" type="text" name="other-location-description" value="{{ data['other-location-description'] }}"-->
-              </div>
             </div>
-
           </fieldset>
         </div>
         <div class="form-group">
