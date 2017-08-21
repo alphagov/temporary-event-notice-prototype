@@ -39,7 +39,7 @@ router.get('/task-list', function (req, res) {
       // old values, without date-picker
       // values: ['event-start-day', 'event-start-month', 'event-start-year', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
       // new values, with date-picker
-      values: ['datepicker_input', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
+      values: ['datepicker_input', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'other-location-description']
     },
     {
       index: '4',
