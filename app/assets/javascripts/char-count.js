@@ -249,8 +249,8 @@
       charNoun = 'word'
     }
     charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's')
-    charVerb = (remainingNumber < 0)?'too many':'remaining'
 
+    charVerb = (remainingNumber < 0) ? 'too many' : 'remaining'
     displayNumber = Math.abs(remainingNumber) // postive count of numbers
 
     countMessage.innerHTML = 'You have ' + displayNumber + ' ' + charNoun + ' ' + charVerb
