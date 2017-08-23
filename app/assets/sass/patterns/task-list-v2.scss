@@ -19,17 +19,40 @@
   color: #6f777b;
   border: 3px solid #6f777b;
 }
-.task-list-section-details{
-  padding-left: 35px;
+.task-list-section-details {
+
+  @include media(desktop) {
+      padding-left: 35px;
+  }
+
+  @include media(mobile, tablet) {
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 .task-list-section-actions{
-  margin-left: 35px;
   border-bottom: 1px solid #bfc1c3;
   padding-bottom: 30px;
   margin-bottom: 25px;
+
+  @include media(desktop) {
+    margin-left: 35px;
+  }
+
+  @include media(mobile, tablet) {
+
+    .button, strong {
+      display: inline-block;
+      margin-top: 20px;
+    }
+  }
 }
-.change-answer{
-  float: right;
+.change-answer {
+
+  @include media(desktop) {
+    float: right;
+  }
 }
 .before-you-start{
   border-bottom: 1px solid #bfc1c3;
