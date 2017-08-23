@@ -23,7 +23,7 @@
             <label class="form-label-bold" for="modalIdleTime">Modal dialog idle time (minutes)</label>
             <span class="form-hint">How many minutes until we display the modal</span>
           </legend>
-          <input class="form-control form-control-1-8" id="modalIdleTime" name="modalIdleTime" type="text" value="{{ data['modalIdleTime'] or '2' }}">
+          <input class="form-control form-control-1-8" id="modalIdleTime" name="modalIdleTime" type="text" value="{{ data['modalIdleTime'] or '1' }}">
         </div>
 
         <div class="form-group">
@@ -31,7 +31,7 @@
             <label class="form-label-bold" for="modalVisibleTime">Modal dialog visible time (minutes)</label>
             <span class="form-hint">How many minutes we keep the modal displayed</span>
           </legend>
-          <input class="form-control form-control-1-8" id="modalVisibleTime" name="modalVisibleTime" type="text" value="{{ data['modalVisibleTime'] or '2' }}">
+          <input class="form-control form-control-1-8" id="modalVisibleTime" name="modalVisibleTime" type="text" value="{{ data['modalVisibleTime'] or '1' }}">
         </div>
 
         <div class="form-group">

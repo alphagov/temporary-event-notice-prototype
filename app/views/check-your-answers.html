@@ -86,9 +86,9 @@ Check your answers
             Event start date
           </dt>
           <dd class="cya-answer">
-              {{ data['event-start-day'] }}
+              <!-- {{ data['event-start-day'] }}
               {{ getMonthWord(data['event-start-month']) }}
-              {{ data['event-start-year'] }}
+              {{ data['event-start-year'] }} -->
               {{ data['datepicker_input'] }}
           </dd>
           <dd class="cya-change">
@@ -116,9 +116,28 @@ Check your answers
               Event end date
             </dt>
             <dd class="cya-answer">
-                {{ data['event-duration-two-days-end-day'] }}
+                <!-- {{ data['event-duration-two-days-end-day'] }}
                 {{ getMonthWord(data['event-duration-two-days-end-month']) }}
-                {{ data['event-duration-two-days-end-year'] }}
+                {{ data['event-duration-two-days-end-year'] }} -->
+
+                {{ data['datepickerend_input'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="event-duration?next=check-your-answers">
+                Change<span class="visually-hidden"> event start date</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="cya-question">
+              Event end time
+            </dt>
+            <dd class="cya-answer">
+              {% if data['event-duration'] == 'one' %}
+                {{ data['event-duration-one-day-end-hour'] }}:{{ data['event-duration-one-day-end-minute'] }}
+              {% elseif data['event-duration'] == 'two-to-seven' %}
+                {{ data['event-duration-two-days-end-hour'] }}:{{ data['event-duration-two-days-end-minute'] }}
+              {% endif %}
             </dd>
             <dd class="cya-change">
               <a href="event-duration?next=check-your-answers">
@@ -127,23 +146,6 @@ Check your answers
             </dd>
           </div>
         {% endif %}
-        <div>
-          <dt class="cya-question">
-            Event end time
-          </dt>
-          <dd class="cya-answer">
-            {% if data['event-duration'] == 'one' %}
-              {{ data['event-duration-one-day-end-hour'] }}:{{ data['event-duration-one-day-end-minute'] }}
-            {% elseif data['event-duration'] == 'two-to-seven' %}
-              {{ data['event-duration-two-days-end-hour'] }}:{{ data['event-duration-two-days-end-minute'] }}
-            {% endif %}
-          </dd>
-          <dd class="cya-change">
-            <a href="event-duration?next=check-your-answers">
-              Change<span class="visually-hidden"> event start date</span>
-            </a>
-          </dd>
-        </div>
         <div>
           <dt class="cya-question">
             Event duration
