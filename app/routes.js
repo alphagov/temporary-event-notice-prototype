@@ -126,6 +126,17 @@ router.get('/previous-event-description', function (req, res) {
   }
 })
 
+router.get('/event-description', function (req, res) {
+  // get the answer from the query string
+  var duration = req.session.data['event-duration']
+
+  if (duration === 'over-seven-days') {
+    res.redirect('ineligible')
+  } else {
+    res.render('event-description')
+  }
+})
+
 router.get('/timeout', function (req, res) {
   req.session.destroy()
   res.render('timeout')
