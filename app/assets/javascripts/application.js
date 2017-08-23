@@ -246,7 +246,7 @@ $(document).ready(function () {
       {council: 'Warwick District Council', postcodes: ['CV2']},
       {council: 'Stratford-on-Avon District Council', postcodes: ['CV']},
       {council: 'Warwickshire County Council', postcodes: ['CV']},
-      {council: 'North Warwickshire Borough Council', postcodes: ['SW1A2AA']},
+      {council: 'North Warwickshire Borough Council', postcodes: ['CV']},
       {council: 'City of Westminster Council', postcodes: ['SW1A2AA']}
     ]
 
