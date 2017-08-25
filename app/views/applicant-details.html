@@ -23,7 +23,7 @@
       <form class="form" action="contact-details" method="POST" novalidate>
         <div class="form-group" data-required="Please provide your name">
           <label class="form-label form-label-bold" for="applicant-name">Full name</label>
-          <input class="form-control" id="applicant-name" type="text" name="applicant-name" value="{{ data['applicant-name'] }}">
+          <input class="form-control" id="applicant-name" type="text" name="applicant-name" value="{{ data['applicant-name'] }}" autocomplete="off">
         </div>
 
         <fieldset class="form-group" data-required="Please provide your date of birth">
@@ -35,19 +35,19 @@
             <div class="form-group form-group-day">
               <label for="applicant-dob-day">Day</label>
               <input class="form-control" id="applicant-dob-day" name="applicant-dob-day" type="number" data-focus-next-id="applicant-dob-month"
-              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['applicant-dob-day'] }}">
+              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="31" value="{{ data['applicant-dob-day'] }}" autocomplete="off">
             </div>
 
             <div class="form-group form-group-month">
               <label for="applicant-dob-month">Month</label>
               <input class="form-control" id="applicant-dob-month" name="applicant-dob-month" type="number" data-focus-next-id="applicant-dob-year"
-              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['applicant-dob-month'] }}">
+              data-non-numeric data-no-keys-nav data-max-length=2 pattern="[0-9]*" min="0" max="12" value="{{ data['applicant-dob-month'] }}" autocomplete="off">
             </div>
 
             <div class="form-group form-group-year">
               <label for="applicant-dob-year">Year</label>
               <input class="form-control" id="applicant-dob-year" name="applicant-dob-year" type="number"
-              data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" max="2014" value="{{ data['applicant-dob-year'] }}">
+              data-non-numeric data-no-keys-nav data-max-length=4 pattern="[0-9]*" min="0" max="2014" value="{{ data['applicant-dob-year'] }}" autocomplete="off">
             </div>
 
           </div>
