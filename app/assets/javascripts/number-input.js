@@ -11,6 +11,7 @@
     $suppressNonNumeric: $('[data-non-numeric]'),
     $suppressKeysNav: $('[data-no-keys-nav]'),
     $enforceMaxLength: $('[data-max-length]'),
+    $focusNext: $('[data-focus-next-id]'),
 
     bindUIEvents: function () {
       // Suppress non-numeric characters
@@ -33,6 +34,14 @@
         var e = event || window.event
         GOVUK.numberInput.checkIfMaxLengthExceeded($input, e)
       })
+
+      // Move focus to next field when max length reached
+      GOVUK.numberInput.$focusNext.on('keyup input', function (event) {
+        var $input = $(this)
+        var e = event || window.event
+
+        GOVUK.numberInput.moveFocusToNextField($input, e)
+      })
     },
     removeNonNumeric: function ($el, e) {
       var numbers = []
@@ -52,6 +61,22 @@
         e.preventDefault()
       }
     },
+    moveFocusToNextField: function ($el, e) {
+      var maxLength = $el.data('max-length')
+
+      if (maxLength) {
+        var value = $el.val() // This will be an issue with Dragon
+
+        if (maxLength !== undefined && maxLength > 0 && value && value.length === maxLength) { // When max length reached
+          var focusNext = $el.data('focus-next-id')
+          var $focusNextItem = $('#' + focusNext)
+
+          if ($focusNextItem.length) {
+            $focusNextItem.focus()
+          }
+        }
+      }
+    },
     checkIfMaxLengthExceeded: function ($el, e) {
       var maxLength = $el.data('max-length')
 
@@ -65,6 +90,8 @@
           return
         }
 
+        //check if max length reached
+
         if (maxLength !== undefined && maxLength > 0 && value && value.length >= maxLength) {
           isAllowed = false
         }
@@ -73,7 +100,7 @@
           if (e === key) {
             allowableKey = true
           }
-        })        
+        })
 
         // I am leaving this commented out for now as it needs more testing
         // It fixes the following bug:
