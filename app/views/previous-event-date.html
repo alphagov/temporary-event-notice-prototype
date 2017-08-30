@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Event start date
+{% endblock %}
+
+{% block after_header %}
+  {% include "includes/timeout_modal.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="#back">Back</a>
+
+      <h1 class="heading-large">
+         Previous event date
+      </h1>
+
+      <form class="form" action="event-duration" method="POST" novalidate>
+        <fieldset class="form-group" data-required="Please provide event start date">
+          <legend>
+            <span class="form-label-bold">When did your previous event start?</span>
+            <!-- <span class="form-hint">For example, 31 8 2017</span> -->
+          </legend>
+          <div class="form-control-3-4">
+            <div id="date-picker-past"></div>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
