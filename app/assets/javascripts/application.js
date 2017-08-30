@@ -277,7 +277,8 @@ $(document).ready(function () {
       id: id,
       source: suggest,
       name: 'local-council',
-      defaultValue: $(element).attr('data-default-value')
+      defaultValue: $(element).attr('data-default-value'),
+      autoselect: true
     }),
     element
   )
