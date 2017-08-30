@@ -1,6 +1,6 @@
 .modal-dialog {
 
-  // Don't display warning if user doesn't have js. Can be overriden with .modal-dialog--no-js-persistent
+  // Don't display modal if user doesn't have js. Can be overriden with .modal-dialog--no-js-persistent
   display: none;
 
   &--no-js-persistent {
@@ -49,6 +49,14 @@
 
     &__button {
       font-size: 19px;
+
+      &--secondary { //For save button
+        margin: 20px 0 0 0;
+
+        @include media(tablet) {
+          margin: 0 0 0 10px;
+        }
+      }
     }
 
     &__link {
@@ -70,6 +78,12 @@
         transform: translateY(-50%);
         padding: 0;
         margin: 0 0 0 30px;
+
+        //For save button
+        position: relative;
+        margin: 30px 0 0 0;
+        display: block;
+        //
       }
 
       &:hover {
