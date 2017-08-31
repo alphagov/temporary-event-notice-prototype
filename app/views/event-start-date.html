@@ -62,4 +62,18 @@
   </div>
 </main>
 
+<!-- Comment out below to disable hiding of arrows on date picker
+To do: move to prototype-admin -->
+<div id="remove-arrows-from-datepicker"></div>
+
+<style>
+.datepicker-no-arrows div[class^='bpk-calendar-nav__nudger'] button, .datepicker-no-arrows div[class*=' bpk-calendar-nav__nudger'] button {
+    pointer-events: none;
+    cursor: default;
+}
+.datepicker-no-arrows div[class^='bpk-calendar-nav__nudger'] button svg, .datepicker-no-arrows div[class*=' bpk-calendar-nav__nudger'] button svg {
+  fill: #fff!important;
+}
+</style>
+
 {% endblock %}
