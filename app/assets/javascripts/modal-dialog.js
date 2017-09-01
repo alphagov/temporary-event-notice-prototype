@@ -26,6 +26,7 @@
         GOVUK.modalDialog.openDialog()
         return false
       })
+
       GOVUK.modalDialog.$closeButton.on('click', function (e) {
         e.preventDefault()
         GOVUK.modalDialog.closeDialog()
@@ -51,16 +52,9 @@
         }
 
         if (window.history.pushState) {
-          window.history.pushState('', '') // This updates the History API to enable state to be "popped"
+          window.history.pushState('', '') // This updates the History API to enable state to be "popped" to detect browser navigation for disableBackButtonWhenOpen
         }
       }
-    },
-    disableBackButtonWhenOpen: function () {
-      window.addEventListener('popstate', function (e) {
-        if (GOVUK.modalDialog.isDialogOpen()) {
-          window.location.reload()
-        }
-      })
     },
     closeDialog: function () {
       if (GOVUK.modalDialog.isDialogOpen()) {
@@ -73,6 +67,13 @@
           GOVUK.modalDialog.clearTimers()
         }
       }
+    },
+    disableBackButtonWhenOpen: function () {
+      window.addEventListener('popstate', function (e) {
+        if (GOVUK.modalDialog.isDialogOpen()) {
+          window.location.reload()
+        }
+      })
     },
     saveLastFocusedEl: function () {
       GOVUK.modalDialog.$lastFocusedEl = document.activeElement
@@ -189,6 +190,7 @@
         window.onclick = resetTimer     // Catches touchpad clicks
         window.onscroll = resetTimer    // Catches scrolling with arrow keys
         window.onkeypress = resetTimer
+        window.onkeyup = resetTimer // Catches Android keypad presses
       }
 
       function resetTimer () {
