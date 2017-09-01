@@ -2,7 +2,9 @@
 .task-completed{
   float: none;
   clear: both;
-  border: 3px solid #005ea5;
+  background-color: inherit;
+  color: $govuk-blue;
+  border: 3px solid $govuk-blue;
 }
 .task-unavailable{
   margin: 0 8px 0 0;
