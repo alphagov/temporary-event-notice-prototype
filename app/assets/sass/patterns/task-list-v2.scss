@@ -52,8 +52,7 @@
   }
 }
 .change-answer {
-
-  @include media(desktop) {
+  @include media(tablet, desktop) {
     float: right;
   }
 }
