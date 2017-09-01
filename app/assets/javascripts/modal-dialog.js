@@ -30,6 +30,8 @@
         e.preventDefault()
         GOVUK.modalDialog.closeDialog()
       })
+
+      GOVUK.modalDialog.disableBackButtonWhenOpen()
     },
     isDialogOpen: function () {
       return GOVUK.modalDialog.el['open']
@@ -47,7 +49,18 @@
         if (GOVUK.modalDialog.isTimerSet()) {
           GOVUK.modalDialog.startTimer()
         }
+
+        if (window.history.pushState) {
+          window.history.pushState('', '') // This updates the History API to enable state to be "popped"
+        }
       }
+    },
+    disableBackButtonWhenOpen: function () {
+      window.addEventListener('popstate', function (e) {
+        if (GOVUK.modalDialog.isDialogOpen()) {
+          window.location.reload()
+        }
+      })
     },
     closeDialog: function () {
       if (GOVUK.modalDialog.isDialogOpen()) {
