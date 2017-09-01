@@ -85,7 +85,10 @@ a.button-start {
 
 // Autocomplete
 .autocomplete-wrapper{
+
+  @include media(tablet) {
     width: 50%;
+  }
 }
 
 // Utility class for time (Hour:Minute) separator (e.g. 14:30)
