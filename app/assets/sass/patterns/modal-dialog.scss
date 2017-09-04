@@ -24,13 +24,20 @@
   }
 
   &[open] {
-    position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
     max-height: 90vh; //Don't make the dialog quite the viewport height
     padding: 0;
     margin-bottom: 0;
     margin-top: 0;
+
+    // From https://github.com/GoogleChrome/dialog-polyfill to vertically center dialog
+    position: fixed;
+    top: 50% !important;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
     @include media(tablet) {
       padding: 0;
     }
@@ -96,7 +103,6 @@
 $dialog_backdrop_colour: rgba(0,0,0,0.8);
 $dialog_border: 5px solid black;
 dialog {
-  position: absolute;
   left: 0; right: 0;
   width: -moz-fit-content;
   width: -webkit-fit-content;
@@ -120,7 +126,6 @@ dialog {
 
   &[open] {
     display: block;
-    position: absolute;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 15px;
@@ -129,10 +134,6 @@ dialog {
       padding: 30px;
       margin: 30px auto;
       max-width: 500px;
-    }
-
-    .js-enabled & {
-      position: absolute;
     }
 
     // Backdrop styles for browsers using polyfil
