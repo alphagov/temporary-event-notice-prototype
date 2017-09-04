@@ -49,6 +49,15 @@ $(document).ready(function () {
     })
   }
 
+  // Character Count component
+  if ($('.js-character-counter2').length) {
+    var characterCount2 = new GOVUK.CharCount()
+    characterCount2.init({
+      selector: 'js-character-counter2',
+      highlight: true
+    })
+  }
+
   // Add timeout modal
   // Set options in views/includes/timeout_modal.html
   GOVUK.modalDialog.init()
