@@ -11,6 +11,7 @@
     $lastFocusedEl: null,
     $openButton: $('#openModal'),
     $closeButton: $('.modal-dialog .js-dialog-close'),
+    $cancelButton: $('.modal-dialog .js-dialog-cancel'),
     dialogIsOpenClass: 'dialog-is-open',
     timers: [],
     // Timer specific markup. If these are not present, timeout and redirection are disabled
@@ -30,6 +31,10 @@
       GOVUK.modalDialog.$closeButton.on('click', function (e) {
         e.preventDefault()
         GOVUK.modalDialog.closeDialog()
+      })
+
+      GOVUK.modalDialog.$cancelButton.on('click', function (e) {
+        e.preventDefault()
       })
 
       //GOVUK.modalDialog.disableBackButtonWhenOpen()
