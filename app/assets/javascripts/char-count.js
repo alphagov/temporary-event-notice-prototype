@@ -87,6 +87,7 @@
           // countHighlight.style.height = CharCount.prototype.getHeight(countElement) + 'px'
           // countHighlight.style.height = countElement.getBoundingClientRect().height + 'px'
           countHighlight.style.height = countElement.offsetHeight + 'px'
+          countHighlight.style.width = countElement.offsetWidth + 'px'
 
           // We have to disable resize on highlighted components to avoid the async scroll and boundaries
           countElement.style.resize = 'none'
@@ -234,9 +235,11 @@
       // Update styles
       if (remainingNumber < 0) {
         countElement.classList.add('form-control-error')
+        countElement.parentNode.classList.add('form-control-wrapper-error')
         countMessage.classList.add('error-message')
       } else {
         countElement.classList.remove('form-control-error')
+        countElement.parentNode.classList.remove('form-control-wrapper-error')
         countMessage.classList.remove('error-message')
       }
     }
@@ -272,6 +275,7 @@
     this.valueChecker = setInterval(CharCount.prototype.checkIfValueChanged, 100, this)
     // The following line sets the height properly when the component is hidden at load time
     this.countHighlight.style.height = this.countElement.getBoundingClientRect().height + 'px' // TODO: bind the resize handler
+    this.countHighlight.style.width = this.countElement.getBoundingClientRect().width + 'px' // TODO: bind the resize handler
   }
 
   // Cancel valaue checking on blur
@@ -288,6 +292,7 @@
   // Update element's height after window resize
   CharCount.prototype.handleResize = function (event) {
     this.countHighlight.style.height = this.countElement.getBoundingClientRect().height + 'px'
+    this.countHighlight.style.width = this.countElement.getBoundingClientRect().width + 'px'
   }
 
   // Initialize component
