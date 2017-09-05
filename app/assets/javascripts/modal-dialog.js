@@ -69,9 +69,11 @@
       }
     },
     disableBackButtonWhenOpen: function () {
-      window.addEventListener('popstate', function (e) {
+      window.addEventListener('popstate', function () {
         if (GOVUK.modalDialog.isDialogOpen()) {
-          window.location.reload()
+          GOVUK.modalDialog.closeDialog()
+        } else {
+          window.history.go(-1)
         }
       })
     },
