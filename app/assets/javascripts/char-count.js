@@ -235,11 +235,15 @@
       // Update styles
       if (remainingNumber < 0) {
         countElement.classList.add('form-control-error')
-        countElement.parentNode.classList.add('form-control-wrapper-error')
+        if (options && options.validation) {
+          countElement.parentNode.classList.add('form-control-wrapper-error')
+        }
         countMessage.classList.add('error-message')
       } else {
         countElement.classList.remove('form-control-error')
-        countElement.parentNode.classList.remove('form-control-wrapper-error')
+        if (options && options.validation) {
+          countElement.parentNode.classList.remove('form-control-wrapper-error')
+        }
         countMessage.classList.remove('error-message')
       }
     }
