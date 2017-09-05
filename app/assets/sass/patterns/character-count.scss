@@ -29,6 +29,12 @@ textarea{
   width: 100%;
   padding: 0;
   margin: 0;
+  border-left: 5px solid transparent;
+  padding-left: 15px;
+  margin-left: -20px;
+}
+.form-control-wrapper-error{
+  border-color: $error-colour;
 }
 .backdrop-highlights-input,.backdrop-highlights{
   z-index: 1;
