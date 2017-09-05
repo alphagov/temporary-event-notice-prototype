@@ -46,7 +46,7 @@
                  </label>
                  <div class="currency-input__inner">
                    <span class="currency-input__inner__unit">£</span>
-                   <input class="form-control form-control-1-4" name="tickets-cost" data-non-numeric type="text" id="tickets-cost" {{ checked('tickets-cost','yes') }}>
+                   <input class="form-control form-control-1-4" name="tickets-cost" data-non-numeric type="text" id="tickets-cost" pattern="[0-9]*" {{ checked('tickets-cost','yes') }}>
                  </div>
                </div>
              </div>
