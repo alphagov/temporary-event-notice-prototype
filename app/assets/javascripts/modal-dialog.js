@@ -32,7 +32,7 @@
         GOVUK.modalDialog.closeDialog()
       })
 
-      GOVUK.modalDialog.disableBackButtonWhenOpen()
+      //GOVUK.modalDialog.disableBackButtonWhenOpen()
     },
     isDialogOpen: function () {
       return GOVUK.modalDialog.el['open']
@@ -51,9 +51,9 @@
           GOVUK.modalDialog.startTimer()
         }
 
-        if (window.history.pushState) {
-          window.history.pushState('', '') // This updates the History API to enable state to be "popped" to detect browser navigation for disableBackButtonWhenOpen
-        }
+        // if (window.history.pushState) {
+        //   window.history.pushState('', '') // This updates the History API to enable state to be "popped" to detect browser navigation for disableBackButtonWhenOpen
+        // }
       }
     },
     closeDialog: function () {
