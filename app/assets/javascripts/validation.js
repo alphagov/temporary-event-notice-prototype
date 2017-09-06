@@ -17,7 +17,7 @@ $(document).on('submit', 'form', function (e) {
 function clearAllErrors (reqFields) {
   $(reqFields).each(function () {
     $(this).removeClass('form-group-error')
-    $(this).find('.error-message').remove()
+    // $(this).find('.error-message').remove()
     $(this).find('.form-control-error').removeClass('form-control-error')
   })
 }
