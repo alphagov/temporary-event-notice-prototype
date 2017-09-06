@@ -45,7 +45,8 @@ $(document).ready(function () {
     var characterCount = new GOVUK.CharCount()
     characterCount.init({
       selector: 'js-character-counter',
-      highlight: true
+      highlight: true,
+      validation: true
     })
   }
 
@@ -54,7 +55,8 @@ $(document).ready(function () {
     var characterCount2 = new GOVUK.CharCount()
     characterCount2.init({
       selector: 'js-character-counter2',
-      highlight: true
+      highlight: true,
+      validation: true
     })
   }
 
