@@ -36,8 +36,9 @@ $(document).ready(function () {
   })
 
   // Go to the previous page
-  $('.link-back').on('click', function () {
-    window.history.back()
+  $('.link-back').on('click', function (event) {
+    window.history.go(-1)
+    event.preventDefault()
   })
 
   // Character Count component
@@ -76,7 +77,7 @@ $(document).ready(function () {
 
   // Mock address lookup
   if ($('#mock-address-lookup').length) {
-    window.loaderTime = loaderTime || 5 // globaly defined in scripts.html
+    // window.loaderTime = loaderTime || 5 // globaly defined in scripts.html
     $('.address-lookup-step2').hide()
     $('#mock-address-lookup .js-launch-lookup').on('click', function (e) {
       e.preventDefault()
@@ -90,11 +91,12 @@ $(document).ready(function () {
         labelText: 'Finding address...'
       })
       $('#loader').focus()
-      setTimeout(function () { loadContent(loader) }, window.loaderTime * 1000)
+      setTimeout(function () { loadContent(loader) }, 5 * 1000)
 
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
       $('.address-lookup-step2 .postcode').html(postcode)
+      return false
     })
     $('.change-postcode').on('click', function (e) {
       e.preventDefault()
