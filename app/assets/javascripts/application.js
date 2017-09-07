@@ -111,6 +111,7 @@ $(document).ready(function () {
     $('.address-lookup-step2').show()
     // $('#select-box').focus() // needed for AT
   }
+
   // Autocomplete component
   function suggest (query, syncResults) {
     // List of local authorities from https://local-authority-eng.register.gov.uk/records
@@ -252,6 +253,7 @@ $(document).ready(function () {
     ]
     results.sort() // sort the councils alphabetically
 
+    // add postcodes to councils
     var councilPostcodes = [
       {council: 'Hammersmith and Fulham Council', postcodes: ['W6']},
       {council: 'Rugby Borough Council', postcodes: ['CV21', 'CV22', 'CV23', 'CV225QQ']},
