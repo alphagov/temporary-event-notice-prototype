@@ -59,7 +59,7 @@ function sortErrorMessages (invalidFields) {
     var linkID = getLinkID($formGroup)
     var label = getLabelText($formGroup, type)
 
-    errorMessages.push({ linkID, label, message: errorMessage })
+    errorMessages.push({ linkID: linkID, label: label, message: errorMessage })
 
     addErrorClass($formGroup, type)
     appendLabelErrorMessage($formGroup, type, errorMessage)
