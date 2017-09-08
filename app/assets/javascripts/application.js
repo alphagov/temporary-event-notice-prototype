@@ -90,7 +90,8 @@ $(document).ready(function () {
         label: true,
         labelText: 'Finding address...'
       })
-      $('#loader').focus()
+      //$('#loader').focus()
+      setTimeout(function () { $('#loader').focus() }, 2 * 1000)
       setTimeout(function () { loadContent(loader) }, 5 * 1000)
 
       // Copy the postcode and place it into a span on the second step
