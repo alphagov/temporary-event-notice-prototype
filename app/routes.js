@@ -21,6 +21,7 @@ router.get('/task-list', function (req, res) {
       index: '1',
       title: 'Local council',
       url: 'local-council',
+      id: 'local-council',
       description: 'Find the council you need to apply to',
       values: ['local-council']
     },
@@ -28,6 +29,7 @@ router.get('/task-list', function (req, res) {
       index: '2',
       title: 'Previous event details',
       url: 'previous-events',
+      id: 'previous-events',
       description: 'Provide details of any events you’ve held in the last year.',
       values: ['previous-licence']
     },
@@ -35,16 +37,18 @@ router.get('/task-list', function (req, res) {
       index: '3',
       title: 'Event details',
       url: 'event-start-date',
+      id: 'event-details',
       description: 'Confirm activites, dates and location for this application.',
       // old values, without date-picker
       // values: ['event-start-day', 'event-start-month', 'event-start-year', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'event-location']
       // new values, with date-picker
-      values: ['datepicker_input', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'other-location-description']
+      values: ['event-start-date', 'event-start-hour', 'event-start-minute', 'event-duration', 'event-description', 'event-selling-tickets', 'event-postcode', 'other-location-description']
     },
     {
       index: '4',
       title: 'Applicant details',
       url: 'applicant-details',
+      id: 'applicant-details',
       description: 'Supply contact information.',
       values: ['applicant-name', 'contact-method']
     },
@@ -52,6 +56,7 @@ router.get('/task-list', function (req, res) {
       index: '5',
       title: 'Confirm and pay',
       url: 'check-your-answers',
+      id: 'check-your-answers',
       description: 'Check your application, agree to the terms and conditions, and pay the £21 fee.',
       values: []
     }
@@ -119,7 +124,7 @@ router.get('/previous-event-description', function (req, res) {
   var previousLicence = req.session.data['previous-licence']
   if (previousLicence == 'no') { // use == for checkboxes
     // redirect to the relevant page
-    res.redirect('task-list#event-start-date')
+    res.redirect('task-list#event-details')
   } else {
     // render the page requested
     res.render('previous-event-description')
