@@ -90,7 +90,8 @@ $(document).ready(function () {
         label: true,
         labelText: 'Finding address...'
       })
-      $('#loader').focus()
+      //$('#loader').focus()
+      setTimeout(function () { $('#loader').focus() }, 2 * 1000)
       setTimeout(function () { loadContent(loader) }, 5 * 1000)
 
       // Copy the postcode and place it into a span on the second step
@@ -111,6 +112,7 @@ $(document).ready(function () {
     $('.address-lookup-step2').show()
     // $('#select-box').focus() // needed for AT
   }
+
   // Autocomplete component
   function suggest (query, syncResults) {
     // List of local authorities from https://local-authority-eng.register.gov.uk/records
@@ -252,6 +254,7 @@ $(document).ready(function () {
     ]
     results.sort() // sort the councils alphabetically
 
+    // add postcodes to councils
     var councilPostcodes = [
       {council: 'Hammersmith and Fulham Council', postcodes: ['W6']},
       {council: 'Rugby Borough Council', postcodes: ['CV21', 'CV22', 'CV23', 'CV225QQ']},
