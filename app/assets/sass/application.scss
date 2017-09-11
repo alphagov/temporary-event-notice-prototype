@@ -28,6 +28,22 @@ a.button-start {
   }
 }
 
+.link-back {
+  background: none;
+  border: none;
+
+  &:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid $black;
+
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .card-images .accepted-image {
 
   @include media(mobile, tablet) {
