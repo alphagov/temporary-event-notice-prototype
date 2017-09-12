@@ -90,9 +90,9 @@ $(document).ready(function () {
         label: true,
         labelText: 'Finding address...'
       })
-      //$('#loader').focus()
-      setTimeout(function () { $('#loader').focus() }, 2 * 1000)
-      setTimeout(function () { loadContent(loader) }, 5 * 1000)
+      $('#loader').focus()
+      // setTimeout(function () { $('#loader').focus() }, 2 * 1000)
+      setTimeout(function () { loadContent(loader) }, 7 * 1000)
 
       // Copy the postcode and place it into a span on the second step
       var postcode = $('.address-lookup-step1 input').val()
@@ -108,9 +108,10 @@ $(document).ready(function () {
 
   // Loader component
   function loadContent (loader) {
+    loader.updateMessage('5 addresses found')
     loader.stop()
     $('.address-lookup-step2').show()
-    // $('#select-box').focus() // needed for AT
+    // $('#event-address').focus() // needed for AT
   }
 
   // Autocomplete component
