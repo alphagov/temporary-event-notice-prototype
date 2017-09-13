@@ -1,13 +1,13 @@
-<dialog id="js-modal-dialog" data-minutes-idle-timeout="{{ data['modalIdleTime'] or '1'}}" data-minutes-modal-visible="{{ data['modalVisibleTime'] or '2'}}" data-url-redirect="/timeout" class="modal-dialog dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="at-timer dialog-help" aria-live="polite">
+<dialog id="js-modal-dialog" data-minutes-idle-timeout="{{ data['modalIdleTime'] or '1'}}" data-minutes-modal-visible="{{ data['modalVisibleTime'] or '2'}}" data-url-redirect="/timeout" class="modal-dialog dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="at-timer" aria-live="polite">
   <div class="modal-dialog__inner">
 	  <h1 id="dialog-title" class="heading-large"><span class="visually-hidden">Alert:</span>Your application will time&nbsp;out soon</h1>
     <div class="modal-dialog__inner__text">
       <div class="timer" aria-hidden="true"></div>
       <div class="at-timer visually-hidden" role="status" aria-live="polite"></div>
-      <p id="dialog-help" class="visually-hidden">
+      <!-- <p id="dialog-help" class="visually-hidden">
         Useful additional information: you have not left the current page.
         If you close this modal, you will be able to continue with your current application.
-      </p>
+      </p> -->
     </div>
     <div class="modal-dialog__inner__block">
       <button class="button dialog-button modal-dialog__inner__button js-dialog-close js-dialog-first-tabbable">Continue application</button>
