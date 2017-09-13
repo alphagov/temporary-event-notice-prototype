@@ -24,9 +24,6 @@
 
     bindUIElements: function () {
 
-            setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
-
-            
       GOVUK.modalDialog.$openButton.on('click', function (e) {
         GOVUK.modalDialog.openDialog()
         return false
