@@ -300,6 +300,14 @@ $(document).ready(function () {
     element
   )
 
+  // accessibleAutocomplete.enhanceSelectElement({
+  //   selectElement: document.querySelector('#local-council-autocomplete'),
+  //   source: suggest,
+  //   name: 'local-council',
+  //   defaultValue: $(element).attr('data-default-value'),
+  //   autoselect: true
+  // })
+
   // If passed query string is present in URL, returns its value
   function getQueryStringByName (name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search)
