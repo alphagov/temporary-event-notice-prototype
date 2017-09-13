@@ -24,6 +24,8 @@
 
     bindUIElements: function () {
 
+      setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
+
       GOVUK.modalDialog.$openButton.on('click', function (e) {
         GOVUK.modalDialog.openDialog()
         return false
@@ -147,14 +149,8 @@
                // If less than 20 seconds left, make aria-live assertive and update content every 5 secs
               if (secondsLeft < 20) {
                 $accessibleTimer.attr('aria-live', 'assertive')
-
-                if (secondsLeft % 5 === 0) {
-                  $accessibleTimer.text(text)
-                }
-              } else if (secondsLeft % 20 === 0) {
-                // If less than 1 minute left, update screen reader friendly content every 20 secs
-                $accessibleTimer.text(text)
               }
+
             } else if (secondsLeft % 60 === 0) {
               $timer.text(text)
             }
