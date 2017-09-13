@@ -23,8 +23,10 @@
     minutesTimeOutModalVisible: $('#js-modal-dialog').data('minutes-modal-visible'),
 
     bindUIElements: function () {
-      setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
 
+            setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
+
+            
       GOVUK.modalDialog.$openButton.on('click', function (e) {
         GOVUK.modalDialog.openDialog()
         return false
@@ -40,7 +42,6 @@
       })
 
       //GOVUK.modalDialog.disableBackButtonWhenOpen()
-
     },
     isDialogOpen: function () {
       return GOVUK.modalDialog.el['open']
@@ -121,8 +122,6 @@
       var $timer = GOVUK.modalDialog.$timer
       var $accessibleTimer = GOVUK.modalDialog.$accessibleTimer
       var minutes = GOVUK.modalDialog.minutesTimeOutModalVisible
-      var timerRunOnce = false
-      var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
 
       if (minutes) {
         var seconds = 60 * minutes
@@ -134,35 +133,10 @@
           var secondsLeft = parseInt(seconds % 60, 10)
           var timerExpired = minutesLeft < 1 && secondsLeft < 1
 
-          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + '' : ' '
-          var secondsText = secondsLeft >= 1 ? ' ' + secondsLeft + ' second' + (secondsLeft > 1 ? 's' : '') + '' : ''
-          var atMinutesNumberAsText = ''
-          var atSecondsNumberAsText = ''
+          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + '' : ''
+          var secondsText = secondsLeft >= 1 ? secondsLeft + ' second' + (secondsLeft > 1 ? 's' : '') + '' : ''
 
-          try {
-            atMinutesNumberAsText = GOVUK.modalDialog.numberToEnglish(minutesLeft)
-            atSecondsNumberAsText = GOVUK.modalDialog.numberToEnglish(secondsLeft)
-          } catch (e) {
-            atMinutesNumberAsText = minutesLeft
-            atSecondsNumberAsText = secondsLeft
-          }
-
-          var atMinutesText = minutesLeft > 0 ? atMinutesNumberAsText + ' minute' + (minutesLeft > 1 ? 's' : '') + '' : ''
-          var atSecondsText = secondsLeft >= 1 ? ' ' + atSecondsNumberAsText + ' second' + (secondsLeft > 1 ? 's' : '') + '' : ''
-
-          // Below string will get read out by screen readers every time the timeout refreshes (every 30 secs, then every 20 secs etc. See below).
-          // Please add additional information in the modal body content or in below extraText which will get announced to AT the first time the time out opens
-          var text = 'We will reset your application if you do not respond in ' + minutesText + secondsText + '.'
-          var atText = 'We will reset your application if you do not respond in ' + atMinutesText
-          if (atSecondsText) {
-            if (minutesLeft > 0) {
-              atText += ' and'
-            }
-            atText += atSecondsText + '.'
-          } else {
-            atText += '.'
-          }
-          var extraText = ' We do this to keep your information secure.'
+          var text = 'We will reset your application if you do not respond in ' + minutesText + secondsText + '. We do this to keep your information secure.'
 
           if (timerExpired) {
             $timer.text('You are about to be redirected')
@@ -171,33 +145,27 @@
           } else {
             seconds--
 
-            $timer.text(text + extraText)
+            if (minutesLeft < 1 && secondsLeft <= 60) {
+              $timer.text(text)
+               // If less than 20 seconds left, make aria-live assertive and update content every 5 secs
+              if (secondsLeft < 20) {
+                $accessibleTimer.attr('aria-live', 'assertive')
 
-            if (minutesLeft < 1 && secondsLeft < 20) {
-              $accessibleTimer.attr('aria-live', 'assertive')
-
-              // if (secondsLeft % 5 === 0) {
-              //   $accessibleTimer.text(atText)
-              //   console.log('dalks')
-              //
-              // }
-            }
-
-            if (!timerRunOnce) {
-              //Read out the extra content only once. Don't read out on iOS VoiceOver which stalls on the longer text
-
-              if (iOS) {
-                $accessibleTimer.text(atText)
-              } else {
-                $accessibleTimer.text(atText + extraText)
+                if (secondsLeft % 5 === 0) {
+                  $accessibleTimer.text(text)
+                }
+              } else if (secondsLeft % 20 === 0) {
+                // If less than 1 minute left, update screen reader friendly content every 20 secs
+                $accessibleTimer.text(text)
               }
-              timerRunOnce = true
-
-            } else if (secondsLeft % 30 === 0) {
-                // Update screen reader friendly content every 30 secs
-                $accessibleTimer.text(atText)
+            } else if (secondsLeft % 60 === 0) {
+              $timer.text(text)
             }
 
+            if (secondsLeft % 30 === 0) {
+              // Update screen reader friendly content every 30 secs
+              $accessibleTimer.text(text)
+            }
             // JS won't doesn't allow resetting timers globally so timers need to be retained for resetting.
             GOVUK.modalDialog.timers.push(setTimeout(runTimer, 1000))
           }
@@ -244,90 +212,6 @@
     redirect: function () {
       window.location.replace(GOVUK.modalDialog.timeOutRedirectUrl)
     },
-    numberToEnglish: function (n) {
-      var string = n.toString(), units, tens, scales, start, end, chunks, chunksLen, chunk, ints, i, word, words, and = 'and'
-
-      /* Is number zero? */
-      if (parseInt(string) === 0) {
-        return 'zero'
-      }
-
-      /* Array of units as words */
-      units = [ '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen' ]
-
-      /* Array of tens as words */
-      tens = [ '', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety' ]
-
-      /* Array of scales as words */
-      scales = [ '', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quatttuor-decillion', 'quindecillion', 'sexdecillion', 'septen-decillion', 'octodecillion', 'novemdecillion', 'vigintillion', 'centillion' ]
-
-      /* Split user arguemnt into 3 digit chunks from right to left */
-      start = string.length
-      chunks = []
-      while(start > 0) {
-        end = start
-        chunks.push(string.slice((start = Math.max(0, start - 3)), end))
-      }
-
-      /* Check if function has enough scale words to be able to stringify the user argument */
-      chunksLen = chunks.length
-      if (chunksLen > scales.length) {
-        return ''
-      }
-
-      /* Stringify each integer in each chunk */
-      words = [];
-      for( i = 0; i < chunksLen; i++ ) {
-
-          chunk = parseInt( chunks[i] );
-
-          if( chunk ) {
-
-              /* Split chunk into array of individual integers */
-              ints = chunks[i].split( '' ).reverse().map( parseFloat );
-
-              /* If tens integer is 1, i.e. 10, then add 10 to units integer */
-              if( ints[1] === 1 ) {
-                  ints[0] += 10;
-              }
-
-              /* Add scale word if chunk is not zero and array item exists */
-              if( ( word = scales[i] ) ) {
-                  words.push( word );
-              }
-
-              /* Add unit word if array item exists */
-              if( ( word = units[ ints[0] ] ) ) {
-                  words.push( word );
-              }
-
-              /* Add tens word if array item exists */
-              if( ( word = tens[ ints[1] ] ) ) {
-                  words.push( word );
-              }
-
-              // /* Add 'and' string after units or tens integer if: */
-              // if( ints[0] || ints[1] ) {
-              //
-              //     /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
-              //     if( ints[2] || ! i && chunksLen ) {
-              //         words.push( and );
-              //     }
-              //
-              // }
-
-              /* Add hundreds word if array item exists */
-              if( ( word = units[ ints[2] ] ) ) {
-                  words.push( word + ' hundred' );
-              }
-
-          }
-
-      }
-
-      return words.reverse().join( ' ' );
-
-  },
     init: function () {
       if (GOVUK.modalDialog.el) {
         // Native dialog is not supported by browser so use polyfill
