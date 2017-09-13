@@ -295,6 +295,7 @@ $(document).ready(function () {
       source: suggest,
       name: 'local-council',
       minLength: 2,
+      defaultValue: $(element).attr('data-default-value'),
       autoselect: true
     }),
     element
