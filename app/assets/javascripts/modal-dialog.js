@@ -132,7 +132,7 @@
           var secondsLeft = parseInt(seconds % 60, 10)
           var timerExpired = minutesLeft < 1 && secondsLeft < 1
 
-          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + '' : ''
+          var minutesText = minutesLeft > 0 ? minutesLeft + ' minute' + (minutesLeft > 1 ? 's' : '') + ' ' : ''
           var secondsText = secondsLeft >= 1 ? secondsLeft + ' second' + (secondsLeft > 1 ? 's' : '') + '' : ''
 
           var text = 'We will reset your application if you do not respond in ' + minutesText + secondsText + '. We do this to keep your information secure.'
@@ -143,6 +143,7 @@
             setTimeout(GOVUK.modalDialog.redirect, 4000)
           } else {
             seconds--
+            $timer.text(text)
 
             if (minutesLeft < 1 && secondsLeft <= 60) {
               $timer.text(text)
@@ -150,9 +151,6 @@
               if (secondsLeft < 20) {
                 $accessibleTimer.attr('aria-live', 'assertive')
               }
-
-            } else if (secondsLeft % 60 === 0) {
-              $timer.text(text)
             }
 
             if (secondsLeft % 30 === 0) {
