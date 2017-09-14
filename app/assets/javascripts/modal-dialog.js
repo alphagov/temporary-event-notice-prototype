@@ -23,7 +23,7 @@
     minutesTimeOutModalVisible: $('#js-modal-dialog').data('minutes-modal-visible'),
 
     bindUIElements: function () {
-      //setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
+      // setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
 
       GOVUK.modalDialog.$openButton.on('click', function (e) {
         GOVUK.modalDialog.openDialog()
@@ -123,8 +123,7 @@
       GOVUK.modalDialog.clearTimers() // Clear any other modal timers that might have been running
       var $timer = GOVUK.modalDialog.$timer
       var $accessibleTimer = GOVUK.modalDialog.$accessibleTimer
-      var minutes = 3
-      //var minutes = GOVUK.modalDialog.minutesTimeOutModalVisible
+      var minutes = GOVUK.modalDialog.minutesTimeOutModalVisible
       var timerRunOnce = false
       var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
 
