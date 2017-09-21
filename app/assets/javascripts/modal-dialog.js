@@ -23,7 +23,7 @@
     minutesTimeOutModalVisible: $('#js-modal-dialog').data('minutes-modal-visible'),
 
     bindUIElements: function () {
-      // setTimeout(GOVUK.modalDialog.openDialog, 2000) //debug
+      setTimeout(GOVUK.modalDialog.openDialog, 4000) //debug
 
       GOVUK.modalDialog.$openButton.on('click', function (e) {
         GOVUK.modalDialog.openDialog()
@@ -128,7 +128,7 @@
       var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
 
       if (minutes) {
-        var seconds = 60 * minutes
+        var seconds = 60 * minutes        
 
         $timer.text(minutes + ' minute' + (minutes > 1 ? 's' : ''));
 
@@ -201,7 +201,7 @@
                 $accessibleTimer.text(atText)
             }
 
-            // JS won't doesn't allow resetting timers globally so timers need to be retained for resetting.
+            // JS doesn't allow resetting timers globally so timers need to be retained for resetting.
             GOVUK.modalDialog.timers.push(setTimeout(runTimer, 1000))
           }
         })()
