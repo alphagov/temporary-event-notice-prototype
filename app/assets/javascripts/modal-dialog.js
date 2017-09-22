@@ -128,7 +128,7 @@
       var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
 
       if (minutes) {
-        var seconds = 60 * minutes        
+        var seconds = 60 * minutes
 
         $timer.text(minutes + ' minute' + (minutes > 1 ? 's' : ''));
 
@@ -196,8 +196,8 @@
               }
               timerRunOnce = true
 
-            } else if (secondsLeft % 30 === 0) {
-                // Update screen reader friendly content every 30 secs
+            } else if (secondsLeft % 15 === 0) {
+                // Update screen reader friendly content every 15 secs
                 $accessibleTimer.text(atText)
             }
 
