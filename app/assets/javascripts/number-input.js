@@ -4,9 +4,9 @@
   var GOVUK = global.GOVUK || {}
   var $ = global.jQuery
 
-  // Number polyfill
-  // How to use? Add below data attribute(s) to input field
-  // When to use? See docs for guidance
+  // Number helpers
+  // To use, add below data attribute(s) to input field
+  // See docs for more guidance
   GOVUK.numberInput = {
     $suppressNonNumeric: $('[data-non-numeric]'),
     $suppressKeysNav: $('[data-no-keys-nav]'),
@@ -35,13 +35,13 @@
         GOVUK.numberInput.checkIfMaxLengthExceeded($input, e)
       })
 
-      // Move focus to next field when max length reached
-      GOVUK.numberInput.$focusNext.on('keyup input', function (event) {
-        var $input = $(this)
-        var e = event || window.event
-
-        GOVUK.numberInput.moveFocusToNextField($input, e)
-      })
+      // Move focus to next field when max length reached // Note there's a bug with tabbing back that needs resolving
+      // GOVUK.numberInput.$focusNext.on('keyup input', function (event) {
+      //   var $input = $(this)
+      //   var e = event || window.event
+      //
+      //   GOVUK.numberInput.moveFocusToNextField($input, e)
+      // })
     },
     removeNonNumeric: function ($el, e) {
       var numbers = []
@@ -61,7 +61,7 @@
         e.preventDefault()
       }
     },
-    moveFocusToNextField: function ($el, e) {
+    moveFocusToNextField: function ($el, e) { // Note there's a bug with tabbing back that needs resolving
       var maxLength = $el.data('max-length')
 
       if (maxLength) {
@@ -90,8 +90,7 @@
           return
         }
 
-        //check if max length reached
-
+        // Check if max length reached
         if (maxLength !== undefined && maxLength > 0 && value && value.length >= maxLength) {
           isAllowed = false
         }
